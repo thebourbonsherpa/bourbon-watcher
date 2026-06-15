@@ -1,4 +1,17 @@
 {
-  "date": "",
-  "in_stock": {}
+  "date": "2026-06-15",
+  "in_stock": {
+    "https://sipwhiskey.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
+    "https://www.buymyliquor.com/products/russell-s-reserve-13-year-eddie-s-45th-anniversary-bourbon": false,
+    "https://missiontrailswineandspirits.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
+    "https://canawineco.com/products/russells-reserve-13-year-old-45th-anniversary-kentucky-straight-bourbon-whiskey-750ml": false,
+    "https://theoldrickhouse.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
+    "https://huntsmanheritage.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
+    "https://www.remedyliquor.com/products/wild-turkey-bourbon-austin-nichols-archives-gold-foil-edition-16yr-bundle": false,
+    "https://sipwhiskey.com/products/wild-turkey-austin-nichols-archives-gold-edition-bundle": false,
+    "https://huntsmanheritage.com/products/wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-bourbon": false,
+    "https://sipwhiskey.com/products/wild-turkey-master-s-keep-beacon": false,
+    "https://www.blackwellswines.com/products/wild-turkey-beacon-masters-keep-bourbon-whiskey": false,
+    "https://wheatleywineandspirits.com/products/wild-turkey-masters-keep-beacon-bourbon": false
+  }
 }
