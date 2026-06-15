@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Bourbon phone watcher (v2 - shop + keyword auto-discovery).
+Bourbon phone watcher (v3 - shop+keyword search, price ceilings, alert notes,
+weekly heartbeat with endpoint-health reporting).
 
-Instead of pinning exact product URLs, this searches each shop on your roster
-for each bottle's keywords every run (via Shopify's /search/suggest.json), then
-alerts via Telegram when a matching product flips to in-stock. New listings at
-any roster shop are found automatically - no per-URL maintenance.
-
-You only edit config.json to add/remove a whole SHOP or a whole BOTTLE.
+For each bottle, searches every roster shop (Shopify /search/suggest.json),
+matches the right product, applies a price ceiling, and Telegram-alerts when a
+match goes in-stock at/under the ceiling. Sends a periodic heartbeat so silent
+failure can't hide, and reports how many shop endpoints are healthy.
 
 Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
@@ -19,7 +18,7 @@ import requests
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/2.0)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/3.0)"}
 
 
 def load_json(path, default):
@@ -31,19 +30,21 @@ def load_json(path, default):
 
 
 def search_shop(domain, query):
-    """Query a Shopify shop's suggest endpoint. Returns a list of products
-    (empty if the shop isn't Shopify or the call fails)."""
+    """Query a Shopify suggest endpoint.
+    Returns (ok, products): ok=True if the endpoint returned valid Shopify JSON
+    (even with zero products), False if it errored or isn't Shopify."""
     q = urllib.parse.quote(query)
     url = (f"https://{domain}/search/suggest.json?q={q}"
            f"&resources[type]=product&resources[limit]=10")
     try:
         r = requests.get(url, headers=UA, timeout=20)
         if r.status_code != 200:
-            return []
+            return (False, [])
         data = r.json()
-        return data["resources"]["results"]["products"]
+        products = data["resources"]["results"]["products"]
+        return (True, products)
     except Exception:
-        return []
+        return (False, [])
 
 
 def title_matches(title, rule):
@@ -95,53 +96,78 @@ def main():
 
     bottles = config.get("bottles", [])
     shops = config.get("shops", [])
+    healthy_domains = set()
     alerts = []
-    checked = 0
 
     for shop in shops:
         domain = shop.get("domain")
         shop_name = shop.get("name", domain)
+        shop_note = shop.get("note")
         if not domain:
             continue
         for bottle in bottles:
-            products = search_shop(domain, bottle.get("query", bottle.get("name", "")))
+            ok, products = search_shop(domain, bottle.get("query", bottle.get("name", "")))
+            if ok:
+                healthy_domains.add(domain)
             for p in products:
                 if not title_matches(p.get("title", ""), bottle):
                     continue
-                checked += 1
                 rel = (p.get("url") or "").split("?")[0]
                 purl = f"https://{domain}{rel}"
                 price = to_price(p.get("price"))
                 max_price = bottle.get("max_price")
-                # within ceiling if no ceiling set, price unknown (fail-open so
-                # we don't miss a real one), or price at/under the ceiling
+                # within ceiling if no ceiling, price unknown (fail-open), or <= ceiling
                 price_ok = (max_price is None) or (price is None) or (price <= max_price)
-                # "qualifies" = in stock AND affordable. We key dedup on this so
-                # a later price drop into range still triggers a fresh alert.
                 qualifies = bool(p.get("available")) and price_ok
                 was = in_stock.get(purl, False)
                 if qualifies and not was:
                     price_str = f"${price:,.2f}" if price else "price n/a"
                     msrp = bottle.get("msrp")
                     msrp_str = f" (MSRP ${msrp})" if msrp else ""
-                    alerts.append(
-                        f"\U0001F983 IN STOCK: {bottle.get('name')}\n"
-                        f"{shop_name} - {price_str}{msrp_str}\n"
-                        f"\"{p.get('title')}\"\n{purl}"
-                    )
+                    lines = [
+                        f"\U0001F983 IN STOCK: {bottle.get('name')}",
+                        f"{shop_name} - {price_str}{msrp_str}",
+                        f"\"{p.get('title')}\"",
+                        purl,
+                    ]
+                    if shop_note:
+                        lines.append(f"⚠ {shop_note}")
+                    lines.append("Confirm it ships to MI and the final landed price at checkout.")
+                    alerts.append("\n".join(lines))
                 in_stock[purl] = qualifies
 
     for msg in alerts:
         send_telegram(token, chat_id, msg)
         print("ALERT:", msg.replace("\n", " | "))
 
-    print(f"Checked {checked} matching listings across {len(shops)} shops. "
-          f"{len(alerts)} new in-stock alert(s).")
+    total = len(shops)
+    responding = len(healthy_domains)
+    print(f"Checked {total} shops, {responding} endpoints healthy. "
+          f"{len(alerts)} new alert(s).")
 
-    # heartbeat: date changes once/day so state.json gets a daily commit,
-    # which keeps the GitHub Actions schedule from auto-disabling.
+    # ---- Heartbeat: periodic 'still alive' ping so silent failure can't hide.
+    today = datetime.date.today()
+    hb_days = config.get("heartbeat_days", 7)
+    last_hb = state.get("last_heartbeat")
+    due = True
+    if last_hb:
+        try:
+            due = (today - datetime.date.fromisoformat(last_hb)).days >= hb_days
+        except Exception:
+            due = True
+    if due:
+        dead = total - responding
+        dead_note = f" {dead} not responding - check config." if dead else ""
+        send_telegram(token, chat_id,
+            f"\U0001F7E2 Bourbon watcher alive - {today.isoformat()}\n"
+            f"{responding}/{total} shop endpoints healthy.{dead_note}\n"
+            f"Hits arrive separately. If this stops showing up, something broke.")
+        print(f"Heartbeat sent ({responding}/{total} healthy).")
+        state["last_heartbeat"] = today.isoformat()
+
+    # daily date write keeps the repo active (backup schedule won't auto-disable)
     state["in_stock"] = in_stock
-    state["date"] = datetime.date.today().isoformat()
+    state["date"] = today.isoformat()
     with open(STATE, "w") as f:
         json.dump(state, f, indent=2)
 
