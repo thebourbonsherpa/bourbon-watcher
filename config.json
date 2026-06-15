@@ -53,6 +53,14 @@
     {"name": "Cana Wine", "domain": "canawineco.com"},
     {"name": "The Old Rickhouse", "domain": "theoldrickhouse.com"},
     {"name": "Huntsman Heritage", "domain": "huntsmanheritage.com"},
-    {"name": "Wheatley Wine & Spirits", "domain": "wheatleywineandspirits.com"}
+    {"name": "Wheatley Wine & Spirits", "domain": "wheatleywineandspirits.com"},
+    {"name": "The Bourbon Concierge", "domain": "thebourbonconcierge.com"},
+    {"name": "Jazzy's Wine", "domain": "jazzyswine.com"},
+    {"name": "Hi Proof", "domain": "hiproof.com"},
+    {"name": "Men's Journal Spirits", "domain": "mensjournalspirits.com"},
+    {"name": "Prime Barrel", "domain": "primebarrel.com"},
+    {"name": "Whiskey Caviar", "domain": "whiskeycaviar.com"},
+    {"name": "Barrel Shoppe", "domain": "barrelshoppe.com"},
+    {"name": "Seelbach's", "domain": "seelbachs.com"}
   ]
 }
