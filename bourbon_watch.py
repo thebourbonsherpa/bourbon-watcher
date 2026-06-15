@@ -36,10 +36,14 @@ def check_shopify(url):
     js = base + ".js"
     try:
         r = requests.get(js, headers=UA, timeout=20)
-        if r.status_code != 200 or "application/json" not in r.headers.get("content-type", ""):
+        if r.status_code != 200:
             return None
+        # Shopify serves .js as text/javascript, so parse the body directly
+        # rather than trusting the content-type header.
         data = r.json()
     except Exception:
+        return None
+    if not isinstance(data, dict) or "variants" not in data:
         return None
     variants = data.get("variants", []) or []
     available = any(v.get("available") for v in variants)
