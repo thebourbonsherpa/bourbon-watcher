@@ -4,6 +4,7 @@
     {
       "name": "Russell's Reserve 13 Batch 7 (Eddie 45th)",
       "msrp": 200,
+      "max_price": 300,
       "query": "russell reserve 13",
       "match_all": ["13"],
       "match_any": ["45th", "eddie"],
@@ -12,14 +13,16 @@
     {
       "name": "Austin Nichols Archives Gold Foil",
       "msrp": 400,
-      "query": "gold foil",
-      "match_all": ["gold foil"],
+      "max_price": 700,
+      "query": "austin nichols archives gold",
+      "match_all": ["austin nichols", "archives"],
       "match_any": [],
       "exclude": []
     },
     {
       "name": "Master's Keep Beacon",
       "msrp": 300,
+      "max_price": 600,
       "query": "masters keep beacon",
       "match_all": ["beacon"],
       "match_any": [],

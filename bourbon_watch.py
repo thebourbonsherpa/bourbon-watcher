@@ -111,10 +111,16 @@ def main():
                 checked += 1
                 rel = (p.get("url") or "").split("?")[0]
                 purl = f"https://{domain}{rel}"
-                now_av = bool(p.get("available"))
-                was_av = in_stock.get(purl, False)
-                if now_av and not was_av:
-                    price = to_price(p.get("price"))
+                price = to_price(p.get("price"))
+                max_price = bottle.get("max_price")
+                # within ceiling if no ceiling set, price unknown (fail-open so
+                # we don't miss a real one), or price at/under the ceiling
+                price_ok = (max_price is None) or (price is None) or (price <= max_price)
+                # "qualifies" = in stock AND affordable. We key dedup on this so
+                # a later price drop into range still triggers a fresh alert.
+                qualifies = bool(p.get("available")) and price_ok
+                was = in_stock.get(purl, False)
+                if qualifies and not was:
                     price_str = f"${price:,.2f}" if price else "price n/a"
                     msrp = bottle.get("msrp")
                     msrp_str = f" (MSRP ${msrp})" if msrp else ""
@@ -123,7 +129,7 @@ def main():
                         f"{shop_name} - {price_str}{msrp_str}\n"
                         f"\"{p.get('title')}\"\n{purl}"
                     )
-                in_stock[purl] = now_av
+                in_stock[purl] = qualifies
 
     for msg in alerts:
         send_telegram(token, chat_id, msg)
