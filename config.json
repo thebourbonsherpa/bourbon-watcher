@@ -7,7 +7,7 @@
       "max_price": 300,
       "query": "russell reserve 13",
       "match_all": ["13"],
-      "match_any": ["45th", "eddie"],
+      "match_any": ["45th", "eddie", "batch 7"],
       "exclude": ["spring 2025", "spring 2024", "2023"]
     },
     {
@@ -15,7 +15,7 @@
       "msrp": 400,
       "max_price": 700,
       "query": "austin nichols archives gold",
-      "match_all": ["austin nichols", "archives"],
+      "match_all": ["archives", "gold"],
       "match_any": [],
       "exclude": []
     },
