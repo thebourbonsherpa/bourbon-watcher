@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-Bourbon phone watcher.
-Polls pinned product URLs (Shopify .js first, HTML fallback) and sends a
-Telegram alert the moment a bottle flips to in-stock. Designed to run on a
-schedule (e.g. GitHub Actions every 15 min). State is kept in state.json so
-you only get alerted once per restock, not every run.
+Bourbon phone watcher (v2 - shop + keyword auto-discovery).
+
+Instead of pinning exact product URLs, this searches each shop on your roster
+for each bottle's keywords every run (via Shopify's /search/suggest.json), then
+alerts via Telegram when a matching product flips to in-stock. New listings at
+any roster shop are found automatically - no per-URL maintenance.
+
+You only edit config.json to add/remove a whole SHOP or a whole BOTTLE.
 
 Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
@@ -16,10 +19,7 @@ import requests
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/1.0)"}
-SOLD_MARKERS = ["sold out", "out of stock", "notify me when available",
-                "currently unavailable", "coming soon"]
-CART_MARKERS = ["add to cart", "add to bag", "buy now", "add_to_cart"]
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/2.0)"}
 
 
 def load_json(path, default):
@@ -30,45 +30,42 @@ def load_json(path, default):
         return default
 
 
-def check_shopify(url):
-    """Return dict if the URL is a Shopify product (.js works), else None."""
-    base = url.split("?")[0].rstrip("/")
-    js = base + ".js"
-    try:
-        r = requests.get(js, headers=UA, timeout=20)
-        if r.status_code != 200:
-            return None
-        # Shopify serves .js as text/javascript, so parse the body directly
-        # rather than trusting the content-type header.
-        data = r.json()
-    except Exception:
-        return None
-    if not isinstance(data, dict) or "variants" not in data:
-        return None
-    variants = data.get("variants", []) or []
-    available = any(v.get("available") for v in variants)
-    price = None
-    if isinstance(data.get("price"), int):
-        price = data["price"] / 100.0
-    elif variants:
-        prices = [v.get("price") for v in variants if isinstance(v.get("price"), int)]
-        if prices:
-            price = min(prices) / 100.0
-    return {"available": available, "price": price, "title": data.get("title")}
-
-
-def check_html(url):
-    """Fallback for non-Shopify pages. Lower confidence."""
+def search_shop(domain, query):
+    """Query a Shopify shop's suggest endpoint. Returns a list of products
+    (empty if the shop isn't Shopify or the call fails)."""
+    q = urllib.parse.quote(query)
+    url = (f"https://{domain}/search/suggest.json?q={q}"
+           f"&resources[type]=product&resources[limit]=10")
     try:
         r = requests.get(url, headers=UA, timeout=20)
         if r.status_code != 200:
-            return None
-        t = r.text.lower()
+            return []
+        data = r.json()
+        return data["resources"]["results"]["products"]
+    except Exception:
+        return []
+
+
+def title_matches(title, rule):
+    t = (title or "").lower()
+    for x in rule.get("exclude", []):
+        if x.lower() in t:
+            return False
+    for x in rule.get("match_all", []):
+        if x.lower() not in t:
+            return False
+    any_terms = rule.get("match_any")
+    if any_terms and not any(x.lower() in t for x in any_terms):
+        return False
+    return True
+
+
+def to_price(val):
+    try:
+        p = float(val)
+        return p if p > 0 else None
     except Exception:
         return None
-    sold = any(m in t for m in SOLD_MARKERS)
-    addable = any(m in t for m in CART_MARKERS)
-    return {"available": addable and not sold, "price": None, "title": None}
 
 
 def send_telegram(token, chat_id, text):
@@ -92,40 +89,48 @@ def main():
         print("Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID", file=sys.stderr)
         sys.exit(1)
 
-    config = load_json(CONFIG, {"bottles": []})
+    config = load_json(CONFIG, {"bottles": [], "shops": []})
     state = load_json(STATE, {})
     in_stock = state.get("in_stock", {})
 
+    bottles = config.get("bottles", [])
+    shops = config.get("shops", [])
     alerts = []
-    for bottle in config.get("bottles", []):
-        name = bottle.get("name", "Unknown bottle")
-        msrp = bottle.get("msrp")
-        for listing in bottle.get("urls", []):
-            url = listing.get("url")
-            shop = listing.get("shop", urllib.parse.urlparse(url).netloc)
-            bundle = listing.get("bundle", False)
-            if not url:
-                continue
-            result = check_shopify(url) or check_html(url)
-            now_av = bool(result and result["available"])
-            was_av = in_stock.get(url, False)
-            if now_av and not was_av:
-                price = result.get("price") if result else None
-                price_str = f"${price:,.2f}" if price else "price n/a"
-                msrp_str = f" (MSRP ${msrp})" if msrp else ""
-                tag = " [BUNDLE]" if bundle else ""
-                alerts.append(
-                    f"\U0001F983 IN STOCK: {name}{tag}\n"
-                    f"{shop} - {price_str}{msrp_str}\n{url}"
-                )
-            in_stock[url] = now_av
+    checked = 0
+
+    for shop in shops:
+        domain = shop.get("domain")
+        shop_name = shop.get("name", domain)
+        if not domain:
+            continue
+        for bottle in bottles:
+            products = search_shop(domain, bottle.get("query", bottle.get("name", "")))
+            for p in products:
+                if not title_matches(p.get("title", ""), bottle):
+                    continue
+                checked += 1
+                rel = (p.get("url") or "").split("?")[0]
+                purl = f"https://{domain}{rel}"
+                now_av = bool(p.get("available"))
+                was_av = in_stock.get(purl, False)
+                if now_av and not was_av:
+                    price = to_price(p.get("price"))
+                    price_str = f"${price:,.2f}" if price else "price n/a"
+                    msrp = bottle.get("msrp")
+                    msrp_str = f" (MSRP ${msrp})" if msrp else ""
+                    alerts.append(
+                        f"\U0001F983 IN STOCK: {bottle.get('name')}\n"
+                        f"{shop_name} - {price_str}{msrp_str}\n"
+                        f"\"{p.get('title')}\"\n{purl}"
+                    )
+                in_stock[purl] = now_av
 
     for msg in alerts:
         send_telegram(token, chat_id, msg)
         print("ALERT:", msg.replace("\n", " | "))
 
-    if not alerts:
-        print("No new in-stock flips this run.")
+    print(f"Checked {checked} matching listings across {len(shops)} shops. "
+          f"{len(alerts)} new in-stock alert(s).")
 
     # heartbeat: date changes once/day so state.json gets a daily commit,
     # which keeps the GitHub Actions schedule from auto-disabling.

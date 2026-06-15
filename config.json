@@ -1,35 +1,55 @@
 {
-  "_comment": "Add or remove bottles and URLs here. The watcher checks each URL (Shopify .js first, HTML fallback) and alerts when one flips to in-stock. Get new product URLs from the Cowork search and paste them in.",
+  "_comment": "v2: the watcher searches every shop below for each bottle's keywords and alerts when a match goes in-stock. To maintain: add/remove a SHOP (domain only) or a BOTTLE (with match rules). No per-URL upkeep. match_all = all terms must be in the title; match_any = at least one must be; exclude = none may be. Keep terms lowercase-friendly and apostrophe-free.",
   "bottles": [
     {
       "name": "Russell's Reserve 13 Batch 7 (Eddie 45th)",
       "msrp": 200,
-      "urls": [
-        {"shop": "Sip Whiskey", "url": "https://sipwhiskey.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary"},
-        {"shop": "BuyMyLiquor", "url": "https://www.buymyliquor.com/products/russell-s-reserve-13-year-eddie-s-45th-anniversary-bourbon"},
-        {"shop": "Mission Trails", "url": "https://missiontrailswineandspirits.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary"},
-        {"shop": "Cana Wine", "url": "https://canawineco.com/products/russells-reserve-13-year-old-45th-anniversary-kentucky-straight-bourbon-whiskey-750ml"},
-        {"shop": "The Old Rickhouse", "url": "https://theoldrickhouse.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary"},
-        {"shop": "Huntsman Heritage", "url": "https://huntsmanheritage.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary"}
-      ]
+      "query": "russell reserve 13",
+      "match_all": ["13"],
+      "match_any": ["45th", "eddie"],
+      "exclude": ["spring 2025", "spring 2024", "2023"]
     },
     {
       "name": "Austin Nichols Archives Gold Foil",
       "msrp": 400,
-      "urls": [
-        {"shop": "Remedy Liquor", "url": "https://www.remedyliquor.com/products/wild-turkey-bourbon-austin-nichols-archives-gold-foil-edition-16yr-bundle", "bundle": true},
-        {"shop": "Sip Whiskey", "url": "https://sipwhiskey.com/products/wild-turkey-austin-nichols-archives-gold-edition-bundle", "bundle": true},
-        {"shop": "Huntsman Heritage", "url": "https://huntsmanheritage.com/products/wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-bourbon"}
-      ]
+      "query": "gold foil",
+      "match_all": ["gold foil"],
+      "match_any": [],
+      "exclude": []
     },
     {
-      "name": "Master's Keep Beacon (long shot)",
+      "name": "Master's Keep Beacon",
       "msrp": 300,
-      "urls": [
-        {"shop": "Sip Whiskey", "url": "https://sipwhiskey.com/products/wild-turkey-master-s-keep-beacon"},
-        {"shop": "Blackwell's", "url": "https://www.blackwellswines.com/products/wild-turkey-beacon-masters-keep-bourbon-whiskey"},
-        {"shop": "Wheatley", "url": "https://wheatleywineandspirits.com/products/wild-turkey-masters-keep-beacon-bourbon"}
-      ]
+      "query": "masters keep beacon",
+      "match_all": ["beacon"],
+      "match_any": [],
+      "exclude": []
     }
+  ],
+  "shops": [
+    {"name": "Remedy Liquor", "domain": "www.remedyliquor.com"},
+    {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
+    {"name": "Bourbon Outfitter", "domain": "bourbonoutfitter.com"},
+    {"name": "SharedPour", "domain": "sharedpour.com"},
+    {"name": "Estates Liquor", "domain": "estatesliquor.com"},
+    {"name": "Prime Time Liquor", "domain": "primetimeliquor.com"},
+    {"name": "Main Street Liquor / BuyMyLiquor", "domain": "www.buymyliquor.com"},
+    {"name": "Quality Liquor Store", "domain": "qualityliquorstore.com"},
+    {"name": "Sip Whiskey", "domain": "sipwhiskey.com"},
+    {"name": "DramFellows", "domain": "dramfellows.com"},
+    {"name": "Del Mesa Liquor", "domain": "delmesaliquor.com"},
+    {"name": "Mission Trails", "domain": "missiontrailswineandspirits.com"},
+    {"name": "Bottle Buzz", "domain": "bottlebuzz.com"},
+    {"name": "Chips Liquor", "domain": "chipsliquor.com"},
+    {"name": "Wooden Cork", "domain": "woodencork.com"},
+    {"name": "De Wine Spot", "domain": "dewinespot.co"},
+    {"name": "El Cerrito Liquor", "domain": "elcerritoliquor.com"},
+    {"name": "The Barrel Tap", "domain": "www.thebarreltap.com"},
+    {"name": "Blackbook Spirits", "domain": "blackbookspirits.com"},
+    {"name": "Blackwell's", "domain": "www.blackwellswines.com"},
+    {"name": "Cana Wine", "domain": "canawineco.com"},
+    {"name": "The Old Rickhouse", "domain": "theoldrickhouse.com"},
+    {"name": "Huntsman Heritage", "domain": "huntsmanheritage.com"},
+    {"name": "Wheatley Wine & Spirits", "domain": "wheatleywineandspirits.com"}
   ]
 }
