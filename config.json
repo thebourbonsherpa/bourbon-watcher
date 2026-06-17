@@ -1,14 +1,15 @@
 {
-  "_comment": "v2: the watcher searches every shop below for each bottle's keywords and alerts when a match goes in-stock. To maintain: add/remove a SHOP (domain only) or a BOTTLE (with match rules). No per-URL upkeep. match_all = all terms must be in the title; match_any = at least one must be; exclude = none may be. Keep terms lowercase-friendly and apostrophe-free.",
+  "_comment": "v2: the watcher searches every shop below for each bottle's keywords and alerts when a match goes in-stock. To maintain: add/remove a SHOP (domain only) or a BOTTLE (with match rules). No per-URL upkeep. match_all = all terms must be in the title; match_any = at least one must be; exclude = none may be. Keep terms lowercase-friendly and apostrophe-free. NOTE: products.json fallback shops scan their whole catalog with no query scoping, so match rules alone gate everything there - keep them specific. Barrel-finish products (rum/tequila aged in famous-bourbon barrels) reuse the bourbon name; the exclude lists on GTS/WLW block those.",
   "heartbeat_days": 7,
+  "min_price": 50,
   "bottles": [
     {
       "name": "Russell's Reserve 13 Batch 7 (Eddie 45th)",
       "msrp": 200,
       "max_price": 300,
       "query": "russell reserve 13",
-      "match_all": ["13"],
-      "match_any": ["45th", "eddie", "batch 7"],
+      "match_all": ["russell"],
+      "match_any": ["45th", "batch 7", "batch no 7", "batch no. 7"],
       "exclude": ["spring 2025", "spring 2024", "2023"]
     },
     {
@@ -28,6 +29,42 @@
       "match_all": ["beacon"],
       "match_any": [],
       "exclude": []
+    },
+    {
+      "name": "Russell's Reserve 15",
+      "msrp": 250,
+      "max_price": 600,
+      "query": "russell reserve 15",
+      "match_all": ["russell"],
+      "match_any": ["15 year", "15-year", "15yr", "15 yr"],
+      "exclude": []
+    },
+    {
+      "name": "Mister Sam Tribute (Batch 3 or 4)",
+      "msrp": 250,
+      "max_price": 700,
+      "query": "mister sam tribute",
+      "match_all": ["sam", "tribute"],
+      "match_any": [],
+      "exclude": ["batch 1", "batch 2", "first edition", "second edition", "batch no 1", "batch no. 1", "batch no 2", "batch no. 2", "batch #1", "batch #2"]
+    },
+    {
+      "name": "George T. Stagg (GTS, any batch)",
+      "msrp": 130,
+      "max_price": 500,
+      "query": "george t stagg",
+      "match_all": ["george", "stagg"],
+      "match_any": [],
+      "exclude": ["jr", "rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
+    },
+    {
+      "name": "William Larue Weller (WLW)",
+      "msrp": 150,
+      "max_price": 700,
+      "query": "william larue weller",
+      "match_all": ["larue", "weller"],
+      "match_any": [],
+      "exclude": ["rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
     }
   ],
   "shops": [
