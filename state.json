@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-21",
+  "date": "2026-06-22",
   "in_stock": {
     "https://sipwhiskey.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
     "https://www.buymyliquor.com/products/russell-s-reserve-13-year-eddie-s-45th-anniversary-bourbon": false,
@@ -367,5 +367,5 @@
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2011-142-6-proof": false,
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2016-144-1-proof": false
   },
-  "last_heartbeat": "2026-06-15"
+  "last_heartbeat": "2026-06-22"
 }
