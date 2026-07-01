@@ -15,7 +15,7 @@ Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
   TELEGRAM_CHAT_ID    - your Telegram numeric chat id
 """
-import json, os, sys, datetime, urllib.parse
+import json, os, sys, time, datetime, urllib.parse
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -97,16 +97,28 @@ def to_price(val):
         return None
 
 
-def send_telegram(token, chat_id, text):
+def send_telegram(token, chat_id, text, retries=3):
+    """Send a Telegram message. Returns True only if delivery is confirmed
+    (HTTP 200). Retries a few times with backoff so a transient blip doesn't
+    silently drop the message. The caller uses the return value to decide
+    whether to mark a hit as 'already alerted' - a hit is never recorded as
+    sent unless it actually was."""
     api = f"https://api.telegram.org/bot{token}/sendMessage"
-    try:
-        r = requests.post(api, timeout=20, data={
-            "chat_id": chat_id, "text": text, "disable_web_page_preview": "false",
-        })
-        if r.status_code != 200:
-            print("Telegram error:", r.status_code, r.text, file=sys.stderr)
-    except Exception as e:
-        print("Telegram send failed:", e, file=sys.stderr)
+    for attempt in range(1, retries + 1):
+        try:
+            r = requests.post(api, timeout=20, data={
+                "chat_id": chat_id, "text": text, "disable_web_page_preview": "false",
+            })
+            if r.status_code == 200:
+                return True
+            print(f"Telegram error (attempt {attempt}/{retries}):",
+                  r.status_code, r.text, file=sys.stderr)
+        except Exception as e:
+            print(f"Telegram send failed (attempt {attempt}/{retries}):", e,
+                  file=sys.stderr)
+        if attempt < retries:
+            time.sleep(2 * attempt)
+    return False
 
 
 def consider(bottle, shop_name, shop_note, purl, title, available, price,
@@ -139,7 +151,11 @@ def consider(bottle, shop_name, shop_note, purl, title, available, price,
         if shop_note:
             lines.append(f"⚠ {shop_note}")
         lines.append("Confirm it ships to MI and the final landed price at checkout.")
-        alerts.append("\n".join(lines))
+        alerts.append((purl, "\n".join(lines)))
+        # Do NOT mark this purl as alerted yet. main() sets in_stock[purl]=True
+        # only after Telegram confirms delivery; if the send fails, the hit
+        # stays un-recorded and re-fires next run instead of being lost.
+        return
     in_stock[purl] = qualifies
 
 
@@ -206,9 +222,13 @@ def main():
                                  available, price, in_stock, alerts,
                                  bottle.get("min_price", default_floor))
 
-    for msg in alerts:
-        send_telegram(token, chat_id, msg)
-        print("ALERT:", msg.replace("\n", " | "))
+    for purl, msg in alerts:
+        if send_telegram(token, chat_id, msg):
+            in_stock[purl] = True   # record as alerted only on confirmed delivery
+            print("ALERT:", msg.replace("\n", " | "))
+        else:
+            print("ALERT NOT DELIVERED (will retry next run):", purl,
+                  file=sys.stderr)
 
     total = len(shops)
     monitored = len(monitored_domains)
@@ -228,12 +248,12 @@ def main():
     if due:
         blind = total - monitored
         blind_note = f" {blind} not visible - check config." if blind else ""
-        send_telegram(token, chat_id,
+        if send_telegram(token, chat_id,
             f"\U0001F7E2 Bourbon watcher alive - {today.isoformat()}. "
             f"{monitored}/{total} shops visible.{blind_note} "
-            f"Hits arrive separately; if this stops, something broke.")
-        print(f"Heartbeat sent ({monitored}/{total} visible).")
-        state["last_heartbeat"] = today.isoformat()
+            f"Hits arrive separately; if this stops, something broke."):
+            print(f"Heartbeat sent ({monitored}/{total} visible).")
+            state["last_heartbeat"] = today.isoformat()  # only if delivered
 
     state["in_stock"] = in_stock
     state["date"] = today.isoformat()
