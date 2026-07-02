@@ -121,6 +121,78 @@ def send_telegram(token, chat_id, text, retries=3):
     return False
 
 
+def check_snapshot_request(token, chat_id, state):
+    """Poll Telegram for a /snapshot (or /status) command from the authorized
+    chat since we last checked. Advances the stored update offset so each
+    command is handled exactly once. Returns True if a snapshot was requested.
+    Only the configured chat_id is honored - the bot ignores everyone else."""
+    last = state.get("last_update_id", 0)
+    url = f"https://api.telegram.org/bot{token}/getUpdates"
+    try:
+        r = requests.get(url, timeout=20,
+                         params={"offset": last + 1, "timeout": 0,
+                                 "allowed_updates": '["message"]'})
+        data = r.json()
+    except Exception as e:
+        print("getUpdates failed:", e, file=sys.stderr)
+        return False
+    if not data.get("ok"):
+        return False
+    requested = False
+    max_id = last
+    for upd in data.get("result", []):
+        uid = upd.get("update_id", 0)
+        if uid > max_id:
+            max_id = uid
+        msg = upd.get("message") or {}
+        chat = str((msg.get("chat") or {}).get("id", ""))
+        text = (msg.get("text") or "").strip()
+        cmd = text.split("@")[0].split()[0].lower() if text else ""
+        if chat == str(chat_id) and cmd in ("/snapshot", "/status"):
+            requested = True
+    state["last_update_id"] = max_id
+    return requested
+
+
+def build_snapshot(matches, bottles, monitored, total, today):
+    """One concise line per bottle: in-stock price + shop and whether it's
+    under cap; if all out, the cheapest listing to watch. Phone-friendly."""
+    lines = [f"\U0001F4F8 Snapshot {today} - {monitored}/{total} shops visible"]
+    if monitored < total:
+        lines.append(f"(note: {total - monitored} shop(s) not reachable this run)")
+    for b in bottles:
+        name = b.get("name")
+        cap = b.get("max_price")
+        cap_str = f"${cap}" if cap else "no cap"
+        ms = [m for m in matches if m["bottle"] == name]
+        instock = [m for m in ms if m["available"] and m["price"]]
+        under = [m for m in instock
+                 if (cap is None or m["price"] <= cap) and m["price"] >= m.get("floor", 0)]
+        if not ms:
+            lines.append(f"• {name} ({cap_str}): no listings found")
+        elif instock:
+            cheap = min(instock, key=lambda m: m["price"])
+            shop = cheap["shop"].replace("www.", "")
+            flag = "  ✅ UNDER CAP" if under else " (over cap)"
+            extra = ""
+            out_under = [m for m in ms if not m["available"] and m["price"]
+                         and (cap is None or m["price"] <= cap)
+                         and m["price"] >= m.get("floor", 0)]
+            if not under and out_under:
+                w = min(out_under, key=lambda m: m["price"])
+                extra = (f"; watch {w['shop'].replace('www.','')} "
+                         f"${w['price']:,.0f} (OUT, under cap)")
+            lines.append(f"• {name} ({cap_str}): in stock ${cheap['price']:,.0f} "
+                         f"@ {shop}{flag} [{len(instock)}/{len(ms)} in stock]{extra}")
+        else:
+            cheap = min(ms, key=lambda m: m["price"] or 9e9)
+            price_str = f"${cheap['price']:,.0f}" if cheap["price"] else "n/a"
+            shop = cheap["shop"].replace("www.", "")
+            lines.append(f"• {name} ({cap_str}): all out ({len(ms)} listed) "
+                         f"- lowest {price_str} @ {shop}")
+    return "\n".join(lines)
+
+
 def consider(bottle, shop_name, shop_note, purl, title, available, price,
              in_stock, alerts, min_price=0):
     """Decide whether this candidate is a fresh, affordable, in-stock hit.
@@ -176,6 +248,7 @@ def main():
     monitored_domains = set()
     feed_used = []
     alerts = []
+    matches = []   # full current landscape, for on-demand /snapshot replies
 
     for shop in shops:
         domain = shop.get("domain")
@@ -198,6 +271,10 @@ def main():
                              p.get("available"), to_price(p.get("price")),
                              in_stock, alerts,
                              bottle.get("min_price", default_floor))
+                    matches.append({"bottle": bottle.get("name"), "shop": shop_name,
+                                    "available": bool(p.get("available")),
+                                    "price": to_price(p.get("price")),
+                                    "floor": bottle.get("min_price", default_floor)})
 
         # Fallback: suggest gave nothing (search-app shop or no matches at all).
         if got_suggest:
@@ -221,6 +298,10 @@ def main():
                         consider(bottle, shop_name, shop_note, purl, p.get("title"),
                                  available, price, in_stock, alerts,
                                  bottle.get("min_price", default_floor))
+                        matches.append({"bottle": bottle.get("name"),
+                                        "shop": shop_name, "available": available,
+                                        "price": price,
+                                        "floor": bottle.get("min_price", default_floor)})
 
     for purl, msg in alerts:
         if send_telegram(token, chat_id, msg):
@@ -254,6 +335,16 @@ def main():
             f"Hits arrive separately; if this stops, something broke."):
             print(f"Heartbeat sent ({monitored}/{total} visible).")
             state["last_heartbeat"] = today.isoformat()  # only if delivered
+
+    # ---- On-demand snapshot: if you texted /snapshot or /status since the
+    # last run, reply with the current per-bottle landscape from this scan.
+    if check_snapshot_request(token, chat_id, state):
+        summary = build_snapshot(matches, bottles, monitored, total,
+                                 today.isoformat())
+        if send_telegram(token, chat_id, summary):
+            print("Snapshot sent on request.")
+        else:
+            print("Snapshot send failed.", file=sys.stderr)
 
     state["in_stock"] = in_stock
     state["date"] = today.isoformat()
