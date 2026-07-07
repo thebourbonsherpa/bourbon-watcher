@@ -379,5 +379,35 @@
     "https://canawineco.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2023": false
   },
   "last_heartbeat": "2026-07-06",
-  "last_update_id": 692807850
+  "last_update_id": 692807850,
+  "bottle_state": {
+    "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
+      "available": false,
+      "price": null
+    },
+    "Austin Nichols Archives Gold Foil": {
+      "available": true,
+      "price": 1235.0
+    },
+    "Master's Keep Beacon": {
+      "available": true,
+      "price": 725.0
+    },
+    "Russell's Reserve 15": {
+      "available": true,
+      "price": 1375.0
+    },
+    "Mister Sam Tribute (Batch 3 or 4)": {
+      "available": true,
+      "price": 1249.0
+    },
+    "George T. Stagg (GTS, any batch)": {
+      "available": true,
+      "price": 649.0
+    },
+    "William Larue Weller (WLW)": {
+      "available": true,
+      "price": 1150.0
+    }
+  }
 }
