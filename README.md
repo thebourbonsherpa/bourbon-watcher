@@ -20,6 +20,8 @@ push alerts.
 - Alerts only when a match goes from sold-out to in-stock (no repeat spam).
 - Message includes bottle, shop, the exact product title, price vs MSRP, and a
   tap-through buy link.
+- Text the bot `/status` any time for a full snapshot of where every bottle
+  stands right now (see below).
 
 ## One-time setup (about 15 minutes)
 
@@ -51,6 +53,23 @@ Repo **Settings -> Secrets and variables -> Actions -> New repository secret**:
    fired. If nothing's in stock you get no Telegram message (that's success too).
 4. From then on it runs automatically every ~15 minutes.
 
+## Ask for a status any time
+Text your bot `/status` (or `/snapshot`). On its next run it replies with a card
+for every bottle, sorted so the ones worth acting on sit up top:
+
+- **✅ under cap, in stock** first, then **🔺 over cap, in stock**, then **⚪ all
+  out**, then bottles with no listings.
+- **🆕** marks a bottle that flipped to in-stock since the last scan.
+- A price move since the last scan shows a **🟢 down** or **🔴 up** arrow with
+  the dollar change.
+- Each card shows the cheapest price, the shop, whether it clears your cap, and
+  how many listings are in stock.
+
+The header says how many shops were reached. If any weren't, it names them and
+why (timeout, rate-limit, etc.), so a thin run like 19/29 is explained rather
+than a mystery. A shop that just times out is carried forward, so it won't fake
+a bottle going out and coming back.
+
 ## Maintaining it (rare, batch edits only)
 Edit `config.json`:
 - **Add/drop a shop:** add or remove a line in `shops` (just a name + domain).
@@ -61,9 +80,14 @@ That's it. No per-URL upkeep, because it discovers listings by searching.
 
 ## Good to know
 - **Cost:** free. Public repo = unlimited Actions minutes; Telegram is free.
-- **Coverage:** works on Shopify shops (nearly the whole roster). Non-Shopify
-  shops (e.g. ReserveBar, Corkery) return nothing from the search endpoint and
-  are simply skipped; the Cowork 2-hour sweep is what covers those.
+- **Coverage:** uses each shop's Shopify search first; if that returns nothing
+  (some shops replace native search with an app), it falls back to scanning the
+  shop's public products.json feed, so search-app shops are still covered.
+  Truly non-Shopify shops (e.g. ReserveBar, Corkery) are skipped here; the
+  Cowork 2-hour sweep covers those. The weekly heartbeat reports how many shops
+  were actually visible and names any it couldn't reach, so a shop going dark
+  won't pass unnoticed. A `/status` reply shows the same reachability detail on
+  demand.
 - **Timing:** GitHub may delay a scheduled run a few minutes under load. Normal.
 - **Staying alive:** the watcher writes a dated heartbeat to `state.json` so the
   repo gets a commit ~daily, keeping GitHub from auto-pausing the schedule.
