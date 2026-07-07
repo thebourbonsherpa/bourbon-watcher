@@ -34,45 +34,66 @@ def load_json(path, default):
 
 
 def get_json(url):
+    """Fetch JSON. Returns (data, error): data is the parsed body on success and
+    error is None; on failure data is None and error is a short human reason
+    (e.g. 'timeout', 'HTTP 429', 'connection error') so callers can explain why
+    a shop went dark instead of just counting it missing."""
     try:
         r = requests.get(url, headers=UA, timeout=25)
         if r.status_code != 200:
-            return None
-        return r.json()
-    except Exception:
-        return None
+            return None, f"HTTP {r.status_code}"
+        return r.json(), None
+    except requests.exceptions.Timeout:
+        return None, "timeout"
+    except requests.exceptions.ConnectionError:
+        return None, "connection error"
+    except ValueError:
+        return None, "bad response"
+    except Exception as e:
+        return None, type(e).__name__
 
 
 def suggest_products(domain, query):
-    """Native Shopify search. Returns list of products, or None if the endpoint
-    failed/isn't usable."""
+    """Native Shopify search. Returns (products, error). products is a list
+    (possibly empty) when the endpoint actually responded; None when the request
+    failed, with error giving the reason. An empty list means 'reachable, no
+    hits' - distinct from 'could not reach the shop'."""
     q = urllib.parse.quote(query)
     url = (f"https://{domain}/search/suggest.json?q={q}"
            f"&resources[type]=product&resources[limit]=10")
-    data = get_json(url)
+    data, err = get_json(url)
     if data is None:
-        return None
+        return None, err
     try:
-        return data["resources"]["results"]["products"]
+        return data["resources"]["results"]["products"], None
     except Exception:
-        return None
+        return [], None
 
 
 def feed_products(domain, max_pages=FEED_PAGES):
     """Fallback: pull the public /products.json catalog (works even when a shop
-    uses a third-party search app). Returns a list of products."""
+    uses a third-party search app). Returns (products, error). products is a list
+    (possibly empty) if any page responded; None if the first request failed,
+    with error giving the reason."""
     out = []
+    responded = False
+    first_err = None
     for page in range(1, max_pages + 1):
-        data = get_json(f"https://{domain}/products.json?limit=250&page={page}")
-        if not data:
+        data, err = get_json(f"https://{domain}/products.json?limit=250&page={page}")
+        if data is None:
+            if not responded:
+                first_err = err
             break
+        responded = True
         prods = data.get("products", [])
         if not prods:
             break
         out.extend(prods)
         if len(prods) < 250:
             break
-    return out
+    if not responded:
+        return None, first_err
+    return out, None
 
 
 def title_matches(title, rule):
@@ -154,42 +175,126 @@ def check_snapshot_request(token, chat_id, state):
     return requested
 
 
-def build_snapshot(matches, bottles, monitored, total, today):
-    """One concise line per bottle: in-stock price + shop and whether it's
-    under cap; if all out, the cheapest listing to watch. Phone-friendly."""
-    lines = [f"\U0001F4F8 Snapshot {today} - {monitored}/{total} shops visible"]
-    if monitored < total:
-        lines.append(f"(note: {total - monitored} shop(s) not reachable this run)")
+def snapshot_state(matches, bottles):
+    """Per-bottle {available, price} for the cheapest in-stock listing, used to
+    detect run-to-run changes (new stock, price moves). price is None when
+    nothing is in stock. Bottles with no listings at all this run are omitted so
+    the caller can carry the last known state forward - a shop timing out should
+    not read as a bottle going out and then 'coming back' next run."""
+    st = {}
     for b in bottles:
+        name = b.get("name")
+        ms = [m for m in matches if m["bottle"] == name]
+        if not ms:
+            continue
+        instock = [m for m in ms if m["available"] and m["price"]]
+        if instock:
+            cheap = min(instock, key=lambda m: m["price"])
+            st[name] = {"available": True, "price": cheap["price"]}
+        else:
+            st[name] = {"available": False, "price": None}
+    return st
+
+
+def build_snapshot(matches, bottles, monitored, total, today, unreachable=None,
+                   prev=None):
+    """Phone-friendly snapshot. Two-line card per bottle, sorted so the most
+    actionable bottles float to the top: in stock and under cap first, then in
+    stock over cap, then all out, then no listings; newly in-stock bottles rise
+    within their group. The header states how many shops were reached and, when
+    some were not, names them with the reason so a thin run (e.g. 19/29) is
+    explained rather than mysterious. When a prior baseline (prev) is supplied,
+    bottles that flipped out->in are flagged 🆕 and price moves since the last
+    scan show a green-down/red-up arrow with the delta."""
+
+    def tier(b):
+        """0 = in stock & under cap, 1 = in stock over cap, 2 = out, 3 = none."""
+        name = b.get("name")
+        cap = b.get("max_price")
+        ms = [m for m in matches if m["bottle"] == name]
+        if not ms:
+            return 3
+        instock = [m for m in ms if m["available"] and m["price"]]
+        if not instock:
+            return 2
+        under = [m for m in instock
+                 if (cap is None or m["price"] <= cap)
+                 and m["price"] >= m.get("floor", 0)]
+        return 0 if under else 1
+
+    header = [f"\U0001F4F8 Snapshot · {today}",
+              f"{monitored}/{total} shops visible"]
+    if unreachable:
+        from collections import Counter
+        reasons = Counter(r for _, r in unreachable)
+        reason_str = ", ".join(f"{n}× {why}" for why, n in reasons.most_common())
+        names = ", ".join(sorted(n for n, _ in unreachable))
+        header.append(f"⚠️ {len(unreachable)} not reached ({reason_str})")
+        header.append(f"   {names}")
+        if any(r in ("timeout", "connection error") or r.startswith("HTTP 5")
+               or r == "HTTP 429" for _, r in unreachable):
+            header.append("   likely transient - usually clears next run")
+
+    prev = prev or {}
+    new_names = set()
+    for b in bottles:
+        name = b.get("name")
+        ms = [m for m in matches if m["bottle"] == name]
+        instock = [m for m in ms if m["available"] and m["price"]]
+        p = prev.get(name)
+        if instock and p and p.get("available") is False:
+            new_names.add(name)
+
+    lines = list(header)
+    for b in sorted(bottles, key=lambda b: (tier(b),
+                                            0 if b.get("name") in new_names else 1,
+                                            b.get("name", ""))):
         name = b.get("name")
         cap = b.get("max_price")
         cap_str = f"${cap}" if cap else "no cap"
         ms = [m for m in matches if m["bottle"] == name]
         instock = [m for m in ms if m["available"] and m["price"]]
         under = [m for m in instock
-                 if (cap is None or m["price"] <= cap) and m["price"] >= m.get("floor", 0)]
+                 if (cap is None or m["price"] <= cap)
+                 and m["price"] >= m.get("floor", 0)]
+
+        lines.append("")
         if not ms:
-            lines.append(f"• {name} ({cap_str}): no listings found")
+            lines.append(f"▫️ {name} · cap {cap_str}")
+            lines.append("   no listings found")
         elif instock:
             cheap = min(instock, key=lambda m: m["price"])
             shop = cheap["shop"].replace("www.", "")
-            flag = "  ✅ UNDER CAP" if under else " (over cap)"
-            extra = ""
-            out_under = [m for m in ms if not m["available"] and m["price"]
-                         and (cap is None or m["price"] <= cap)
-                         and m["price"] >= m.get("floor", 0)]
-            if not under and out_under:
-                w = min(out_under, key=lambda m: m["price"])
-                extra = (f"; watch {w['shop'].replace('www.','')} "
-                         f"${w['price']:,.0f} (OUT, under cap)")
-            lines.append(f"• {name} ({cap_str}): in stock ${cheap['price']:,.0f} "
-                         f"@ {shop}{flag} [{len(instock)}/{len(ms)} in stock]{extra}")
+            icon = "✅" if under else "\U0001F53A"
+            cap_word = "under cap" if under else "over cap"
+            is_new = name in new_names
+            change = ""
+            p = prev.get(name)
+            if not is_new and p and p.get("available") and p.get("price"):
+                d = cheap["price"] - p["price"]
+                if d < 0:
+                    change = f"  \U0001F7E2 ↓ ${abs(d):,.0f}"
+                elif d > 0:
+                    change = f"  \U0001F534 ↑ ${d:,.0f}"
+            new_badge = "  \U0001F195" if is_new else ""
+            lines.append(f"{icon} {name} · cap {cap_str}{new_badge}")
+            lines.append(f"   ${cheap['price']:,.0f} @ {shop} · {cap_word} "
+                         f"· {len(instock)}/{len(ms)} in stock{change}")
+            if not under:
+                out_under = [m for m in ms if not m["available"] and m["price"]
+                             and (cap is None or m["price"] <= cap)
+                             and m["price"] >= m.get("floor", 0)]
+                if out_under:
+                    w = min(out_under, key=lambda m: m["price"])
+                    lines.append(f"   \U0001F440 watch {w['shop'].replace('www.','')} "
+                                 f"${w['price']:,.0f} (out, under cap)")
         else:
             cheap = min(ms, key=lambda m: m["price"] or 9e9)
             price_str = f"${cheap['price']:,.0f}" if cheap["price"] else "n/a"
             shop = cheap["shop"].replace("www.", "")
-            lines.append(f"• {name} ({cap_str}): all out ({len(ms)} listed) "
-                         f"- lowest {price_str} @ {shop}")
+            lines.append(f"⚪ {name} · cap {cap_str}")
+            lines.append(f"   all out · low {price_str} @ {shop} "
+                         f"· 0/{len(ms)} in stock")
     return "\n".join(lines)
 
 
@@ -247,6 +352,7 @@ def main():
 
     monitored_domains = set()
     feed_used = []
+    unreachable = []   # (shop_name, reason) for shops no endpoint would answer
     alerts = []
     matches = []   # full current landscape, for on-demand /snapshot replies
 
@@ -257,9 +363,16 @@ def main():
         if not domain:
             continue
 
+        any_ok = False     # did any request to this shop get a valid response?
+        last_err = None    # keep a reason to report if the shop stays dark
         got_suggest = False
         for bottle in bottles:
-            prods = suggest_products(domain, bottle.get("query", bottle.get("name", "")))
+            prods, err = suggest_products(
+                domain, bottle.get("query", bottle.get("name", "")))
+            if prods is None:
+                last_err = err or last_err
+                continue
+            any_ok = True
             if prods:
                 got_suggest = True
                 for p in prods:
@@ -277,13 +390,14 @@ def main():
                                     "floor": bottle.get("min_price", default_floor)})
 
         # Fallback: suggest gave nothing (search-app shop or no matches at all).
-        if got_suggest:
-            monitored_domains.add(domain)
-        else:
-            feed = feed_products(domain)
-            if feed:
-                monitored_domains.add(domain)
-                feed_used.append(domain)
+        if not got_suggest:
+            feed, err = feed_products(domain)
+            if feed is None:
+                last_err = err or last_err
+            else:
+                any_ok = True
+                if feed:
+                    feed_used.append(domain)
                 for bottle in bottles:
                     for p in feed:
                         if not title_matches(p.get("title", ""), bottle):
@@ -302,6 +416,11 @@ def main():
                                         "shop": shop_name, "available": available,
                                         "price": price,
                                         "floor": bottle.get("min_price", default_floor)})
+
+        if any_ok:
+            monitored_domains.add(domain)
+        else:
+            unreachable.append((shop_name, last_err or "no response"))
 
     for purl, msg in alerts:
         if send_telegram(token, chat_id, msg):
@@ -328,7 +447,12 @@ def main():
             due = True
     if due:
         blind = total - monitored
-        blind_note = f" {blind} not visible - check config." if blind else ""
+        blind_note = ""
+        if unreachable:
+            names = ", ".join(n for n, _ in unreachable)
+            blind_note = f" {blind} not reached: {names}."
+        elif blind:
+            blind_note = f" {blind} not visible - check config."
         if send_telegram(token, chat_id,
             f"\U0001F7E2 Bourbon watcher alive - {today.isoformat()}. "
             f"{monitored}/{total} shops visible.{blind_note} "
@@ -336,17 +460,25 @@ def main():
             print(f"Heartbeat sent ({monitored}/{total} visible).")
             state["last_heartbeat"] = today.isoformat()  # only if delivered
 
+    # ---- Change tracking: baseline of each bottle's stock/price from last run.
+    # We compare against it to flag new stock and price moves, then advance it.
+    # Bottles absent this run keep their prior value (carry-forward) so a shop
+    # outage does not masquerade as a bottle going out and coming back.
+    prev_state = state.get("bottle_state", {})
+    cur_state = snapshot_state(matches, bottles)
+
     # ---- On-demand snapshot: if you texted /snapshot or /status since the
     # last run, reply with the current per-bottle landscape from this scan.
     if check_snapshot_request(token, chat_id, state):
         summary = build_snapshot(matches, bottles, monitored, total,
-                                 today.isoformat())
+                                 today.isoformat(), unreachable, prev_state)
         if send_telegram(token, chat_id, summary):
             print("Snapshot sent on request.")
         else:
             print("Snapshot send failed.", file=sys.stderr)
 
     state["in_stock"] = in_stock
+    state["bottle_state"] = {**prev_state, **cur_state}
     state["date"] = today.isoformat()
     with open(STATE, "w") as f:
         json.dump(state, f, indent=2)

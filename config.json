@@ -6,7 +6,7 @@
     {
       "name": "Russell's Reserve 13 Batch 7 (Eddie 45th)",
       "msrp": 200,
-      "max_price": 300,
+      "max_price": 280,
       "query": "russell reserve 13",
       "match_all": ["russell"],
       "match_any": ["45th", "batch 7", "batch no 7", "batch no. 7"],
@@ -24,7 +24,7 @@
     {
       "name": "Master's Keep Beacon",
       "msrp": 300,
-      "max_price": 600,
+      "max_price": 550,
       "query": "masters keep beacon",
       "match_all": ["beacon"],
       "match_any": [],
@@ -33,7 +33,7 @@
     {
       "name": "Russell's Reserve 15",
       "msrp": 250,
-      "max_price": 600,
+      "max_price": 750,
       "query": "russell reserve 15",
       "match_all": ["russell"],
       "match_any": ["15 year", "15-year", "15yr", "15 yr"],
@@ -60,7 +60,7 @@
     {
       "name": "William Larue Weller (WLW)",
       "msrp": 150,
-      "max_price": 700,
+      "max_price": 750,
       "query": "william larue weller",
       "match_all": ["larue", "weller"],
       "match_any": [],
