@@ -65,28 +65,33 @@
       "match_all": ["larue", "weller"],
       "match_any": [],
       "exclude": ["rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
+    },
+    {
+      "name": "Peerless Henry Kraver's Old Reserve 10 Year",
+      "msrp": 200,
+      "max_price": 300,
+      "query": "peerless henry kraver 10 year",
+      "match_all": ["peerless", "kraver"],
+      "match_any": ["10 year", "10-year", "10yr", "10 yr", "10year"],
+      "exclude": ["rye"]
     }
   ],
   "shops": [
     {"name": "Remedy Liquor", "domain": "www.remedyliquor.com"},
-    {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
     {"name": "Bourbon Outfitter", "domain": "bourbonoutfitter.com"},
-    {"name": "SharedPour", "domain": "sharedpour.com"},
+    {"name": "SharedPour", "domain": "sharedpour.com", "note": "ScamDetector 19.8 - risky, pay by card, save tracking"},
     {"name": "Estates Liquor", "domain": "estatesliquor.com"},
-    {"name": "Prime Time Liquor", "domain": "primetimeliquor.com", "note": "slow-shipping rep - pay by card, expect delays"},
     {"name": "Main Street Liquor / BuyMyLiquor", "domain": "www.buymyliquor.com"},
     {"name": "Quality Liquor Store", "domain": "qualityliquorstore.com"},
     {"name": "Sip Whiskey", "domain": "sipwhiskey.com", "note": "F BBB / non-delivery reports - pay by card, save tracking"},
     {"name": "DramFellows", "domain": "dramfellows.com", "note": "order-failure complaints - pay by card"},
     {"name": "Del Mesa Liquor", "domain": "delmesaliquor.com"},
-    {"name": "Mission Trails", "domain": "missiontrailswineandspirits.com"},
-    {"name": "Bottle Buzz", "domain": "bottlebuzz.com"},
     {"name": "Chips Liquor", "domain": "chipsliquor.com"},
     {"name": "Wooden Cork", "domain": "woodencork.com"},
     {"name": "De Wine Spot", "domain": "dewinespot.co"},
     {"name": "El Cerrito Liquor", "domain": "elcerritoliquor.com"},
     {"name": "The Barrel Tap", "domain": "www.thebarreltap.com", "note": "mixed reviews - pay by card"},
-    {"name": "Blackbook Spirits", "domain": "blackbookspirits.com"},
+    {"name": "Blackbook Spirits", "domain": "blackbookspirits.com", "note": "marketing/dropship LLC, unproven - pay by card"},
     {"name": "Cana Wine", "domain": "canawineco.com"},
     {"name": "Wheatley Wine & Spirits", "domain": "wheatleywineandspirits.com"},
     {"name": "The Bourbon Concierge", "domain": "thebourbonconcierge.com"},
@@ -96,6 +101,11 @@
     {"name": "Prime Barrel", "domain": "primebarrel.com"},
     {"name": "Whiskey Caviar", "domain": "whiskeycaviar.com"},
     {"name": "Barrel Shoppe", "domain": "barrelshoppe.com"},
-    {"name": "Seelbach's", "domain": "seelbachs.com"}
+    {"name": "Seelbach's", "domain": "seelbachs.com"},
+    {"name": "The Rare Whiskey Shop", "domain": "therarewhiskeyshop.com"},
+    {"name": "Blackwell's Wines & Spirits", "domain": "blackwellswines.com"},
+    {"name": "Bottle Shop & Tasting Room", "domain": "bottleshopandtastingroom.com"},
+    {"name": "Beverage Warehouse MI", "domain": "beveragewarehousemi.com", "note": "in-state MI - safest legal path"},
+    {"name": "Nestor Liquor", "domain": "nestorliquor.com", "note": "deep NC allocated stock - CS complaints, pay by card, save tracking"}
   ]
 }
