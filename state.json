@@ -439,38 +439,39 @@
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2010-143-0-proof": false,
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2012-142-8-proof": false,
     "https://therarewhiskeyshop.com/products/george-t-stagg-2011-release": false,
-    "https://therarewhiskeyshop.com/products/george-t-stagg-2006-release": false
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2006-release": false,
+    "https://woodencork.com/products/william-larue-weller-2008-125-3-proof": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807852,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": false,
-      "price": null
-    },
-    "Austin Nichols Archives Gold Foil": {
-      "available": false,
-      "price": null
-    },
-    "Master's Keep Beacon": {
-      "available": true,
-      "price": 729.99
-    },
-    "Russell's Reserve 15": {
-      "available": false,
-      "price": null
-    },
-    "Mister Sam Tribute (Batch 3 or 4)": {
-      "available": true,
-      "price": 4999.99
-    },
-    "George T. Stagg (GTS, any batch)": {
       "available": true,
       "price": 899.99
     },
+    "Austin Nichols Archives Gold Foil": {
+      "available": true,
+      "price": 1199.99
+    },
+    "Master's Keep Beacon": {
+      "available": true,
+      "price": 725.0
+    },
+    "Russell's Reserve 15": {
+      "available": true,
+      "price": 1375.0
+    },
+    "Mister Sam Tribute (Batch 3 or 4)": {
+      "available": true,
+      "price": 1249.0
+    },
+    "George T. Stagg (GTS, any batch)": {
+      "available": true,
+      "price": 649.0
+    },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1499.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": false,
