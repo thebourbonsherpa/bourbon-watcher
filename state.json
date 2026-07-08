@@ -452,7 +452,7 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -460,7 +460,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1674.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -471,8 +471,8 @@
       "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     }
   }
 }
