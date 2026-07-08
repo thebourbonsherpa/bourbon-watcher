@@ -443,24 +443,24 @@
   "last_update_id": 692807851,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": true,
-      "price": 479.99
+      "available": false,
+      "price": null
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 1199.99
+      "price": 1235.0
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 729.99
+      "price": 725.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1674.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
