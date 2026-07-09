@@ -118,6 +118,10 @@
     {"name": "Nestor Liquor", "domain": "nestorliquor.com", "note": "no MI - ship to NC instead; CS complaints, pay by card, save tracking"},
     {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
     {"name": "Prime Time Liquor", "domain": "primetimeliquor.com", "note": "slow shipping rep - it delivers"},
-    {"name": "Mission Trails Wine & Spirits", "domain": "missiontrailswineandspirits.com", "note": "same operator as Sip Whiskey; fulfillment complaints - pay by card"}
+    {"name": "Mission Trails Wine & Spirits", "domain": "missiontrailswineandspirits.com", "note": "same operator as Sip Whiskey; fulfillment complaints - pay by card"},
+    {"name": "WineToShip", "domain": "winetoship.com", "note": "claims NC-licensed; wrong-item complaints - pay by card, save tracking"},
+    {"name": "AtoZBev", "domain": "atozbev.com", "note": "real FL shop, mixed trust scores - pay by card"},
+    {"name": "LoveScotch", "domain": "lovescotch.com", "note": "no MI - ship to NC, cart-test first hit"},
+    {"name": "Keg N Bottle", "domain": "www.kegnbottle.com", "note": "no MI - ship to NC, cart-test first hit"}
   ]
 }
