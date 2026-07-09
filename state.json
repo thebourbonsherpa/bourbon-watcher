@@ -443,14 +443,27 @@
     "https://woodencork.com/products/william-larue-weller-2008-125-3-proof": false,
     "https://www.buymyliquor.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey-750ml-pre-order": false,
     "https://qualityliquorstore.com/products/bulleit-rye-aged-20-years-cask-strength-whiskey": false,
-    "https://dramfellows.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey-750ml-pre-order": false
+    "https://dramfellows.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey-750ml-pre-order": false,
+    "https://www.thebarreltap.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2025-129-proof": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2002-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2019-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2017-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2015-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2014-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2013-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2011-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2010-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2009-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2005-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2001-release": false,
+    "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2000-first-release": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807853,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 674.99
+      "price": 479.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -458,27 +471,27 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 799.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1674.99
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 639.99
     },
     "Bulleit 20 Year Rye": {
       "available": false,
