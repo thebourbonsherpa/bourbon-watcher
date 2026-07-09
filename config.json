@@ -115,6 +115,9 @@
     {"name": "Blackwell's Wines & Spirits", "domain": "blackwellswines.com"},
     {"name": "Bottle Shop & Tasting Room", "domain": "bottleshopandtastingroom.com"},
     {"name": "Beverage Warehouse MI", "domain": "beveragewarehousemi.com", "note": "in-state MI - safest legal path"},
-    {"name": "Nestor Liquor", "domain": "nestorliquor.com", "note": "deep NC allocated stock - CS complaints, pay by card, save tracking"}
+    {"name": "Nestor Liquor", "domain": "nestorliquor.com", "note": "no MI - ship to NC instead; CS complaints, pay by card, save tracking"},
+    {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
+    {"name": "Prime Time Liquor", "domain": "primetimeliquor.com", "note": "slow shipping rep - it delivers"},
+    {"name": "Mission Trails Wine & Spirits", "domain": "missiontrailswineandspirits.com", "note": "same operator as Sip Whiskey; fulfillment complaints - pay by card"}
   ]
 }

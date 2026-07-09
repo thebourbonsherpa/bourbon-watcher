@@ -1,42 +1,95 @@
 #!/usr/bin/env python3
 """
-Bourbon phone watcher (v4 - keyword search + products.json fallback,
-price ceilings, alert notes, weekly heartbeat with health reporting).
+Bourbon phone watcher (v5 - hybrid feed + per-bottle search, per-shop pacing,
+parallel shops, price ceilings, alert notes, weekly heartbeat with health
+reporting).
 
-Primary path: search each roster shop via Shopify /search/suggest.json.
-Fallback: if a shop's suggest returns nothing (common when a store replaces
-native search with an app like Searchanise/Boost/Algolia), scan its public
-/products.json feed instead. Either way, match the right product, apply the
-price ceiling, and Telegram-alert when it goes in-stock at/under the ceiling.
-A periodic heartbeat reports how many shops we can actually see, so silent or
-"alive-but-blind" failure can't hide.
+Every shop is scanned TWO ways each run:
+  1. Its public /products.json feed (newest ~750 products) - catches newly
+     created listings fast.
+  2. Its native Shopify /search/suggest.json, once per bottle - catches
+     RESTOCKS of listings created long ago. On big catalogs those sit far
+     beyond the feed window (verified live: a large roster shop's feed is
+     newest-first and thousands deep; BTAC-era product pages never appear
+     in the first 750), so the feed alone is blind to the classic allocated
+     restock. The search pass closes that gap.
+
+Shops are scanned in parallel threads. Shopify rate limits are per shop, so
+requests are paced within a shop (MIN_INTERVAL) but different shops never
+wait on each other. A full run covers the roster in about a minute instead
+of the 12-16 minutes that a globally-throttled per-bottle fan-out took.
 
 Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
   TELEGRAM_CHAT_ID    - your Telegram numeric chat id
 """
 import json, os, sys, time, datetime, urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/4.0)"}
-FEED_PAGES = 3  # products.json pages to scan per shop (250 each, newest-first)
-MIN_INTERVAL = 0.5   # min seconds between HTTP requests, to avoid 429 rate limits
-RATE_RETRIES = 2     # attempts on HTTP 429 before giving up on a request
-_last_request = [0.0]  # monotonic time of the last request (list = mutable cell)
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.0)"}
+FEED_PAGES = 3     # products.json pages per shop (250 each, newest-first)
+MIN_INTERVAL = 0.5 # min seconds between requests TO THE SAME shop
+ATTEMPTS = 3       # tries per request; retries cover 429s AND timeouts /
+                   # connection blips, which used to fail a shop instantly
+MAX_WORKERS = 8    # shops scanned concurrently
 
 
-def _throttle():
-    """Space out requests. A run fans out one lookup per bottle per shop, which
-    without pacing bursts hundreds of calls and gets the runner's shared IP
-    rate-limited (HTTP 429). Enforcing a floor between requests keeps us under
-    the limit so shops stay visible."""
-    wait = MIN_INTERVAL - (time.monotonic() - _last_request[0])
-    if wait > 0:
-        time.sleep(wait)
-    _last_request[0] = time.monotonic()
+class ShopClient:
+    """One per shop (and per worker thread): paces requests to that shop and
+    reuses its connection. Rate limits are per shop, so pacing is per shop
+    too - a global throttle just made every shop wait on every other one."""
+
+    def __init__(self):
+        self.session = requests.Session()
+        self.session.headers.update(UA)
+        self.last = 0.0
+
+    def _pace(self):
+        wait = MIN_INTERVAL - (time.monotonic() - self.last)
+        if wait > 0:
+            time.sleep(wait)
+        self.last = time.monotonic()
+
+    def get_json(self, url):
+        """Fetch JSON. Returns (data, error): data is the parsed body on
+        success and error is None; on failure data is None and error is a
+        short human reason ('timeout', 'HTTP 429', 'connection error') so
+        callers can explain why a shop went dark. 429s honor Retry-After;
+        timeouts and connection errors get retried too instead of counting
+        the shop out on the first blip."""
+        err = None
+        for attempt in range(ATTEMPTS):
+            self._pace()
+            try:
+                r = self.session.get(url, timeout=25)
+            except requests.exceptions.Timeout:
+                err = "timeout"
+                continue
+            except requests.exceptions.ConnectionError:
+                err = "connection error"
+                continue
+            except Exception as e:
+                return None, type(e).__name__
+            if r.status_code == 429:
+                err = "HTTP 429"
+                ra = r.headers.get("Retry-After")
+                try:
+                    wait = float(ra) if ra else 2.0 ** attempt
+                except ValueError:
+                    wait = 2.0 ** attempt
+                time.sleep(min(wait, 5))
+                continue
+            if r.status_code != 200:
+                return None, f"HTTP {r.status_code}"
+            try:
+                return r.json(), None
+            except ValueError:
+                return None, "bad response"
+        return None, err
 
 
 def load_json(path, default):
@@ -47,49 +100,15 @@ def load_json(path, default):
         return default
 
 
-def get_json(url):
-    """Fetch JSON. Returns (data, error): data is the parsed body on success and
-    error is None; on failure data is None and error is a short human reason
-    (e.g. 'timeout', 'HTTP 429', 'connection error') so callers can explain why
-    a shop went dark instead of just counting it missing. Requests are paced
-    (see _throttle) and a 429 is retried with backoff, honoring Retry-After,
-    since rate limiting is the main reason shops drop out of a run."""
-    for attempt in range(RATE_RETRIES):
-        _throttle()
-        try:
-            r = requests.get(url, headers=UA, timeout=25)
-        except requests.exceptions.Timeout:
-            return None, "timeout"
-        except requests.exceptions.ConnectionError:
-            return None, "connection error"
-        except Exception as e:
-            return None, type(e).__name__
-        if r.status_code == 429:
-            ra = r.headers.get("Retry-After")
-            try:
-                wait = float(ra) if ra else 2.0 ** attempt
-            except ValueError:
-                wait = 2.0 ** attempt
-            time.sleep(min(wait, 5))
-            continue
-        if r.status_code != 200:
-            return None, f"HTTP {r.status_code}"
-        try:
-            return r.json(), None
-        except ValueError:
-            return None, "bad response"
-    return None, "HTTP 429"
-
-
-def suggest_products(domain, query):
+def suggest_products(client, domain, query):
     """Native Shopify search. Returns (products, error). products is a list
-    (possibly empty) when the endpoint actually responded; None when the request
-    failed, with error giving the reason. An empty list means 'reachable, no
-    hits' - distinct from 'could not reach the shop'."""
+    (possibly empty) when the endpoint actually responded; None when the
+    request failed, with error giving the reason. An empty list means
+    'reachable, no hits' - distinct from 'could not reach the shop'."""
     q = urllib.parse.quote(query)
     url = (f"https://{domain}/search/suggest.json?q={q}"
            f"&resources[type]=product&resources[limit]=10")
-    data, err = get_json(url)
+    data, err = client.get_json(url)
     if data is None:
         return None, err
     try:
@@ -98,16 +117,18 @@ def suggest_products(domain, query):
         return [], None
 
 
-def feed_products(domain, max_pages=FEED_PAGES):
-    """Fallback: pull the public /products.json catalog (works even when a shop
-    uses a third-party search app). Returns (products, error). products is a list
-    (possibly empty) if any page responded; None if the first request failed,
-    with error giving the reason."""
+def feed_products(client, domain, max_pages=FEED_PAGES):
+    """Pull the newest pages of the public /products.json catalog. Returns
+    (products, error). products is a list (possibly empty) if any page
+    responded; None if the first request failed, with error giving the
+    reason. The feed is newest-first, so this window is ideal for fresh
+    drops; restocks of older listings are covered by the search pass."""
     out = []
     responded = False
     first_err = None
     for page in range(1, max_pages + 1):
-        data, err = get_json(f"https://{domain}/products.json?limit=250&page={page}")
+        data, err = client.get_json(
+            f"https://{domain}/products.json?limit=250&page={page}")
         if data is None:
             if not responded:
                 first_err = err
@@ -144,6 +165,75 @@ def to_price(val):
         return p if p > 0 else None
     except Exception:
         return None
+
+
+def variant_pricing(variants):
+    """(available, price) for a feed product. available = any variant is.
+    price = the cheapest AVAILABLE variant when in stock, so an alert quotes
+    a price you can actually pay - min() across all variants could quote a
+    sold-out cheaper variant while a pricier one is what's buyable. For
+    all-out products it's the cheapest listed price (used for watch targets)."""
+    available = any(v.get("available") for v in variants)
+    avail_prices = [p for p in
+                    (to_price(v.get("price")) for v in variants
+                     if v.get("available")) if p]
+    if available and avail_prices:
+        return True, min(avail_prices)
+    all_prices = [p for p in (to_price(v.get("price")) for v in variants) if p]
+    return available, (min(all_prices) if all_prices else None)
+
+
+def scan_shop(shop, bottles):
+    """Scan one shop both ways. Runs in a worker thread and touches no shared
+    state; returns (shop, any_ok, last_err, feed_ok, candidates) where
+    candidates is a list of (bottle, purl, title, available, price), deduped
+    by (bottle, purl) with the feed version preferred (richer variant data)."""
+    domain = shop["domain"]
+    client = ShopClient()
+    any_ok = False
+    last_err = None
+    feed_ok = False
+    seen = set()
+    cands = []
+
+    # Pass 1: the feed - newly created listings.
+    feed, err = feed_products(client, domain)
+    if feed is None:
+        last_err = err
+    else:
+        any_ok = True
+        feed_ok = bool(feed)
+        for p in feed:
+            title = p.get("title", "")
+            available, price = variant_pricing(p.get("variants", []) or [])
+            purl = f"https://{domain}/products/{p.get('handle', '')}"
+            for b in bottles:
+                if title_matches(title, b):
+                    seen.add((b.get("name"), purl))
+                    cands.append((b, purl, title, available, price))
+
+    # Pass 2: native search, once per bottle - restocks of older listings
+    # that sit beyond the feed window. Shops that disable products.json are
+    # covered entirely by this pass.
+    for b in bottles:
+        prods, err = suggest_products(client, domain,
+                                      b.get("query", b.get("name", "")))
+        if prods is None:
+            last_err = err or last_err
+            continue
+        any_ok = True
+        for p in prods:
+            title = p.get("title", "")
+            if not title_matches(title, b):
+                continue
+            rel = (p.get("url") or "").split("?")[0]
+            purl = f"https://{domain}{rel}"
+            if (b.get("name"), purl) in seen:
+                continue
+            seen.add((b.get("name"), purl))
+            cands.append((b, purl, title, bool(p.get("available")),
+                          to_price(p.get("price"))))
+    return shop, any_ok, last_err, feed_ok, cands
 
 
 def send_telegram(token, chat_id, text, retries=3):
@@ -375,8 +465,15 @@ def main():
     state = load_json(STATE, {})
     in_stock = state.get("in_stock", {})
     bottles = config.get("bottles", [])
-    shops = config.get("shops", [])
+    shops = [s for s in config.get("shops", []) if s.get("domain")]
     default_floor = config.get("min_price", 0)  # global junk-price floor
+
+    # Prune state for shops no longer on the roster - their URLs can never
+    # match again and just accumulate (old cut shops were still in state).
+    roster_hosts = {s["domain"].replace("www.", "") for s in shops}
+    in_stock = {u: v for u, v in in_stock.items()
+                if urllib.parse.urlparse(u).netloc.replace("www.", "")
+                in roster_hosts}
 
     monitored_domains = set()
     feed_used = []
@@ -384,71 +481,24 @@ def main():
     alerts = []
     matches = []   # full current landscape, for on-demand /snapshot replies
 
-    for shop in shops:
-        domain = shop.get("domain")
+    # Scan shops in parallel; merge results sequentially so in_stock/alerts
+    # stay single-threaded.
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        results = list(ex.map(lambda s: scan_shop(s, bottles), shops))
+
+    for shop, any_ok, last_err, feed_ok, cands in results:
+        domain = shop["domain"]
         shop_name = shop.get("name", domain)
         shop_note = shop.get("note")
-        if not domain:
-            continue
-
-        any_ok = False     # did any request to this shop get a valid response?
-        last_err = None    # keep a reason to report if the shop stays dark
-
-        # Primary: pull the shop's product feed ONCE and match every bottle
-        # against it. One request per shop (a few for big catalogs) instead of
-        # one per bottle - far fewer calls, so runs stay short and dodge the
-        # rate limits that were dragging each run out to 15+ minutes.
-        feed, err = feed_products(domain)
-        if feed is None:
-            last_err = err or last_err
-        else:
-            any_ok = True
-            if feed:
-                feed_used.append(domain)
-            for p in feed:
-                title = p.get("title", "")
-                handle = p.get("handle", "")
-                variants = p.get("variants", []) or []
-                available = any(v.get("available") for v in variants)
-                prices = [x for x in (to_price(v.get("price")) for v in variants) if x]
-                price = min(prices) if prices else None
-                purl = f"https://{domain}/products/{handle}"
-                for bottle in bottles:
-                    if not title_matches(title, bottle):
-                        continue
-                    consider(bottle, shop_name, shop_note, purl, title,
-                             available, price, in_stock, alerts,
-                             bottle.get("min_price", default_floor))
-                    matches.append({"bottle": bottle.get("name"),
-                                    "shop": shop_name, "available": available,
-                                    "price": price,
-                                    "floor": bottle.get("min_price", default_floor)})
-
-        # Fallback: only if the feed did not respond or was empty. Some shops
-        # disable products.json and expose native search instead; hit the
-        # search endpoint per bottle for those.
-        if not feed:
-            for bottle in bottles:
-                prods, err = suggest_products(
-                    domain, bottle.get("query", bottle.get("name", "")))
-                if prods is None:
-                    last_err = err or last_err
-                    continue
-                any_ok = True
-                for p in prods:
-                    if not title_matches(p.get("title", ""), bottle):
-                        continue
-                    rel = (p.get("url") or "").split("?")[0]
-                    purl = f"https://{domain}{rel}"
-                    consider(bottle, shop_name, shop_note, purl, p.get("title"),
-                             p.get("available"), to_price(p.get("price")),
-                             in_stock, alerts,
-                             bottle.get("min_price", default_floor))
-                    matches.append({"bottle": bottle.get("name"), "shop": shop_name,
-                                    "available": bool(p.get("available")),
-                                    "price": to_price(p.get("price")),
-                                    "floor": bottle.get("min_price", default_floor)})
-
+        if feed_ok:
+            feed_used.append(domain)
+        for b, purl, title, available, price in cands:
+            floor = b.get("min_price", default_floor)
+            consider(b, shop_name, shop_note, purl, title, available, price,
+                     in_stock, alerts, floor)
+            matches.append({"bottle": b.get("name"), "shop": shop_name,
+                            "available": available, "price": price,
+                            "floor": floor})
         if any_ok:
             monitored_domains.add(domain)
         else:
@@ -465,7 +515,7 @@ def main():
     total = len(shops)
     monitored = len(monitored_domains)
     print(f"Monitored {monitored}/{total} shops "
-          f"({len(feed_used)} via products.json fallback). {len(alerts)} new alert(s).")
+          f"({len(feed_used)} feeds visible). {len(alerts)} new alert(s).")
 
     # ---- Heartbeat: periodic 'still alive' ping so silent failure can't hide.
     today = datetime.date.today()
@@ -496,8 +546,10 @@ def main():
     # We compare against it to flag new stock and price moves, then advance it.
     # Bottles absent this run keep their prior value (carry-forward) so a shop
     # outage does not masquerade as a bottle going out and coming back.
+    # Bottles no longer in the config are dropped.
     prev_state = state.get("bottle_state", {})
     cur_state = snapshot_state(matches, bottles)
+    bottle_names = {b.get("name") for b in bottles}
 
     # ---- On-demand snapshot: if you texted /snapshot or /status since the
     # last run, reply with the current per-bottle landscape from this scan.
@@ -510,7 +562,8 @@ def main():
             print("Snapshot send failed.", file=sys.stderr)
 
     state["in_stock"] = in_stock
-    state["bottle_state"] = {**prev_state, **cur_state}
+    state["bottle_state"] = {k: v for k, v in {**prev_state, **cur_state}.items()
+                             if k in bottle_names}
     state["date"] = today.isoformat()
     with open(STATE, "w") as f:
         json.dump(state, f, indent=2)
