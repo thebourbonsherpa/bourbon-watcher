@@ -442,8 +442,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1235.0
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
