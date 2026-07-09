@@ -469,8 +469,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1235.0
     },
     "Master's Keep Beacon": {
       "available": true,
@@ -490,7 +490,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1699.99
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": false,
