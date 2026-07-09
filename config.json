@@ -123,6 +123,8 @@
     {"name": "AtoZBev", "domain": "atozbev.com", "note": "real FL shop, mixed trust scores - pay by card"},
     {"name": "LoveScotch", "domain": "lovescotch.com", "note": "no MI - ship to NC, cart-test first hit"},
     {"name": "Keg N Bottle", "domain": "www.kegnbottle.com", "note": "no MI - ship to NC, cart-test first hit"},
+    {"name": "Cellar.com (Schneider's of Capitol Hill)", "domain": "cellar.com", "note": "4th-gen DC shop, ships - cart-test MI first hit"},
+    {"name": "SB Wine & Spirit", "domain": "sbspirit.com", "note": "Hanover Park IL B&M since 1998 - cart-test MI, pay by card"},
     {"name": "Bonded Bottle Shop", "domain": "bondedbottleshop.com", "note": "no MI - ship to NC, cart-test first hit; dropship backend, pay by card"},
     {"name": "Lueken's Liquors", "domain": "luekensliquors.com", "note": "select-state shipping - cart-test MI and NC on first hit"},
     {"name": "KY Bourbon Direct", "domain": "kybourbondirect.com", "note": "no MI - ship to NC, cart-test first hit"}
