@@ -432,12 +432,7 @@
     "https://therarewhiskeyshop.com/products/william-larue-weller-2009-release": false,
     "https://therarewhiskeyshop.com/products/william-larue-weller-2005-release": false,
     "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2001-release": false,
-    "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2000-first-release": false,
-    "https://www.kegnbottle.com/products/wild-turkey-austin-nichols-archives-16-year-gold-foil-whiskey-750ml": false,
-    "https://www.kegnbottle.com/products/wild-turkey-masters-keep-beacon-bourbon-whiskey-750ml": false,
-    "https://www.kegnbottle.com/products/russells-reserve-15-year-bourbon-whiskey-combo-pack-5x750ml": false,
-    "https://www.kegnbottle.com/products/russells-reserve-15-year-limited-release-bourbon-750-ml": false,
-    "https://www.kegnbottle.com/products/russells-reserve-15-year-bourbon-whiskey-combo-pack-5x750ml-copy": false
+    "https://therarewhiskeyshop.com/products/william-larue-weller-19-year-2000-first-release": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807853,
@@ -447,8 +442,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1235.0
     },
     "Master's Keep Beacon": {
       "available": true,
