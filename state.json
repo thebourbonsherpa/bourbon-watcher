@@ -447,7 +447,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 899.99
+      "price": 674.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -455,11 +455,11 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 729.99
+      "price": 725.0
     },
     "Russell's Reserve 15": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
