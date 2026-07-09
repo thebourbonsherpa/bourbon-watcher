@@ -23,6 +23,20 @@ CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
 UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/4.0)"}
 FEED_PAGES = 2  # products.json pages to scan in fallback (250 each, newest-first)
+MIN_INTERVAL = 0.5   # min seconds between HTTP requests, to avoid 429 rate limits
+RATE_RETRIES = 3     # attempts on HTTP 429 before giving up on a request
+_last_request = [0.0]  # monotonic time of the last request (list = mutable cell)
+
+
+def _throttle():
+    """Space out requests. A run fans out one lookup per bottle per shop, which
+    without pacing bursts hundreds of calls and gets the runner's shared IP
+    rate-limited (HTTP 429). Enforcing a floor between requests keeps us under
+    the limit so shops stay visible."""
+    wait = MIN_INTERVAL - (time.monotonic() - _last_request[0])
+    if wait > 0:
+        time.sleep(wait)
+    _last_request[0] = time.monotonic()
 
 
 def load_json(path, default):
@@ -37,20 +51,34 @@ def get_json(url):
     """Fetch JSON. Returns (data, error): data is the parsed body on success and
     error is None; on failure data is None and error is a short human reason
     (e.g. 'timeout', 'HTTP 429', 'connection error') so callers can explain why
-    a shop went dark instead of just counting it missing."""
-    try:
-        r = requests.get(url, headers=UA, timeout=25)
+    a shop went dark instead of just counting it missing. Requests are paced
+    (see _throttle) and a 429 is retried with backoff, honoring Retry-After,
+    since rate limiting is the main reason shops drop out of a run."""
+    for attempt in range(RATE_RETRIES):
+        _throttle()
+        try:
+            r = requests.get(url, headers=UA, timeout=25)
+        except requests.exceptions.Timeout:
+            return None, "timeout"
+        except requests.exceptions.ConnectionError:
+            return None, "connection error"
+        except Exception as e:
+            return None, type(e).__name__
+        if r.status_code == 429:
+            ra = r.headers.get("Retry-After")
+            try:
+                wait = float(ra) if ra else 2.0 ** attempt
+            except ValueError:
+                wait = 2.0 ** attempt
+            time.sleep(min(wait, 10))
+            continue
         if r.status_code != 200:
             return None, f"HTTP {r.status_code}"
-        return r.json(), None
-    except requests.exceptions.Timeout:
-        return None, "timeout"
-    except requests.exceptions.ConnectionError:
-        return None, "connection error"
-    except ValueError:
-        return None, "bad response"
-    except Exception as e:
-        return None, type(e).__name__
+        try:
+            return r.json(), None
+        except ValueError:
+            return None, "bad response"
+    return None, "HTTP 429"
 
 
 def suggest_products(domain, query):
