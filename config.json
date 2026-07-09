@@ -74,6 +74,15 @@
       "match_all": ["peerless", "kraver"],
       "match_any": ["10 year", "10-year", "10yr", "10 yr", "10year"],
       "exclude": ["rye"]
+    },
+    {
+      "name": "Bulleit 20 Year Rye",
+      "msrp": 299,
+      "max_price": 600,
+      "query": "bulleit 20 year rye",
+      "match_all": ["bulleit", "rye"],
+      "match_any": ["20 year", "20-year", "20yr", "20 yr", "20year"],
+      "exclude": ["12 year", "12-year", "12yr"]
     }
   ],
   "shops": [
