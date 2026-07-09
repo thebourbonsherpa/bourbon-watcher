@@ -459,14 +459,15 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2024-release": false,
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
-    "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false
+    "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
+    "https://bondedbottleshop.com/products/george-t-stagg-please-dont-buy-this-before-you-read-the-description-completely": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807853,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": true,
-      "price": 479.99
+      "available": false,
+      "price": null
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -474,27 +475,27 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 729.99
     },
     "Russell's Reserve 15": {
-      "available": true,
-      "price": 1375.0
+      "available": false,
+      "price": null
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 4999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
