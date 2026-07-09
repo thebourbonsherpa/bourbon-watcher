@@ -22,9 +22,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
 UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/4.0)"}
-FEED_PAGES = 2  # products.json pages to scan in fallback (250 each, newest-first)
+FEED_PAGES = 3  # products.json pages to scan per shop (250 each, newest-first)
 MIN_INTERVAL = 0.5   # min seconds between HTTP requests, to avoid 429 rate limits
-RATE_RETRIES = 3     # attempts on HTTP 429 before giving up on a request
+RATE_RETRIES = 2     # attempts on HTTP 429 before giving up on a request
 _last_request = [0.0]  # monotonic time of the last request (list = mutable cell)
 
 
@@ -70,7 +70,7 @@ def get_json(url):
                 wait = float(ra) if ra else 2.0 ** attempt
             except ValueError:
                 wait = 2.0 ** attempt
-            time.sleep(min(wait, 10))
+            time.sleep(min(wait, 5))
             continue
         if r.status_code != 200:
             return None, f"HTTP {r.status_code}"
@@ -393,16 +393,48 @@ def main():
 
         any_ok = False     # did any request to this shop get a valid response?
         last_err = None    # keep a reason to report if the shop stays dark
-        got_suggest = False
-        for bottle in bottles:
-            prods, err = suggest_products(
-                domain, bottle.get("query", bottle.get("name", "")))
-            if prods is None:
-                last_err = err or last_err
-                continue
+
+        # Primary: pull the shop's product feed ONCE and match every bottle
+        # against it. One request per shop (a few for big catalogs) instead of
+        # one per bottle - far fewer calls, so runs stay short and dodge the
+        # rate limits that were dragging each run out to 15+ minutes.
+        feed, err = feed_products(domain)
+        if feed is None:
+            last_err = err or last_err
+        else:
             any_ok = True
-            if prods:
-                got_suggest = True
+            if feed:
+                feed_used.append(domain)
+            for p in feed:
+                title = p.get("title", "")
+                handle = p.get("handle", "")
+                variants = p.get("variants", []) or []
+                available = any(v.get("available") for v in variants)
+                prices = [x for x in (to_price(v.get("price")) for v in variants) if x]
+                price = min(prices) if prices else None
+                purl = f"https://{domain}/products/{handle}"
+                for bottle in bottles:
+                    if not title_matches(title, bottle):
+                        continue
+                    consider(bottle, shop_name, shop_note, purl, title,
+                             available, price, in_stock, alerts,
+                             bottle.get("min_price", default_floor))
+                    matches.append({"bottle": bottle.get("name"),
+                                    "shop": shop_name, "available": available,
+                                    "price": price,
+                                    "floor": bottle.get("min_price", default_floor)})
+
+        # Fallback: only if the feed did not respond or was empty. Some shops
+        # disable products.json and expose native search instead; hit the
+        # search endpoint per bottle for those.
+        if not feed:
+            for bottle in bottles:
+                prods, err = suggest_products(
+                    domain, bottle.get("query", bottle.get("name", "")))
+                if prods is None:
+                    last_err = err or last_err
+                    continue
+                any_ok = True
                 for p in prods:
                     if not title_matches(p.get("title", ""), bottle):
                         continue
@@ -416,34 +448,6 @@ def main():
                                     "available": bool(p.get("available")),
                                     "price": to_price(p.get("price")),
                                     "floor": bottle.get("min_price", default_floor)})
-
-        # Fallback: suggest gave nothing (search-app shop or no matches at all).
-        if not got_suggest:
-            feed, err = feed_products(domain)
-            if feed is None:
-                last_err = err or last_err
-            else:
-                any_ok = True
-                if feed:
-                    feed_used.append(domain)
-                for bottle in bottles:
-                    for p in feed:
-                        if not title_matches(p.get("title", ""), bottle):
-                            continue
-                        handle = p.get("handle", "")
-                        purl = f"https://{domain}/products/{handle}"
-                        variants = p.get("variants", []) or []
-                        available = any(v.get("available") for v in variants)
-                        prices = [to_price(v.get("price")) for v in variants]
-                        prices = [x for x in prices if x]
-                        price = min(prices) if prices else None
-                        consider(bottle, shop_name, shop_note, purl, p.get("title"),
-                                 available, price, in_stock, alerts,
-                                 bottle.get("min_price", default_floor))
-                        matches.append({"bottle": bottle.get("name"),
-                                        "shop": shop_name, "available": available,
-                                        "price": price,
-                                        "floor": bottle.get("min_price", default_floor)})
 
         if any_ok:
             monitored_domains.add(domain)
