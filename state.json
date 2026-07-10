@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-09",
+  "date": "2026-07-10",
   "in_stock": {
     "https://sipwhiskey.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
     "https://www.buymyliquor.com/products/russell-s-reserve-13-year-eddie-s-45th-anniversary-bourbon": false,
@@ -490,7 +490,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1699.99
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": false,
