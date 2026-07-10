@@ -491,7 +491,7 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1375.0
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -514,5 +514,5 @@
       "price": null
     }
   },
-  "suggest_cursor": 15
+  "suggest_cursor": 30
 }
