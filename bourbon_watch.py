@@ -88,7 +88,7 @@ class ShopClient:
         for attempt in range(ATTEMPTS):
             self._pace()
             try:
-                r = self.session.get(url, timeout=25)
+                r = self.session.get(url, timeout=15)
             except requests.exceptions.Timeout:
                 err = "timeout"
                 continue
@@ -240,25 +240,27 @@ def scan_shop(shop, bottles, do_suggest=True):
 
     # Pass 2: native search, once per bottle - restocks of older listings
     # that sit beyond the feed window. Shops that disable products.json are
-    # covered entirely by this pass. Two consecutive 429s abort the pass for
-    # this shop this run - the IP is being throttled and further requests
-    # just burn the global budget.
+    # covered entirely by this pass. Two consecutive hard failures (429 or
+    # timeout) abort the pass for this shop this run: a throttled IP just
+    # burns the global budget, and a hanging shop would otherwise stall its
+    # worker chain for minutes (timeouts are the slow failure - 15s x
+    # retries each).
     if not do_suggest and not feed:
         do_suggest = True   # feed gave nothing; search is the only coverage
-    consecutive_429 = 0
+    consecutive_fail = 0
     for b in (bottles if do_suggest else []):
         prods, err = suggest_products(client, domain,
                                       b.get("query", b.get("name", "")))
         if prods is None:
             last_err = err or last_err
-            if err == "HTTP 429":
-                consecutive_429 += 1
-                if consecutive_429 >= 2:
+            if err in ("HTTP 429", "timeout"):
+                consecutive_fail += 1
+                if consecutive_fail >= 2:
                     break
             else:
-                consecutive_429 = 0
+                consecutive_fail = 0
             continue
-        consecutive_429 = 0
+        consecutive_fail = 0
         any_ok = True
         for p in prods:
             title = p.get("title", "")
