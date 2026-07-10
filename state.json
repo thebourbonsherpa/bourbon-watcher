@@ -469,8 +469,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1299.99
     },
     "Master's Keep Beacon": {
       "available": true,
