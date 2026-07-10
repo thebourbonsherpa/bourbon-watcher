@@ -473,8 +473,8 @@
       "price": null
     },
     "Master's Keep Beacon": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": false,
