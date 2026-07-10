@@ -461,11 +461,10 @@
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
-    "https://atozbev.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-750ml": false,
-    "https://sbspirit.com/products/wild-turkey-austin-nichol16-y-gold-foil-750ml": false,
-    "https://sbspirit.com/products/wild-turkey-masters-keep-beacon-750ml": false,
-    "https://luekensliquors.com/products/george-t-stagg-bourbon-whiskey-7": false,
-    "https://luekensliquors.com/products/wild-turkey-austin-nichols-archives-gold-foil-16yr": false
+    "https://cellar.com/products/russells-reserve-15-year-old-750ml": false,
+    "https://missiontrailswineandspirits.com/products/peerless-henry-kraver-10-year-old-bourbon": false,
+    "https://missiontrailswineandspirits.com/products/peerless-henry-kraver-old-reserve-10-year-bourbon-whiskey": false,
+    "https://cellar.com/products/peerless-distilling-co-henry-kraver-old-reserve-10-year-old-bourbon-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
@@ -480,23 +479,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1799.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
