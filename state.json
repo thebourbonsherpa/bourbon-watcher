@@ -460,27 +460,18 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
-    "https://sbspirit.com/products/wild-turkey-masters-keep-beacon-750ml": false,
-    "https://cellar.com/products/weller-larue-2021-750ml": false,
-    "https://cellar.com/products/william-weller-larue-2013-750ml": false,
-    "https://cellar.com/products/william-weller-larue-2010-750ml": false,
-    "https://cellar.com/products/william-larue-weller-2024-750ml": false,
-    "https://cellar.com/products/william-weller-larue-2005-750ml": false,
-    "https://cellar.com/products/weller-larue-2018-750ml": false,
-    "https://cellar.com/products/william-larue-weller-2019-750ml": false,
-    "https://cellar.com/products/weller-larue-2017-750ml": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": true,
-      "price": 479.99
+      "available": false,
+      "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1199.99
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
@@ -500,11 +491,11 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1459.0
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
