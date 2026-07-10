@@ -471,14 +471,15 @@
     "https://bondedbottleshop.com/products/george-t-stagg-please-dont-buy-this-before-you-read-the-description-completely": false,
     "https://luekensliquors.com/products/wild-turkey-austin-nichols-archives-gold-foil-16yr": false,
     "https://luekensliquors.com/products/george-t-stagg-bourbon-whiskey-7": false,
-    "https://atozbev.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-750ml": false
+    "https://atozbev.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-750ml": false,
+    "https://www.missionliquor.com/products/wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-bourbon-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807855,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 479.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -490,11 +491,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 4999.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -512,5 +513,6 @@
       "available": false,
       "price": null
     }
-  }
+  },
+  "suggest_cursor": 15
 }
