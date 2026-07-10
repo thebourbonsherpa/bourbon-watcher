@@ -460,8 +460,7 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
-    "https://cellar.com/products/russells-reserve-15-year-old-750ml": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
@@ -488,11 +487,11 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
