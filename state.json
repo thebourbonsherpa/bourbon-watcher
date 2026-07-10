@@ -461,11 +461,7 @@
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
-    "https://atozbev.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-750ml": false,
-    "https://sbspirit.com/products/wild-turkey-austin-nichol16-y-gold-foil-750ml": false,
-    "https://sbspirit.com/products/wild-turkey-masters-keep-beacon-750ml": false,
-    "https://luekensliquors.com/products/george-t-stagg-bourbon-whiskey-7": false,
-    "https://luekensliquors.com/products/wild-turkey-austin-nichols-archives-gold-foil-16yr": false
+    "https://cellar.com/products/russells-reserve-15-year-old-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
@@ -475,12 +471,12 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1235.0
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": false,
@@ -492,7 +488,7 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 699.99
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
