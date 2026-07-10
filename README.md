@@ -1,27 +1,61 @@
-# Bourbon Phone Watcher (v2)
+# Bourbon Phone Watcher (v5.2)
 
 A tiny 24/7 watcher that pings your phone via Telegram the moment one of your
-target bottles flips to in-stock. Runs free on GitHub Actions. No computer of
-yours needs to be on.
+target bottles flips to in-stock at or under your price cap. Runs free on
+GitHub Actions. No computer of yours needs to be on.
 
-v2 change: instead of tracking fixed product URLs, it **searches every shop on
-your roster for each bottle's keywords every run** and alerts on any match that
-goes in-stock. New listings at any roster shop are found automatically. You only
-ever edit the config to add or drop a whole shop or a whole bottle.
+## How it scans (v5 hybrid)
+Every run, each roster shop gets checked TWO ways:
 
-This is the complement to the Cowork search: Cowork does broad discovery across
-the web every 2 hours; this hammers your known roster every ~15 minutes for fast
-push alerts.
+1. **Feed pass (every shop, every run):** reads the shop's public
+   products.json feed - the newest ~750 products. Catches newly created
+   listings fast.
+2. **Search pass (rotating slice):** queries the shop's native Shopify search
+   once per bottle. Catches RESTOCKS of listings created long ago - on big
+   catalogs those sit far beyond the feed window, so the feed alone would
+   miss the classic allocated restock. Each run searches
+   `suggest_shops_per_run` shops (default 15), so every shop gets a restock
+   sweep every ~3 runs (~15 min at a 5-minute trigger cadence). Shops whose
+   feed fails or is empty are always searched - it's their only coverage.
 
-## What you get
-- Searches each shop (Shopify search endpoint) for each bottle's keywords.
-- Tight name-matching so it fires on the right bottle (e.g. only the Eddie 45th
-  RR13, not the standard 13 or last year's release).
-- Alerts only when a match goes from sold-out to in-stock (no repeat spam).
-- Message includes bottle, shop, the exact product title, price vs MSRP, and a
-  tap-through buy link.
-- Text the bot `/status` any time for a full snapshot of where every bottle
-  stands right now (see below).
+Shops are scanned in parallel, but requests are paced twice: per shop AND
+globally (~2.5 requests/sec total). Most roster stores share Shopify's edge
+network, which rate-limits per client IP ACROSS stores - without the global
+cap, 30+ shops 429 at once. HTTP 429 and 430 (Shopify's bot-rejection code)
+are retried with backoff; timeouts get one retry; two consecutive hard
+failures abort that shop's search pass for the run. A run takes ~2-3 minutes.
+
+## Alert rules
+- A hit must be in stock AND have a real price between the junk floor
+  (`min_price`, global $50, per-bottle override) and the bottle's
+  `max_price`. The floor blocks $0.00/$2.00 placeholder listings that some
+  shops use for allocated bottles.
+- The quoted price is the cheapest AVAILABLE variant - never a sold-out
+  cheaper variant.
+- Alerts fire once per listing per stock cycle (no repeat spam) and are only
+  marked "sent" after Telegram confirms delivery - a failed send re-fires
+  next run.
+- Shop caution notes from config.json ride along in the alert, plus a
+  "confirm it ships to you + landed price" footer. Some roster shops are
+  no-MI/ship-to-NC - the note says so.
+
+## Ask for a status any time
+Text the bot `/status` (or `/snapshot`). The next run replies with a card per
+bottle, sorted most-actionable first: ✅ in stock under cap, 🔺 in stock over
+cap, ⚪ all out, then no listings. 🆕 marks a fresh flip to in-stock; 🟢/🔴
+arrows show price moves since the last scan. The header reports how many
+shops were reached, names the ones that weren't (with reasons), and
+separately flags any shop dark 1+ days - that's a real coverage hole, not a
+blip.
+
+## Self-monitoring
+- **Weekly heartbeat** to Telegram: "alive, X/N shops visible," naming
+  unreached shops and flagging persistent-dark ones.
+- **Broken config guard:** if config.json is missing, invalid JSON, or has no
+  bottles/shops, the bot Telegrams you once a day instead of silently
+  scanning nothing.
+- **Job backstop:** the workflow kills any run at 10 minutes so a wedged run
+  can't block the queue.
 
 ## One-time setup (about 15 minutes)
 
@@ -30,16 +64,13 @@ push alerts.
 2. Send `/newbot`, follow the prompts, name it anything (e.g. "Bourbon Watch").
 3. BotFather gives you a **bot token** like `8123456789:AAH...`. Save it.
 4. Open a chat with your new bot and send it any message (lets it DM you).
-5. Get your **chat id**: message **@userinfobot**, it replies with your numeric
-   id. That's your `TELEGRAM_CHAT_ID`.
+5. Get your **chat id**: message **@userinfobot**, it replies with your
+   numeric id. That's your `TELEGRAM_CHAT_ID`.
 
 ### 2. Put the files in a GitHub repo
-1. Create a free GitHub account if you don't have one.
-2. Create a new **public** repository (e.g. `bourbon-watcher`). Public keeps
-   GitHub Actions unlimited-free; your secrets stay encrypted regardless, and
-   only the bourbon config is visible.
-3. Upload the contents of this `phone-watcher` folder to the repo root, keeping
-   the `.github/workflows/watch.yml` path intact.
+1. Create a new **public** repository (public = unlimited free Actions).
+2. Upload the contents of this `phone-watcher` folder to the repo root,
+   keeping the `.github/workflows/watch.yml` path intact.
 
 ### 3. Add your secrets
 Repo **Settings -> Secrets and variables -> Actions -> New repository secret**:
@@ -47,50 +78,35 @@ Repo **Settings -> Secrets and variables -> Actions -> New repository secret**:
 - `TELEGRAM_CHAT_ID` = your numeric chat id
 
 ### 4. Turn it on and test
-1. **Actions** tab, enable workflows if prompted.
-2. **bourbon-watch -> Run workflow** to fire it once now.
-3. Check the run log. It prints how many listings it checked and how many alerts
-   fired. If nothing's in stock you get no Telegram message (that's success too).
-4. From then on it runs automatically every ~15 minutes.
+**Actions** tab -> enable workflows -> **bourbon-watch -> Run workflow**.
+Check the log: it prints "Monitored X/N shops" and the alert count. From then
+on it runs on schedule (a cron-job.org job hitting workflow_dispatch every
+~5 min beats GitHub's own 15-min cron; either works).
 
-## Ask for a status any time
-Text your bot `/status` (or `/snapshot`). On its next run it replies with a card
-for every bottle, sorted so the ones worth acting on sit up top:
+## Maintaining it (config.json)
+- **Add/drop a shop:** one line in `shops` (name + domain; optional `note`
+  that rides along in alerts as a caution tag).
+- **Add/drop a bottle:** a block in `bottles` with `query` + match rules:
+  `match_all` (every term in title), `match_any` (at least one), `exclude`
+  (none). ALWAYS live-test new rules against shop search first - the feed
+  pass scans whole catalogs with match rules alone, so a loose rule
+  (e.g. bare "beacon") matches decoys. Anchor on the most stable unique word.
+- **Re-price:** `max_price` per bottle; junk floor via global `min_price` or
+  per-bottle `min_price`.
+- **Search-pass budget:** `suggest_shops_per_run` (default 15).
+- config.json and bourbon_watch.py are a matched pair when price logic
+  changes - commit them together.
 
-- **✅ under cap, in stock** first, then **🔺 over cap, in stock**, then **⚪ all
-  out**, then bottles with no listings.
-- **🆕** marks a bottle that flipped to in-stock since the last scan.
-- A price move since the last scan shows a **🟢 down** or **🔴 up** arrow with
-  the dollar change.
-- Each card shows the cheapest price, the shop, whether it clears your cap, and
-  how many listings are in stock.
+## Warnings
+- **NEVER re-upload a local/blank state.json.** The live one on GitHub holds
+  alert history, the dark-shop counters, and the Telegram offset.
+  Overwriting it re-fires old alerts and replays commands.
+- Bottles live in TWO places: config.json (this watcher) and watchlist.md
+  (the Cowork sweep). Keep them in sync or one layer goes blind.
+- Non-Shopify shops (ReserveBar, Corkery, Trackside, The Liquor Book) can't
+  be watched here - they're covered by the Cowork layer.
+- cron-job.org's GitHub token expires ~June 2027; renew it or the trigger
+  silently 401s (the heartbeat stopping is the tell).
 
-The header says how many shops were reached. If any weren't, it names them and
-why (timeout, rate-limit, etc.), so a thin run like 19/29 is explained rather
-than a mystery. A shop that just times out is carried forward, so it won't fake
-a bottle going out and coming back.
-
-## Maintaining it (rare, batch edits only)
-Edit `config.json`:
-- **Add/drop a shop:** add or remove a line in `shops` (just a name + domain).
-- **Add/drop a bottle:** add an entry under `bottles` with `query` (the search
-  term) and match rules: `match_all` (every term must be in the title),
-  `match_any` (at least one must be), `exclude` (none may be).
-That's it. No per-URL upkeep, because it discovers listings by searching.
-
-## Good to know
-- **Cost:** free. Public repo = unlimited Actions minutes; Telegram is free.
-- **Coverage:** uses each shop's Shopify search first; if that returns nothing
-  (some shops replace native search with an app), it falls back to scanning the
-  shop's public products.json feed, so search-app shops are still covered.
-  Truly non-Shopify shops (e.g. ReserveBar, Corkery) are skipped here; the
-  Cowork 2-hour sweep covers those. The weekly heartbeat reports how many shops
-  were actually visible and names any it couldn't reach, so a shop going dark
-  won't pass unnoticed. A `/status` reply shows the same reachability detail on
-  demand.
-- **Timing:** GitHub may delay a scheduled run a few minutes under load. Normal.
-- **Staying alive:** the watcher writes a dated heartbeat to `state.json` so the
-  repo gets a commit ~daily, keeping GitHub from auto-pausing the schedule.
-- **Want real SMS instead of Telegram?** Swap the `send_telegram` function for a
-  Twilio call (needs a Twilio account, a number, and US A2P registration).
-  Telegram is recommended: free and no registration.
+## Cost
+Free. Public repo = unlimited Actions minutes; Telegram is free.
