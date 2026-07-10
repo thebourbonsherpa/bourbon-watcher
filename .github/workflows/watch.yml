@@ -16,6 +16,7 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
+    timeout-minutes: 10   # hard backstop: a wedged run can't block the queue
     steps:
       - uses: actions/checkout@v5
 
