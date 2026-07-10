@@ -498,7 +498,9 @@
     "https://cellar.com/products/george-t-stagg-2011-142-6-proof-750ml": false,
     "https://cellar.com/products/george-stagg-2022-750ml": false,
     "https://www.remedyliquor.com/products/ofc-bourbon-2006-750ml-william-larue-weller-bourbon-2025-edition-750ml": false,
-    "https://therarewhiskeyshop.com/products/william-larue-weller-2022": false
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2022": false,
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2010-release": false,
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2008-release": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807856,
@@ -513,23 +515,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 799.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1399.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -540,7 +542,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 21,
+  "suggest_cursor": 36,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
