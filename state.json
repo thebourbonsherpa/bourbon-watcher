@@ -460,8 +460,7 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
-    "https://cellar.com/products/russells-reserve-15-year-old-750ml": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
@@ -471,8 +470,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1235.0
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
