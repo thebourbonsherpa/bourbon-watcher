@@ -472,7 +472,29 @@
     "https://luekensliquors.com/products/wild-turkey-austin-nichols-archives-gold-foil-16yr": false,
     "https://luekensliquors.com/products/george-t-stagg-bourbon-whiskey-7": false,
     "https://atozbev.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-750ml": false,
-    "https://www.missionliquor.com/products/wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-bourbon-750ml": false
+    "https://www.missionliquor.com/products/wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-bourbon-750ml": false,
+    "https://www.missionliquor.com/products/mister-sam-tribute-blended-whiskey-750ml-1": false,
+    "https://www.missionliquor.com/products/william-larue-weller-millenium-whiskey-750ml": false,
+    "https://cellar.com/products/wild-turkey-bourbon-masters-keep-beacon-750ml": false,
+    "https://cellar.com/products/sazerac-mister-sam-tribute-whisky-750ml": false,
+    "https://cellar.com/products/george-t-stagg-2013-128-2-proof-750ml-copy": false,
+    "https://cellar.com/products/george-t-stagg-2009-141-4-proof-750ml": false,
+    "https://cellar.com/products/george-t-stagg-2010-143-0-proof-750ml": false,
+    "https://cellar.com/products/george-t-stagg-2016-750ml": false,
+    "https://cellar.com/products/george-t-stagg-2024-136-1-proof-750ml": false,
+    "https://cellar.com/products/george-stagg-2018-750ml": false,
+    "https://cellar.com/products/george-stagg-2019-750ml": false,
+    "https://cellar.com/products/george-stagg-2013-128-2-proof-750ml": false,
+    "https://cellar.com/products/george-stagg-2023-750ml": false,
+    "https://cellar.com/products/george-stagg-2017-750ml": false,
+    "https://cellar.com/products/weller-larue-2021-750ml": false,
+    "https://cellar.com/products/william-weller-larue-2010-750ml": false,
+    "https://cellar.com/products/william-larue-weller-2024-750ml": false,
+    "https://cellar.com/products/william-larue-weller-2019-750ml": false,
+    "https://cellar.com/products/william-weller-larue-2013-750ml": false,
+    "https://cellar.com/products/william-weller-larue-2005-750ml": false,
+    "https://cellar.com/products/weller-larue-2018-750ml": false,
+    "https://cellar.com/products/weller-larue-2017-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807855,
@@ -487,23 +509,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 799.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -514,5 +536,50 @@
       "price": null
     }
   },
-  "suggest_cursor": 30
+  "suggest_cursor": 2,
+  "shop_misses": {
+    "www.remedyliquor.com": 0,
+    "bourbonoutfitter.com": 0,
+    "sharedpour.com": 0,
+    "estatesliquor.com": 0,
+    "www.buymyliquor.com": 0,
+    "qualityliquorstore.com": 0,
+    "sipwhiskey.com": 0,
+    "dramfellows.com": 0,
+    "delmesaliquor.com": 0,
+    "chipsliquor.com": 0,
+    "woodencork.com": 0,
+    "dewinespot.co": 0,
+    "elcerritoliquor.com": 0,
+    "www.thebarreltap.com": 0,
+    "blackbookspirits.com": 0,
+    "canawineco.com": 0,
+    "wheatleywineandspirits.com": 0,
+    "thebourbonconcierge.com": 0,
+    "jazzyswine.com": 0,
+    "hiproof.com": 0,
+    "mensjournalspirits.com": 0,
+    "primebarrel.com": 0,
+    "whiskeycaviar.com": 0,
+    "barrelshoppe.com": 0,
+    "seelbachs.com": 0,
+    "therarewhiskeyshop.com": 0,
+    "blackwellswines.com": 0,
+    "bottleshopandtastingroom.com": 0,
+    "beveragewarehousemi.com": 0,
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
+  }
 }
