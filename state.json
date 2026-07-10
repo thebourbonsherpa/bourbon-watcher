@@ -497,7 +497,7 @@
     "https://cellar.com/products/weller-larue-2017-750ml": false
   },
   "last_heartbeat": "2026-07-06",
-  "last_update_id": 692807855,
+  "last_update_id": 692807856,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
@@ -513,11 +513,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -525,7 +525,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -536,7 +536,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 32,
+  "suggest_cursor": 4,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
