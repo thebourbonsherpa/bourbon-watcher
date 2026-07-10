@@ -470,27 +470,27 @@
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 1299.99
+      "price": 1299.0
     },
     "Master's Keep Beacon": {
       "available": true,
       "price": 729.99
     },
     "Russell's Reserve 15": {
-      "available": true,
-      "price": 1399.99
+      "available": false,
+      "price": null
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1674.99
+      "price": 4999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1699.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": false,
