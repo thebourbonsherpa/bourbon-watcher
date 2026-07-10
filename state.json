@@ -460,7 +460,10 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false
+    "https://www.missionliquor.com/products/mister-sam-tribute-blended-whiskey-750ml-1": false,
+    "https://www.missionliquor.com/products/william-larue-weller-millenium-whiskey-750ml": false,
+    "https://sbspirit.com/products/wild-turkey-austin-nichol16-y-gold-foil-750ml": false,
+    "https://sbspirit.com/products/wild-turkey-masters-keep-beacon-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
@@ -470,8 +473,8 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1199.99
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
