@@ -494,7 +494,8 @@
     "https://cellar.com/products/william-weller-larue-2013-750ml": false,
     "https://cellar.com/products/william-weller-larue-2005-750ml": false,
     "https://cellar.com/products/weller-larue-2018-750ml": false,
-    "https://cellar.com/products/weller-larue-2017-750ml": false
+    "https://cellar.com/products/weller-larue-2017-750ml": false,
+    "https://cellar.com/products/george-t-stagg-2011-142-6-proof-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807856,
@@ -509,15 +510,15 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -536,7 +537,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 36,
+  "suggest_cursor": 8,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
