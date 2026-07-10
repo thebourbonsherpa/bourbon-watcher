@@ -473,8 +473,8 @@
       "price": null
     },
     "Master's Keep Beacon": {
-      "available": true,
-      "price": 729.99
+      "available": false,
+      "price": null
     },
     "Russell's Reserve 15": {
       "available": false,
@@ -490,7 +490,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1499.99
+      "price": 1699.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": false,
