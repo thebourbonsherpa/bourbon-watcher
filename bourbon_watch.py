@@ -14,28 +14,41 @@ Every shop is scanned TWO ways each run:
      in the first 750), so the feed alone is blind to the classic allocated
      restock. The search pass closes that gap.
 
-Shops are scanned in parallel threads. Shopify rate limits are per shop, so
-requests are paced within a shop (MIN_INTERVAL) but different shops never
-wait on each other. A full run covers the roster in about a minute instead
-of the 12-16 minutes that a globally-throttled per-bottle fan-out took.
+Shops are scanned in parallel threads with TWO layers of pacing (v5.1):
+  - per shop: MIN_INTERVAL between requests to the same store, and
+  - GLOBAL: an aggregate cap across ALL workers. Most roster stores sit
+    behind Shopify's shared edge, which rate-limits per client IP ACROSS
+    stores - v5.0 paced only per shop, and 8 workers from one runner IP
+    tripped the platform limit, blinding 30+ shops at once with 429s.
+The per-bottle search (restock) pass is also budgeted: each run searches a
+rotating slice of the roster (suggest_shops_per_run in config, default 15),
+so every shop gets a restock sweep every ~3 runs while the feed pass still
+covers every shop every run. Shops whose feed fails or is empty are always
+searched, since search is their only coverage.
 
 Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
   TELEGRAM_CHAT_ID    - your Telegram numeric chat id
 """
-import json, os, sys, time, datetime, urllib.parse
+import json, os, sys, time, datetime, threading, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.0)"}
-FEED_PAGES = 3     # products.json pages per shop (250 each, newest-first)
-MIN_INTERVAL = 0.5 # min seconds between requests TO THE SAME shop
-ATTEMPTS = 3       # tries per request; retries cover 429s AND timeouts /
-                   # connection blips, which used to fail a shop instantly
-MAX_WORKERS = 8    # shops scanned concurrently
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.1)"}
+FEED_PAGES = 3       # products.json pages per shop (250 each, newest-first)
+MIN_INTERVAL = 0.5   # min seconds between requests TO THE SAME shop
+GLOBAL_INTERVAL = 0.4  # min seconds between requests ACROSS ALL shops
+                       # (~2.5 req/s aggregate - under Shopify's per-IP edge limit)
+ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
+                     # connection blips, which used to fail a shop instantly
+MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
+SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
+
+_global_lock = threading.Lock()
+_global_next = [0.0]  # next allowed request time, shared by all workers
 
 
 class ShopClient:
@@ -49,7 +62,17 @@ class ShopClient:
         self.last = 0.0
 
     def _pace(self):
+        # Per-shop spacing first.
         wait = MIN_INTERVAL - (time.monotonic() - self.last)
+        if wait > 0:
+            time.sleep(wait)
+        # Then reserve a slot in the GLOBAL schedule. Slots are handed out
+        # under a lock so workers queue instead of bursting; the sleep happens
+        # outside the lock so it doesn't serialize everyone else.
+        with _global_lock:
+            slot = max(time.monotonic(), _global_next[0])
+            _global_next[0] = slot + GLOBAL_INTERVAL
+        wait = slot - time.monotonic()
         if wait > 0:
             time.sleep(wait)
         self.last = time.monotonic()
@@ -183,11 +206,14 @@ def variant_pricing(variants):
     return available, (min(all_prices) if all_prices else None)
 
 
-def scan_shop(shop, bottles):
-    """Scan one shop both ways. Runs in a worker thread and touches no shared
-    state; returns (shop, any_ok, last_err, feed_ok, candidates) where
-    candidates is a list of (bottle, purl, title, available, price), deduped
-    by (bottle, purl) with the feed version preferred (richer variant data)."""
+def scan_shop(shop, bottles, do_suggest=True):
+    """Scan one shop. Runs in a worker thread and touches no shared state;
+    returns (shop, any_ok, last_err, feed_ok, candidates) where candidates is
+    a list of (bottle, purl, title, available, price), deduped by
+    (bottle, purl) with the feed version preferred (richer variant data).
+    The feed pass always runs; the per-bottle search pass runs when
+    do_suggest is True (this run's rotation slice) OR when the feed failed
+    or was empty, since search is that shop's only coverage then."""
     domain = shop["domain"]
     client = ShopClient()
     any_ok = False
@@ -214,13 +240,25 @@ def scan_shop(shop, bottles):
 
     # Pass 2: native search, once per bottle - restocks of older listings
     # that sit beyond the feed window. Shops that disable products.json are
-    # covered entirely by this pass.
-    for b in bottles:
+    # covered entirely by this pass. Two consecutive 429s abort the pass for
+    # this shop this run - the IP is being throttled and further requests
+    # just burn the global budget.
+    if not do_suggest and not feed:
+        do_suggest = True   # feed gave nothing; search is the only coverage
+    consecutive_429 = 0
+    for b in (bottles if do_suggest else []):
         prods, err = suggest_products(client, domain,
                                       b.get("query", b.get("name", "")))
         if prods is None:
             last_err = err or last_err
+            if err == "HTTP 429":
+                consecutive_429 += 1
+                if consecutive_429 >= 2:
+                    break
+            else:
+                consecutive_429 = 0
             continue
+        consecutive_429 = 0
         any_ok = True
         for p in prods:
             title = p.get("title", "")
@@ -481,10 +519,22 @@ def main():
     alerts = []
     matches = []   # full current landscape, for on-demand /snapshot replies
 
+    # Rotate the per-bottle search (restock) pass across the roster so each
+    # run stays within the global request budget. Every shop still gets the
+    # feed pass every run; each gets the search pass every ~3 runs.
+    k = min(config.get("suggest_shops_per_run", SUGGEST_DEFAULT),
+            max(len(shops), 1))
+    cursor = int(state.get("suggest_cursor", 0)) % max(len(shops), 1)
+    suggest_domains = {shops[(cursor + i) % len(shops)]["domain"]
+                       for i in range(k)} if shops else set()
+    state["suggest_cursor"] = (cursor + k) % max(len(shops), 1)
+
     # Scan shops in parallel; merge results sequentially so in_stock/alerts
     # stay single-threaded.
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        results = list(ex.map(lambda s: scan_shop(s, bottles), shops))
+        results = list(ex.map(
+            lambda s: scan_shop(s, bottles, s["domain"] in suggest_domains),
+            shops))
 
     for shop, any_ok, last_err, feed_ok, cands in results:
         domain = shop["domain"]
