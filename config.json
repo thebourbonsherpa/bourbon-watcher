@@ -27,7 +27,7 @@
       "max_price": 550,
       "query": "masters keep beacon",
       "match_all": ["beacon"],
-      "match_any": [],
+      "match_any": ["masters keep", "master's keep", "master’s keep", "wild turkey"],
       "exclude": []
     },
     {
@@ -46,7 +46,7 @@
       "query": "mister sam tribute",
       "match_all": ["sam", "tribute"],
       "match_any": [],
-      "exclude": ["batch 1", "batch 2", "first edition", "second edition", "batch no 1", "batch no. 1", "batch no 2", "batch no. 2", "batch #1", "batch #2"]
+      "exclude": ["batch 1", "batch 2", "first edition", "second edition", "batch no 1", "batch no. 1", "batch no 2", "batch no. 2", "batch #1", "batch #2", "samuel adams"]
     },
     {
       "name": "George T. Stagg (GTS, any batch)",

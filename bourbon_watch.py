@@ -97,8 +97,12 @@ class ShopClient:
                 continue
             except Exception as e:
                 return None, type(e).__name__
-            if r.status_code == 429:
-                err = "HTTP 429"
+            if r.status_code in (429, 430):
+                # 429 = rate limited; 430 = Shopify's custom "security
+                # rejection" for suspected bot traffic. Both mean back off
+                # and retry - failing instantly on 430 would blind a shop
+                # exactly when it is telling us to slow down.
+                err = f"HTTP {r.status_code}"
                 ra = r.headers.get("Retry-After")
                 try:
                     wait = float(ra) if ra else 2.0 ** attempt
@@ -253,7 +257,7 @@ def scan_shop(shop, bottles, do_suggest=True):
                                       b.get("query", b.get("name", "")))
         if prods is None:
             last_err = err or last_err
-            if err in ("HTTP 429", "timeout"):
+            if err in ("HTTP 429", "HTTP 430", "timeout"):
                 consecutive_fail += 1
                 if consecutive_fail >= 2:
                     break
@@ -355,7 +359,7 @@ def snapshot_state(matches, bottles):
 
 
 def build_snapshot(matches, bottles, monitored, total, today, unreachable=None,
-                   prev=None):
+                   prev=None, persistent=None):
     """Phone-friendly snapshot. Two-line card per bottle, sorted so the most
     actionable bottles float to the top: in stock and under cap first, then in
     stock over cap, then all out, then no listings; newly in-stock bottles rise
@@ -389,9 +393,14 @@ def build_snapshot(matches, bottles, monitored, total, today, unreachable=None,
         names = ", ".join(sorted(n for n, _ in unreachable))
         header.append(f"⚠️ {len(unreachable)} not reached ({reason_str})")
         header.append(f"   {names}")
+        transient = [(n, r) for n, r in unreachable
+                     if n not in set(persistent or [])]
         if any(r in ("timeout", "connection error") or r.startswith("HTTP 5")
-               or r == "HTTP 429" for _, r in unreachable):
+               or r in ("HTTP 429", "HTTP 430") for _, r in transient):
             header.append("   likely transient - usually clears next run")
+    if persistent:
+        header.append(f"\U0001F6A8 dark 1+ days (not transient - check): "
+                      f"{', '.join(persistent)}")
 
     prev = prev or {}
     new_names = set()
@@ -501,8 +510,28 @@ def main():
         print("Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID", file=sys.stderr)
         sys.exit(1)
 
-    config = load_json(CONFIG, {"bottles": [], "shops": []})
+    config = load_json(CONFIG, None)
     state = load_json(STATE, {})
+
+    # ---- Config guard: a JSON typo used to fail SILENTLY (load_json falls
+    # back to empty, the watcher scans nothing, and the weekly heartbeat is
+    # the first tell - up to 7 days blind). Instead: Telegram once a day and
+    # keep the run green so state (with the dedupe marker) still persists.
+    if (not config or not config.get("bottles")
+            or not [s for s in config.get("shops", []) if s.get("domain")]):
+        today_s = datetime.date.today().isoformat()
+        if state.get("config_alert") != today_s:
+            send_telegram(token, chat_id,
+                          "\U0001F6D1 Bourbon watcher: config.json is missing, "
+                          "invalid JSON, or has no bottles/shops. The watcher "
+                          "is scanning NOTHING until it's fixed. (This pings "
+                          "once a day.)")
+            state["config_alert"] = today_s
+            with open(STATE, "w") as f:
+                json.dump(state, f, indent=2)
+        print("Config invalid or empty - scanned nothing.", file=sys.stderr)
+        return
+
     in_stock = state.get("in_stock", {})
     bottles = config.get("bottles", [])
     shops = [s for s in config.get("shops", []) if s.get("domain")]
@@ -556,6 +585,22 @@ def main():
         else:
             unreachable.append((shop_name, last_err or "no response"))
 
+    # ---- Persistent-darkness tracking: one missed run is noise; a shop dark
+    # for a day+ is a coverage hole (moved off Shopify, blocking us, dead
+    # domain) that "likely transient" wording would keep excusing forever.
+    # Count consecutive missed runs per domain; flag crossers.
+    dark_names = {n for n, _ in unreachable}
+    old_misses = state.get("shop_misses", {})
+    misses = {}
+    for shop in shops:
+        d = shop["domain"]
+        dark = shop.get("name", d) in dark_names
+        misses[d] = old_misses.get(d, 0) + 1 if dark else 0
+    state["shop_misses"] = misses
+    DARK_RUNS = 250   # ~a day at 5-minute cadence
+    persistent = [s.get("name", s["domain"]) for s in shops
+                  if misses[s["domain"]] >= DARK_RUNS]
+
     for purl, msg in alerts:
         if send_telegram(token, chat_id, msg):
             in_stock[purl] = True   # record as alerted only on confirmed delivery
@@ -587,6 +632,9 @@ def main():
             blind_note = f" {blind} not reached: {names}."
         elif blind:
             blind_note = f" {blind} not visible - check config."
+        if persistent:
+            blind_note += (f" ⚠ DARK 1+ DAYS (needs a look, not "
+                           f"transient): {', '.join(persistent)}.")
         if send_telegram(token, chat_id,
             f"\U0001F7E2 Bourbon watcher alive - {today.isoformat()}. "
             f"{monitored}/{total} shops visible.{blind_note} "
@@ -607,7 +655,8 @@ def main():
     # last run, reply with the current per-bottle landscape from this scan.
     if check_snapshot_request(token, chat_id, state):
         summary = build_snapshot(matches, bottles, monitored, total,
-                                 today.isoformat(), unreachable, prev_state)
+                                 today.isoformat(), unreachable, prev_state,
+                                 persistent)
         if send_telegram(token, chat_id, summary):
             print("Snapshot sent on request.")
         else:
