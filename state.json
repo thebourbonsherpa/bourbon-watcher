@@ -529,11 +529,11 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1299.95
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
