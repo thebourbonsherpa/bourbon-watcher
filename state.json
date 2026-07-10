@@ -460,14 +460,15 @@
     "https://lovescotch.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2020-release": false,
     "https://lovescotch.com/products/william-larue-weller-kentucky-straight-bourbon-2024-edition": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2015-138-2-proof": false,
+    "https://cellar.com/products/russells-reserve-15-year-old-750ml": false
   },
   "last_heartbeat": "2026-07-06",
   "last_update_id": 692807854,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 479.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -494,8 +495,8 @@
       "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 639.99
     },
     "Bulleit 20 Year Rye": {
       "available": false,
