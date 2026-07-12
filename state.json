@@ -523,11 +523,11 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 849.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -542,7 +542,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 20,
+  "suggest_cursor": 35,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
