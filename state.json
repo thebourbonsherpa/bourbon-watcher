@@ -503,7 +503,7 @@
     "https://therarewhiskeyshop.com/products/george-t-stagg-2008-release": false
   },
   "last_heartbeat": "2026-07-06",
-  "last_update_id": 692807858,
+  "last_update_id": 692807859,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
@@ -515,23 +515,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 799.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1499.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -542,7 +542,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 23,
+  "suggest_cursor": 38,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
