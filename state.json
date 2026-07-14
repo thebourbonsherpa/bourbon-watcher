@@ -516,15 +516,15 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.99
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1499.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -543,7 +543,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 38,
+  "suggest_cursor": 10,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
