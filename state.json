@@ -510,15 +510,15 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 599.0
+      "price": 479.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 899.95
+      "price": 1099.99
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 729.99
+      "price": 799.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -526,7 +526,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -534,18 +534,18 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1299.95
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 639.99
     },
     "Bulleit 20 Year Rye": {
       "available": false,
       "price": null
     }
   },
-  "suggest_cursor": 1,
+  "suggest_cursor": 16,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
