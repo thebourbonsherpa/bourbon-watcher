@@ -507,11 +507,11 @@
     "https://www.thebarreltap.com/products/russells-reserve-13-year-old-bourbon-spring-2026": false
   },
   "last_heartbeat": "2026-07-13",
-  "last_update_id": 692807859,
+  "last_update_id": 692807860,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 499.99
+      "price": 479.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -527,15 +527,15 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 789.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1299.95
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -546,7 +546,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 11,
+  "suggest_cursor": 26,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
