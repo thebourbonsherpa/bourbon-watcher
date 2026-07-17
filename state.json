@@ -522,7 +522,7 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -530,11 +530,11 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -545,7 +545,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 30,
+  "suggest_cursor": 2,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -580,7 +580,7 @@
     "3brothersliquor.com": 0,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
-    "winetoship.com": 0,
+    "winetoship.com": 1,
     "atozbev.com": 0,
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
