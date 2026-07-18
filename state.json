@@ -511,42 +511,42 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 479.99
+      "price": 499.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 899.95
+      "price": 1099.99
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 729.99
+      "price": 725.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 699.99
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
       "price": null
     }
   },
-  "suggest_cursor": 7,
+  "suggest_cursor": 22,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -563,33 +563,33 @@
     "elcerritoliquor.com": 0,
     "www.thebarreltap.com": 0,
     "blackbookspirits.com": 0,
-    "canawineco.com": 0,
-    "wheatleywineandspirits.com": 0,
-    "thebourbonconcierge.com": 0,
-    "jazzyswine.com": 0,
-    "hiproof.com": 0,
-    "mensjournalspirits.com": 0,
-    "primebarrel.com": 0,
-    "whiskeycaviar.com": 0,
-    "barrelshoppe.com": 0,
-    "seelbachs.com": 0,
-    "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 0,
-    "bottleshopandtastingroom.com": 0,
-    "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 0,
-    "3brothersliquor.com": 0,
-    "primetimeliquor.com": 0,
-    "missiontrailswineandspirits.com": 0,
-    "winetoship.com": 0,
-    "atozbev.com": 0,
-    "lovescotch.com": 0,
-    "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0
+    "canawineco.com": 1,
+    "wheatleywineandspirits.com": 1,
+    "thebourbonconcierge.com": 1,
+    "jazzyswine.com": 1,
+    "hiproof.com": 1,
+    "mensjournalspirits.com": 1,
+    "primebarrel.com": 1,
+    "whiskeycaviar.com": 1,
+    "barrelshoppe.com": 1,
+    "seelbachs.com": 1,
+    "therarewhiskeyshop.com": 1,
+    "blackwellswines.com": 1,
+    "bottleshopandtastingroom.com": 1,
+    "beveragewarehousemi.com": 1,
+    "nestorliquor.com": 1,
+    "3brothersliquor.com": 1,
+    "primetimeliquor.com": 1,
+    "missiontrailswineandspirits.com": 1,
+    "winetoship.com": 1,
+    "atozbev.com": 1,
+    "lovescotch.com": 1,
+    "www.kegnbottle.com": 1,
+    "www.missionliquor.com": 1,
+    "cellar.com": 1,
+    "sbspirit.com": 1,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
+    "kybourbondirect.com": 1
   }
 }
