@@ -519,20 +519,20 @@
       "price": 899.95
     },
     "Master's Keep Beacon": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 725.0
     },
     "Russell's Reserve 15": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -547,7 +547,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 40,
+  "suggest_cursor": 12,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -566,12 +566,12 @@
     "blackbookspirits.com": 0,
     "canawineco.com": 0,
     "wheatleywineandspirits.com": 0,
-    "thebourbonconcierge.com": 1,
+    "thebourbonconcierge.com": 0,
     "jazzyswine.com": 0,
     "hiproof.com": 0,
     "mensjournalspirits.com": 0,
     "primebarrel.com": 0,
-    "whiskeycaviar.com": 1,
+    "whiskeycaviar.com": 0,
     "barrelshoppe.com": 0,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
