@@ -519,8 +519,8 @@
       "price": 988.95
     },
     "Master's Keep Beacon": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 729.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -528,7 +528,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1674.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -536,7 +536,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1459.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -547,7 +547,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 39,
+  "suggest_cursor": 11,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -567,12 +567,12 @@
     "canawineco.com": 0,
     "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
-    "jazzyswine.com": 1,
+    "jazzyswine.com": 0,
     "hiproof.com": 0,
     "mensjournalspirits.com": 0,
     "primebarrel.com": 0,
     "whiskeycaviar.com": 0,
-    "barrelshoppe.com": 1,
+    "barrelshoppe.com": 0,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
     "blackwellswines.com": 0,
