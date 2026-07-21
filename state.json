@@ -505,7 +505,8 @@
     "https://therarewhiskeyshop.com/products/george-t-stagg-2017-release-copy": false,
     "https://therarewhiskeyshop.com/products/george-t-stagg-2009-release": false,
     "https://www.thebarreltap.com/products/russells-reserve-13-year-old-bourbon-spring-2026": false,
-    "https://missiontrailswineandspirits.com/products/william-larue-weller-bourbon-2021": false
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-bourbon-2021": false,
+    "https://jazzyswine.com/products/2016-william-larue-weller-kentucky-straight-bourbon-whiskey-750ml": false
   },
   "last_heartbeat": "2026-07-20",
   "last_update_id": 692807860,
@@ -532,7 +533,7 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 699.99
+      "price": 789.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
