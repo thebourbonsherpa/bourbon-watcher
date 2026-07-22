@@ -508,7 +508,8 @@
     "https://missiontrailswineandspirits.com/products/william-larue-weller-bourbon-2021": false,
     "https://jazzyswine.com/products/2016-william-larue-weller-kentucky-straight-bourbon-whiskey-750ml": false,
     "https://sipwhiskey.com/products/russells-reserve-13-year-old-bourbon-eddie-s-45th-anniversary-spring-2026-release": false,
-    "https://missiontrailswineandspirits.com/products/russells-reserve-13-year-old-bourbon-eddie-s-45th-anniversary-spring-2026-release": false
+    "https://missiontrailswineandspirits.com/products/russells-reserve-13-year-old-bourbon-eddie-s-45th-anniversary-spring-2026-release": false,
+    "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-william-larue-weller-2017-128-2-proof": false
   },
   "last_heartbeat": "2026-07-20",
   "last_update_id": 692807861,
@@ -527,19 +528,19 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 699.99
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -550,7 +551,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 42,
+  "suggest_cursor": 14,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
