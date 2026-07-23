@@ -528,30 +528,30 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1375.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
       "price": 1299.95
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 639.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
       "price": null
     }
   },
-  "suggest_cursor": 30,
+  "suggest_cursor": 2,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
