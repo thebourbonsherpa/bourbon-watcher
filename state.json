@@ -524,7 +524,7 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 699.99
+      "price": 679.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -551,7 +551,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 42,
+  "suggest_cursor": 14,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
