@@ -524,11 +524,11 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 679.99
+      "price": 659.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1349.99
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -540,7 +540,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -551,7 +551,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 6,
+  "suggest_cursor": 21,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
