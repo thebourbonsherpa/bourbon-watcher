@@ -524,51 +524,51 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 999.99
+      "price": 659.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 639.99
     },
     "Bulleit 20 Year Rye": {
       "available": false,
       "price": null
     }
   },
-  "suggest_cursor": 8,
+  "suggest_cursor": 23,
   "shop_misses": {
-    "www.remedyliquor.com": 1,
-    "bourbonoutfitter.com": 1,
-    "sharedpour.com": 1,
-    "estatesliquor.com": 1,
-    "www.buymyliquor.com": 1,
-    "qualityliquorstore.com": 1,
-    "sipwhiskey.com": 1,
-    "dramfellows.com": 1,
-    "delmesaliquor.com": 1,
-    "chipsliquor.com": 1,
-    "woodencork.com": 1,
-    "dewinespot.co": 1,
-    "elcerritoliquor.com": 1,
-    "www.thebarreltap.com": 1,
-    "blackbookspirits.com": 1,
-    "canawineco.com": 1,
+    "www.remedyliquor.com": 0,
+    "bourbonoutfitter.com": 0,
+    "sharedpour.com": 0,
+    "estatesliquor.com": 0,
+    "www.buymyliquor.com": 0,
+    "qualityliquorstore.com": 0,
+    "sipwhiskey.com": 0,
+    "dramfellows.com": 0,
+    "delmesaliquor.com": 0,
+    "chipsliquor.com": 0,
+    "woodencork.com": 0,
+    "dewinespot.co": 0,
+    "elcerritoliquor.com": 0,
+    "www.thebarreltap.com": 0,
+    "blackbookspirits.com": 0,
+    "canawineco.com": 0,
     "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
     "jazzyswine.com": 0,
