@@ -528,20 +528,20 @@
       "price": 669.0
     },
     "Russell's Reserve 15": {
-      "available": true,
-      "price": 1399.99
+      "available": false,
+      "price": null
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.95
+      "price": 1499.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -552,7 +552,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 33,
+  "suggest_cursor": 5,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -573,18 +573,18 @@
     "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
     "jazzyswine.com": 0,
-    "hiproof.com": 0,
+    "hiproof.com": 1,
     "mensjournalspirits.com": 0,
-    "primebarrel.com": 0,
-    "whiskeycaviar.com": 0,
-    "barrelshoppe.com": 0,
+    "primebarrel.com": 1,
+    "whiskeycaviar.com": 1,
+    "barrelshoppe.com": 1,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 0,
-    "bottleshopandtastingroom.com": 0,
-    "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 0,
-    "3brothersliquor.com": 0,
+    "blackwellswines.com": 1,
+    "bottleshopandtastingroom.com": 1,
+    "beveragewarehousemi.com": 1,
+    "nestorliquor.com": 1,
+    "3brothersliquor.com": 1,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
     "winetoship.com": 0,
