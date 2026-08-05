@@ -513,7 +513,7 @@
     "https://mensjournalspirits.com/products/george-t-stagg-uncut-barrel-proof-bourbon-whiskey-750-ml": false,
     "https://elcerritoliquor.com/products/george-t-stagg-bourbon-whiskey-2011-142-6-proof": false,
     "https://jazzyswine.com/products/george-t-stagg-bourbon-whiskey-2011-142-6-proof": false,
-    "https://delmesaliquor.com/products/bulleit-20-year-old-cask-strength-rye-whiskey": false
+    "https://delmesaliquor.com/products/bulleit-20-year-old-cask-strength-rye-whiskey": true
   },
   "last_heartbeat": "2026-08-03",
   "last_update_id": 692807863,
@@ -532,30 +532,30 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1399.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 849.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
       "price": 749.99
     },
     "Bulleit 20 Year Rye": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 299.99
     }
   },
-  "suggest_cursor": 21,
+  "suggest_cursor": 36,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
