@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-11",
+  "date": "2026-08-12",
   "in_stock": {
     "https://sipwhiskey.com/products/russell-s-reserve-13-year-eddie-russell-s-45th-anniversary": false,
     "https://www.buymyliquor.com/products/russell-s-reserve-13-year-eddie-s-45th-anniversary-bourbon": false,
@@ -535,11 +535,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1499.99
+      "price": 1333.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1674.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -558,7 +558,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 39,
+  "suggest_cursor": 11,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
