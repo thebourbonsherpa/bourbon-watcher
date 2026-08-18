@@ -518,7 +518,11 @@
     "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-william-larue-weller-134-6pf-2015": false,
     "https://bourbonoutfitter.com/products/russells-reserve-13-year-eddie-s-45th-anniversary-spring-2026": false,
     "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-george-t-stagg-2016-144-1-proof": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-130-4-proof": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2020-130-4-proof": false,
+    "https://jazzyswine.com/products/george-t-stagg-bourbon-whiskey-2020": false,
+    "https://jazzyswine.com/products/2015-george-t-stagg-bourbon-whiskey-138-2-proof": false,
+    "https://jazzyswine.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2009-141-4-proof": false,
+    "https://jazzyswine.com/products/george-t-stagg-2005-spring-lot-b-btac-750ml": false
   },
   "last_heartbeat": "2026-08-17",
   "last_update_id": 692807863,
@@ -533,7 +537,7 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 649.99
+      "price": 799.0
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -541,15 +545,15 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 789.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1279.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -560,7 +564,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 15,
+  "suggest_cursor": 30,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
