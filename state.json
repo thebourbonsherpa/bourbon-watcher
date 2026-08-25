@@ -554,11 +554,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1333.99
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -599,7 +599,7 @@
     "thebourbonconcierge.com": 0,
     "jazzyswine.com": 2,
     "hiproof.com": 2,
-    "mensjournalspirits.com": 1,
+    "mensjournalspirits.com": 0,
     "primebarrel.com": 2,
     "whiskeycaviar.com": 2,
     "barrelshoppe.com": 2,
@@ -615,7 +615,7 @@
     "winetoship.com": 2,
     "atozbev.com": 2,
     "lovescotch.com": 2,
-    "www.kegnbottle.com": 1,
+    "www.kegnbottle.com": 0,
     "www.missionliquor.com": 2,
     "cellar.com": 2,
     "sbspirit.com": 2,
