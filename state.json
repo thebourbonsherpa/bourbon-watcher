@@ -553,8 +553,8 @@
       "price": 649.99
     },
     "Russell's Reserve 15": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -593,7 +593,7 @@
     "dewinespot.co": 1,
     "elcerritoliquor.com": 1,
     "www.thebarreltap.com": 1,
-    "blackbookspirits.com": 0,
+    "blackbookspirits.com": 1,
     "canawineco.com": 1,
     "wheatleywineandspirits.com": 1,
     "thebourbonconcierge.com": 1,
