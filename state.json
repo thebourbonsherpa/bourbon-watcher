@@ -540,7 +540,8 @@
     "https://www.buymyliquor.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey-2": false,
     "https://dramfellows.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey": false,
     "https://woodencork.com/products/william-larue-weller-2007-117-9-proof-10-year": false,
-    "https://cellar.com/products/weller-larue-2023-750ml": false
+    "https://cellar.com/products/weller-larue-2023-750ml": false,
+    "https://cellar.com/products/weller-larue-2022-750ml": false
   },
   "last_heartbeat": "2026-08-24",
   "last_update_id": 692807863,
@@ -563,7 +564,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -622,10 +623,10 @@
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
     "www.missionliquor.com": 0,
-    "cellar.com": 1,
-    "sbspirit.com": 1,
-    "bondedbottleshop.com": 1,
-    "luekensliquors.com": 1,
-    "kybourbondirect.com": 1
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
