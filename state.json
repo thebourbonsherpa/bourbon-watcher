@@ -539,7 +539,8 @@
     "https://www.buymyliquor.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey": false,
     "https://www.buymyliquor.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey-2": false,
     "https://dramfellows.com/products/bulleit-20-year-old-95-rye-cask-strength-straight-rye-whiskey": false,
-    "https://woodencork.com/products/william-larue-weller-2007-117-9-proof-10-year": false
+    "https://woodencork.com/products/william-larue-weller-2007-117-9-proof-10-year": false,
+    "https://cellar.com/products/weller-larue-2023-750ml": false
   },
   "last_heartbeat": "2026-08-24",
   "last_update_id": 692807863,
@@ -554,23 +555,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1279.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -581,7 +582,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 33,
+  "suggest_cursor": 5,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
