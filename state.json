@@ -557,8 +557,8 @@
       "price": 649.99
     },
     "Russell's Reserve 15": {
-      "available": true,
-      "price": 1699.99
+      "available": false,
+      "price": null
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -603,7 +603,7 @@
     "thebourbonconcierge.com": 1,
     "jazzyswine.com": 1,
     "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
+    "mensjournalspirits.com": 0,
     "primebarrel.com": 1,
     "whiskeycaviar.com": 1,
     "barrelshoppe.com": 1,
