@@ -543,7 +543,10 @@
     "https://cellar.com/products/weller-larue-2023-750ml": false,
     "https://cellar.com/products/weller-larue-2022-750ml": false,
     "https://missiontrailswineandspirits.com/products/george-t-stagg-2010": false,
-    "https://blackwellswines.com/products/bulleit-20-year-old-cask-strength-straight-rye-whiskey-americas-250th-anniversary-750ml": true
+    "https://blackwellswines.com/products/bulleit-20-year-old-cask-strength-straight-rye-whiskey-americas-250th-anniversary-750ml": true,
+    "https://woodencork.com/products/william-larue-weller-2005-121-9-proof-12-year": false,
+    "https://woodencork.com/products/william-larue-weller-2010-126-6-proof-12-year": false,
+    "https://woodencork.com/products/william-larue-weller-2006-129-9-proof-15-year": false
   },
   "last_heartbeat": "2026-08-24",
   "last_update_id": 692807863,
