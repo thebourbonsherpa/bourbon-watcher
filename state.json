@@ -546,7 +546,8 @@
     "https://blackwellswines.com/products/bulleit-20-year-old-cask-strength-straight-rye-whiskey-americas-250th-anniversary-750ml": false,
     "https://woodencork.com/products/william-larue-weller-2005-121-9-proof-12-year": false,
     "https://woodencork.com/products/william-larue-weller-2010-126-6-proof-12-year": false,
-    "https://woodencork.com/products/william-larue-weller-2006-129-9-proof-15-year": false
+    "https://woodencork.com/products/william-larue-weller-2006-129-9-proof-15-year": false,
+    "https://woodencork.com/products/wild-turkey-tribute-15-year-old-jimmy-russell-50th-anniversary-2005-kentucky-straight-bourbon-whiskey-750ml": false
   },
   "last_heartbeat": "2026-08-24",
   "last_update_id": 692807863,
@@ -561,23 +562,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1333.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -588,7 +589,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 41,
+  "suggest_cursor": 13,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -624,14 +625,14 @@
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
     "winetoship.com": 0,
-    "atozbev.com": 1,
-    "lovescotch.com": 1,
-    "www.kegnbottle.com": 1,
-    "www.missionliquor.com": 1,
-    "cellar.com": 1,
-    "sbspirit.com": 1,
-    "bondedbottleshop.com": 1,
-    "luekensliquors.com": 1,
-    "kybourbondirect.com": 1
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
