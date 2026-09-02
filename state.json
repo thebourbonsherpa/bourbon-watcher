@@ -559,16 +559,16 @@
       "price": null
     },
     "Austin Nichols Archives Gold Foil": {
-      "available": true,
-      "price": 1299.99
+      "available": false,
+      "price": null
     },
     "Master's Keep Beacon": {
       "available": true,
       "price": 649.99
     },
     "Russell's Reserve 15": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -613,7 +613,7 @@
     "thebourbonconcierge.com": 1,
     "jazzyswine.com": 1,
     "hiproof.com": 1,
-    "mensjournalspirits.com": 0,
+    "mensjournalspirits.com": 1,
     "primebarrel.com": 1,
     "whiskeycaviar.com": 1,
     "barrelshoppe.com": 1,
@@ -629,7 +629,7 @@
     "winetoship.com": 1,
     "atozbev.com": 1,
     "lovescotch.com": 1,
-    "www.kegnbottle.com": 0,
+    "www.kegnbottle.com": 1,
     "www.missionliquor.com": 1,
     "cellar.com": 1,
     "sbspirit.com": 1,
