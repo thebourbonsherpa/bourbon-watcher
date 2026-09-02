@@ -552,7 +552,8 @@
     "https://www.thebarreltap.com/products/bulleit-95-20-year-cask-strength-straight-rye-whiskey": false,
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2022-138-7-proof": false,
     "https://therarewhiskeyshop.com/products/george-t-stagg-2002-first-release": false,
-    "https://woodencork.com/products/bulleit-95-20-year-cask-strength-straight-rye-whiskey": false
+    "https://woodencork.com/products/bulleit-95-20-year-cask-strength-straight-rye-whiskey": false,
+    "https://www.kegnbottle.com/products/russells-reserve-13-year-45th-anniversary-121-2-barrel-proof-whiskey-750ml": false
   },
   "last_heartbeat": "2026-08-31",
   "last_update_id": 692807863,
@@ -567,15 +568,15 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1499.99
+      "price": 1333.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1674.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -587,14 +588,14 @@
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
-      "price": 749.99
+      "price": 499.99
     },
     "Bulleit 20 Year Rye": {
       "available": true,
       "price": 1999.99
     }
   },
-  "suggest_cursor": 39,
+  "suggest_cursor": 11,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
