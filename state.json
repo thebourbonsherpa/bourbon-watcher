@@ -560,7 +560,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 499.99
+      "price": 399.95
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -568,11 +568,11 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1499.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -580,7 +580,7 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -595,7 +595,7 @@
       "price": null
     }
   },
-  "suggest_cursor": 38,
+  "suggest_cursor": 10,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -628,17 +628,17 @@
     "beveragewarehousemi.com": 0,
     "nestorliquor.com": 0,
     "3brothersliquor.com": 0,
-    "primetimeliquor.com": 1,
-    "missiontrailswineandspirits.com": 1,
-    "winetoship.com": 1,
-    "atozbev.com": 1,
-    "lovescotch.com": 1,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 1,
-    "cellar.com": 1,
-    "sbspirit.com": 1,
-    "bondedbottleshop.com": 1,
-    "luekensliquors.com": 1,
-    "kybourbondirect.com": 1
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
