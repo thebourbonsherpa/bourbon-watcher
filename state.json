@@ -564,19 +564,19 @@
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 988.95
+      "price": 1299.99
     },
     "Master's Keep Beacon": {
       "available": true,
       "price": 649.99
     },
     "Russell's Reserve 15": {
-      "available": true,
-      "price": 1184.0
+      "available": false,
+      "price": null
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 4999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -584,11 +584,11 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": true,
-      "price": 749.99
+      "available": false,
+      "price": null
     },
     "Bulleit 20 Year Rye": {
       "available": false,
@@ -605,19 +605,19 @@
     "qualityliquorstore.com": 0,
     "sipwhiskey.com": 0,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 0,
-    "chipsliquor.com": 0,
-    "woodencork.com": 0,
-    "dewinespot.co": 0,
-    "elcerritoliquor.com": 0,
-    "www.thebarreltap.com": 0,
+    "delmesaliquor.com": 1,
+    "chipsliquor.com": 1,
+    "woodencork.com": 1,
+    "dewinespot.co": 1,
+    "elcerritoliquor.com": 1,
+    "www.thebarreltap.com": 1,
     "blackbookspirits.com": 0,
     "canawineco.com": 0,
-    "wheatleywineandspirits.com": 0,
+    "wheatleywineandspirits.com": 1,
     "thebourbonconcierge.com": 1,
     "jazzyswine.com": 1,
     "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
+    "mensjournalspirits.com": 0,
     "primebarrel.com": 1,
     "whiskeycaviar.com": 1,
     "barrelshoppe.com": 3,
@@ -633,7 +633,7 @@
     "winetoship.com": 3,
     "atozbev.com": 3,
     "lovescotch.com": 3,
-    "www.kegnbottle.com": 3,
+    "www.kegnbottle.com": 0,
     "www.missionliquor.com": 3,
     "cellar.com": 3,
     "sbspirit.com": 3,
