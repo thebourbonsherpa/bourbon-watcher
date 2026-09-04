@@ -560,7 +560,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 499.99
+      "price": 399.95
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -580,7 +580,7 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 849.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -626,19 +626,19 @@
     "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 3,
-    "3brothersliquor.com": 3,
-    "primetimeliquor.com": 3,
-    "missiontrailswineandspirits.com": 3,
-    "winetoship.com": 3,
-    "atozbev.com": 3,
-    "lovescotch.com": 3,
-    "www.kegnbottle.com": 3,
-    "www.missionliquor.com": 3,
-    "cellar.com": 3,
-    "sbspirit.com": 3,
-    "bondedbottleshop.com": 3,
-    "luekensliquors.com": 3,
-    "kybourbondirect.com": 3
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
