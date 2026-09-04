@@ -553,14 +553,16 @@
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2022-138-7-proof": false,
     "https://therarewhiskeyshop.com/products/george-t-stagg-2002-first-release": false,
     "https://woodencork.com/products/bulleit-95-20-year-cask-strength-straight-rye-whiskey": false,
-    "https://www.kegnbottle.com/products/russells-reserve-13-year-45th-anniversary-121-2-barrel-proof-whiskey-750ml": false
+    "https://www.kegnbottle.com/products/russells-reserve-13-year-45th-anniversary-121-2-barrel-proof-whiskey-750ml": false,
+    "https://sipwhiskey.com/products/bulleit-20-year-rye-cask-strength-whiskey-750ml": false,
+    "https://missiontrailswineandspirits.com/products/bulleit-20-year-rye-cask-strength-whiskey-750ml": false
   },
   "last_heartbeat": "2026-08-31",
   "last_update_id": 692807863,
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 499.99
+      "price": 399.95
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -568,19 +570,19 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -592,10 +594,10 @@
     },
     "Bulleit 20 Year Rye": {
       "available": true,
-      "price": 2599.99
+      "price": 1799.99
     }
   },
-  "suggest_cursor": 36,
+  "suggest_cursor": 8,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -626,19 +628,19 @@
     "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 2,
-    "3brothersliquor.com": 2,
-    "primetimeliquor.com": 2,
-    "missiontrailswineandspirits.com": 2,
-    "winetoship.com": 2,
-    "atozbev.com": 2,
-    "lovescotch.com": 2,
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 2,
-    "cellar.com": 2,
-    "sbspirit.com": 2,
-    "bondedbottleshop.com": 2,
-    "luekensliquors.com": 2,
-    "kybourbondirect.com": 2
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
