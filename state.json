@@ -560,7 +560,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 499.99
+      "price": 399.95
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -568,34 +568,34 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1699.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 749.99
     },
     "Bulleit 20 Year Rye": {
       "available": false,
       "price": null
     }
   },
-  "suggest_cursor": 41,
+  "suggest_cursor": 13,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -623,22 +623,22 @@
     "barrelshoppe.com": 0,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 3,
+    "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
-    "beveragewarehousemi.com": 3,
-    "nestorliquor.com": 3,
-    "3brothersliquor.com": 3,
-    "primetimeliquor.com": 3,
-    "missiontrailswineandspirits.com": 6,
-    "winetoship.com": 6,
-    "atozbev.com": 6,
-    "lovescotch.com": 6,
-    "www.kegnbottle.com": 4,
-    "www.missionliquor.com": 6,
-    "cellar.com": 6,
-    "sbspirit.com": 6,
-    "bondedbottleshop.com": 6,
-    "luekensliquors.com": 6,
-    "kybourbondirect.com": 6
+    "beveragewarehousemi.com": 0,
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
