@@ -570,11 +570,11 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 799.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -582,7 +582,7 @@
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 899.99
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -597,7 +597,7 @@
       "price": 2499.99
     }
   },
-  "suggest_cursor": 33,
+  "suggest_cursor": 5,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -625,22 +625,22 @@
     "barrelshoppe.com": 0,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 2,
-    "bottleshopandtastingroom.com": 2,
-    "beveragewarehousemi.com": 2,
-    "nestorliquor.com": 2,
-    "3brothersliquor.com": 2,
-    "primetimeliquor.com": 2,
-    "missiontrailswineandspirits.com": 2,
-    "winetoship.com": 2,
-    "atozbev.com": 2,
-    "lovescotch.com": 2,
-    "www.kegnbottle.com": 2,
-    "www.missionliquor.com": 2,
-    "cellar.com": 2,
-    "sbspirit.com": 2,
-    "bondedbottleshop.com": 2,
-    "luekensliquors.com": 2,
-    "kybourbondirect.com": 2
+    "blackwellswines.com": 0,
+    "bottleshopandtastingroom.com": 0,
+    "beveragewarehousemi.com": 0,
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 3,
+    "kybourbondirect.com": 3
   }
 }
