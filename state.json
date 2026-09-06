@@ -582,7 +582,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1299.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -644,7 +644,7 @@
     "cellar.com": 0,
     "sbspirit.com": 0,
     "bondedbottleshop.com": 0,
-    "luekensliquors.com": 2,
-    "kybourbondirect.com": 2
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0
   }
 }
