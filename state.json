@@ -566,7 +566,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 699.99
+      "price": 499.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -623,7 +623,7 @@
     "thebourbonconcierge.com": 1,
     "jazzyswine.com": 1,
     "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
+    "mensjournalspirits.com": 0,
     "primebarrel.com": 1,
     "whiskeycaviar.com": 1,
     "barrelshoppe.com": 1,
@@ -639,7 +639,7 @@
     "winetoship.com": 1,
     "atozbev.com": 1,
     "lovescotch.com": 1,
-    "www.kegnbottle.com": 1,
+    "www.kegnbottle.com": 0,
     "www.missionliquor.com": 1,
     "cellar.com": 1,
     "sbspirit.com": 1,
