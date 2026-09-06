@@ -566,7 +566,7 @@
   "bottle_state": {
     "Russell's Reserve 13 Batch 7 (Eddie 45th)": {
       "available": true,
-      "price": 399.95
+      "price": 499.99
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
@@ -582,11 +582,11 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 892.98
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -636,15 +636,15 @@
     "3brothersliquor.com": 0,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
-    "winetoship.com": 0,
-    "atozbev.com": 0,
-    "lovescotch.com": 0,
-    "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0
+    "winetoship.com": 2,
+    "atozbev.com": 2,
+    "lovescotch.com": 2,
+    "www.kegnbottle.com": 1,
+    "www.missionliquor.com": 2,
+    "cellar.com": 2,
+    "sbspirit.com": 2,
+    "bondedbottleshop.com": 2,
+    "luekensliquors.com": 2,
+    "kybourbondirect.com": 2
   }
 }
