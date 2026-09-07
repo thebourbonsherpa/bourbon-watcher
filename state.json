@@ -576,15 +576,15 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 725.0
+      "price": 749.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1184.0
+      "price": 1499.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -592,7 +592,7 @@
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1699.99
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -603,7 +603,7 @@
       "price": 1999.95
     }
   },
-  "suggest_cursor": 25,
+  "suggest_cursor": 40,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -623,30 +623,30 @@
     "canawineco.com": 0,
     "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
-    "jazzyswine.com": 2,
-    "hiproof.com": 2,
-    "mensjournalspirits.com": 2,
-    "primebarrel.com": 2,
-    "whiskeycaviar.com": 2,
-    "barrelshoppe.com": 2,
-    "seelbachs.com": 2,
-    "therarewhiskeyshop.com": 2,
-    "blackwellswines.com": 2,
-    "bottleshopandtastingroom.com": 2,
-    "beveragewarehousemi.com": 2,
-    "nestorliquor.com": 2,
+    "jazzyswine.com": 0,
+    "hiproof.com": 0,
+    "mensjournalspirits.com": 0,
+    "primebarrel.com": 0,
+    "whiskeycaviar.com": 0,
+    "barrelshoppe.com": 0,
+    "seelbachs.com": 0,
+    "therarewhiskeyshop.com": 0,
+    "blackwellswines.com": 0,
+    "bottleshopandtastingroom.com": 0,
+    "beveragewarehousemi.com": 0,
+    "nestorliquor.com": 0,
     "3brothersliquor.com": 0,
-    "primetimeliquor.com": 5,
-    "missiontrailswineandspirits.com": 5,
-    "winetoship.com": 5,
-    "atozbev.com": 3,
-    "lovescotch.com": 5,
-    "www.kegnbottle.com": 5,
-    "www.missionliquor.com": 5,
-    "cellar.com": 5,
-    "sbspirit.com": 5,
-    "bondedbottleshop.com": 5,
-    "luekensliquors.com": 5,
-    "kybourbondirect.com": 5
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "winetoship.com": 6,
+    "atozbev.com": 4,
+    "lovescotch.com": 6,
+    "www.kegnbottle.com": 6,
+    "www.missionliquor.com": 6,
+    "cellar.com": 6,
+    "sbspirit.com": 6,
+    "bondedbottleshop.com": 6,
+    "luekensliquors.com": 6,
+    "kybourbondirect.com": 6
   }
 }
