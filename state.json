@@ -583,7 +583,7 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1333.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -635,7 +635,7 @@
     "seelbachs.com": 1,
     "therarewhiskeyshop.com": 1,
     "blackwellswines.com": 1,
-    "bottleshopandtastingroom.com": 1,
+    "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 1,
     "nestorliquor.com": 1,
     "3brothersliquor.com": 1,
