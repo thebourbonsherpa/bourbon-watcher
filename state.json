@@ -580,7 +580,7 @@
     },
     "Austin Nichols Archives Gold Foil": {
       "available": true,
-      "price": 799.95
+      "price": 988.95
     },
     "Master's Keep Beacon": {
       "available": true,
@@ -592,7 +592,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 999.99
+      "price": 1999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
@@ -648,13 +648,13 @@
     "missiontrailswineandspirits.com": 0,
     "winetoship.com": 0,
     "atozbev.com": 0,
-    "lovescotch.com": 0,
+    "lovescotch.com": 1,
     "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0
+    "www.missionliquor.com": 1,
+    "cellar.com": 1,
+    "sbspirit.com": 1,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
+    "kybourbondirect.com": 1
   }
 }
