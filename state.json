@@ -567,7 +567,8 @@
     "https://nestorliquor.com/products/george-t-stagg-2019": false,
     "https://elcerritoliquor.com/products/george-t-stagg-bourbon-whiskey-2005-fall-release-141-2-proof": false,
     "https://elcerritoliquor.com/products/george-t-stagg-2005-spring-lot-b-btac-750ml": false,
-    "https://canawineco.com/products/2001-william-larue-weller-19-year-old-kentucky-straight-bourbon-whiskey-750ml": false
+    "https://canawineco.com/products/2001-william-larue-weller-19-year-old-kentucky-straight-bourbon-whiskey-750ml": false,
+    "https://woodencork.com/products/george-t-stagg-bourbon-whiskey-2007-140-6-proof": false
   },
   "last_heartbeat": "2026-09-07",
   "last_update_id": 692807863,
@@ -586,19 +587,19 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1299.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 892.98
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -609,7 +610,7 @@
       "price": 1999.95
     }
   },
-  "suggest_cursor": 5,
+  "suggest_cursor": 20,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
