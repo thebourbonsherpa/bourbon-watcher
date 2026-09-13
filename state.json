@@ -575,7 +575,8 @@
     "https://nestorliquor.com/products/george-t-stagg-2023-135-proof": false,
     "https://estatesliquor.com/products/bulleit-95-20-year-cask-strength-straight-rye-whiskey": false,
     "https://canawineco.com/products/bulleit-20-year-old-cask-strength-rye-whiskey-750ml": false,
-    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2009-141-4-proof": false
+    "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2009-141-4-proof": false,
+    "https://estatesliquor.com/products/george-t-stagg-bourbon-2017-129-2-proof": false
   },
   "last_heartbeat": "2026-09-07",
   "last_update_id": 692807863,
@@ -590,23 +591,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1499.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 999.99
+      "price": 1249.0
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 892.98
+      "price": 649.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1299.99
+      "price": 1150.0
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -617,7 +618,7 @@
       "price": 1999.95
     }
   },
-  "suggest_cursor": 40,
+  "suggest_cursor": 12,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
