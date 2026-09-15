@@ -578,7 +578,8 @@
     "https://canawineco.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey-2009-141-4-proof": false,
     "https://estatesliquor.com/products/george-t-stagg-bourbon-2017-129-2-proof": false,
     "https://woodencork.com/products/william-larue-weller-2014-140-2-proof-12-year": false,
-    "https://missiontrailswineandspirits.com/products/william-larue-weller-2025-buffalo-trace-antique-collection": false
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2025-buffalo-trace-antique-collection": false,
+    "https://missiontrailswineandspirits.com/products/sazerac-mister-sam-tribute-whisky-2025-limited-american": false
   },
   "last_heartbeat": "2026-09-14",
   "last_update_id": 692807863,
@@ -597,19 +598,19 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1329.0
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 892.98
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1279.0
+      "price": 1299.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -620,7 +621,7 @@
       "price": 1999.95
     }
   },
-  "suggest_cursor": 31,
+  "suggest_cursor": 3,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
