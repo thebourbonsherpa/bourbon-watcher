@@ -594,7 +594,8 @@
     "https://beveragewarehousemi.com/products/george-t-stagg": false,
     "https://beveragewarehousemi.com/products/william-larue-weller-2021-125-3-proof": false,
     "https://beveragewarehousemi.com/products/william-larue-weller": false,
-    "https://mensjournalspirits.com/products/william-larue-weller-bourbon-750ml": false
+    "https://mensjournalspirits.com/products/william-larue-weller-bourbon-750ml": false,
+    "https://www.remedyliquor.com/products/george-t-stagg-bourbon-2025-edition-2-1792-bourbon-single-barrel-750ml": false
   },
   "last_heartbeat": "2026-09-21",
   "last_update_id": 692807863,
@@ -609,19 +610,19 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1399.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 849.99
+      "price": 699.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -636,7 +637,7 @@
       "price": 1799.99
     }
   },
-  "suggest_cursor": 36,
+  "suggest_cursor": 8,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
