@@ -596,7 +596,8 @@
     "https://beveragewarehousemi.com/products/william-larue-weller": false,
     "https://mensjournalspirits.com/products/william-larue-weller-bourbon-750ml": false,
     "https://www.remedyliquor.com/products/george-t-stagg-bourbon-2025-edition-2-1792-bourbon-single-barrel-750ml": false,
-    "https://www.remedyliquor.com/products/bulleit-whiskey-rye-cask-strength-kentucky-20yr-750ml": false
+    "https://www.remedyliquor.com/products/bulleit-whiskey-rye-cask-strength-kentucky-20yr-750ml": false,
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2004-release": false
   },
   "last_heartbeat": "2026-09-28",
   "last_update_id": 692807863,
@@ -611,23 +612,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 649.99
+      "price": 749.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1184.0
+      "price": 1399.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1999.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 849.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1249.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -638,7 +639,7 @@
       "price": 1699.99
     }
   },
-  "suggest_cursor": 19,
+  "suggest_cursor": 34,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
