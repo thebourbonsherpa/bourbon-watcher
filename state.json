@@ -618,15 +618,15 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 899.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -641,7 +641,7 @@
       "price": 1699.99
     }
   },
-  "suggest_cursor": 28,
+  "suggest_cursor": 0,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -676,7 +676,7 @@
     "3brothersliquor.com": 0,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
-    "winetoship.com": 98,
+    "winetoship.com": 99,
     "atozbev.com": 0,
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
