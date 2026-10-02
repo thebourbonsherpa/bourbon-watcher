@@ -52,7 +52,7 @@
     "https://jazzyswine.com/products/2026-wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-kentucky-straight-bourbon-whiskey-750ml-1": false,
     "https://jazzyswine.com/products/2026-wild-turkey-austin-nichols-archives-gold-foil-edition-16-year-old-kentucky-straight-bourbon-whiskey-750ml": false,
     "https://jazzyswine.com/products/wild-turkey-masters-keep-beacon-kentucky-straight-bourbon-whiskey-750ml": false,
-    "https://hiproof.com/products/wild-turkey-masters-keep-beacon-118-proof-750ml": true,
+    "https://hiproof.com/products/wild-turkey-masters-keep-beacon-118-proof-750ml": false,
     "https://whiskeycaviar.com/products/wild-turkey-austin-nichols-archives-16-year-gold-foil-whiskey-750-ml": false,
     "https://whiskeycaviar.com/products/wild-turkey-masters-keep-beacon-bourbon-whiskey-750-ml": false,
     "https://primetimeliquor.com/products/george_t_stagg_bourbon_whiskey_2019_750ml": false,
@@ -612,23 +612,23 @@
     },
     "Master's Keep Beacon": {
       "available": true,
-      "price": 549.99
+      "price": 749.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1184.0
+      "price": 1299.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1699.99
     },
     "George T. Stagg (GTS, any batch)": {
       "available": true,
-      "price": 649.0
+      "price": 789.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1249.99
     },
     "Peerless Henry Kraver's Old Reserve 10 Year": {
       "available": true,
@@ -639,7 +639,7 @@
       "price": 1699.99
     }
   },
-  "suggest_cursor": 15,
+  "suggest_cursor": 30,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
