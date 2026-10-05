@@ -1,25 +1,97 @@
 {
-  "_comment": "v2: the watcher searches every shop below for each bottle's keywords and alerts when a match goes in-stock. To maintain: add/remove a SHOP (domain only) or a BOTTLE (with match rules). No per-URL upkeep. match_all = all terms must be in the title; match_any = at least one must be; exclude = none may be. Keep terms lowercase-friendly and apostrophe-free. NOTE: products.json fallback shops scan their whole catalog with no query scoping, so match rules alone gate everything there - keep them specific. Barrel-finish products (rum/tequila aged in famous-bourbon barrels) reuse the bourbon name; the exclude lists on GTS/WLW block those.",
+  "_comment": "v5.3. The watcher scans every shop below for each bottle's match rules and alerts when a match is in stock between min_price and max_price. match_all = every term in the title; match_any = at least one; exclude = none. global_exclude is appended to every bottle's exclude list (bundles, combos, empties). gate_tags: a product carrying any of these Shopify tags is treated as not buyable (Liquor Barn keeps allocated bottles listed at MSRP with an 'unavailable' tag). Keep terms lowercase and apostrophe-free. ALWAYS live-test new rules against shop search before committing.",
   "heartbeat_days": 7,
   "min_price": 50,
+  "global_exclude": ["bundle", "combo", "2-pack", "3-pack", "2 pack", "3 pack", "gift set", "gift box", "dram set", " + ", "empty", "miniature", "glencairn", "t-shirt", "mystery", "raffle", "prize", "spend $", "get it for", "read the description"],
+  "gate_tags": ["unavailable", "coming-soon", "in-store-only", "pre-order", "preorder"],
   "bottles": [
     {
-      "name": "Russell's Reserve 13 Batch 7 (Eddie 45th)",
-      "msrp": 200,
-      "max_price": 280,
-      "query": "russell reserve 13",
-      "match_all": ["russell"],
-      "match_any": ["45th", "batch 7", "batch no 7", "batch no. 7"],
-      "exclude": ["spring 2025", "spring 2024", "2023"]
-    },
-    {
-      "name": "Austin Nichols Archives Gold Foil",
+      "name": "King of Kentucky (single barrel)",
       "msrp": 400,
       "max_price": 700,
-      "query": "austin nichols archives gold",
-      "match_all": ["archives", "gold"],
+      "query": "king of kentucky",
+      "match_all": ["king of kentucky"],
       "match_any": [],
-      "exclude": []
+      "exclude": ["small batch", "batch #", "batch 1", "batch 2", "batch 3"],
+      "_note": "Brown-Forman single barrel, any year (2026 = 14yr, $399.99, Oct 2026). Small Batch (Feb 2026, $299) excluded."
+    },
+    {
+      "name": "George T. Stagg (GTS)",
+      "msrp": 130,
+      "max_price": 500,
+      "query": "george t stagg",
+      "match_all": ["george", "stagg"],
+      "match_any": [],
+      "exclude": ["jr", "batch", "single barrel select", "rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"],
+      "_note": "Annual BTAC release. 'batch' blocks the non-BTAC Stagg (ex-Stagg Jr) when shops prefix it with George T."
+    },
+    {
+      "name": "William Larue Weller (WLW)",
+      "msrp": 150,
+      "max_price": 500,
+      "query": "william larue weller",
+      "match_all": ["larue", "weller"],
+      "match_any": [],
+      "exclude": ["millenium", "millennium", "rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
+    },
+    {
+      "name": "Jack Daniel's Coy Hill (2021 or 2024)",
+      "msrp": 80,
+      "max_price": 350,
+      "query": "jack daniels coy hill",
+      "match_all": ["coy hill"],
+      "match_any": [],
+      "exclude": ["2022", "small batch", "375ml", "375 ml", "rye"],
+      "_note": "2021 single barrel High Proof and 2024 Barrelhouse 8 (700ml). Excludes 2022, the 375ml Small Batch, and the 2026 Coy Hill Rye. Undated 'High Proof' listings can be 2021 or 2022 - check the label."
+    },
+    {
+      "name": "Pappy Van Winkle 15",
+      "msrp": 300,
+      "max_price": 600,
+      "query": "pappy van winkle 15",
+      "match_all": ["van winkle"],
+      "match_any": ["15 year", "15-year", "15yr", "15 yr", "15 years", "reserve 15", "pappy 15", "winkle 15"],
+      "exclude": ["rye", "10 year", "12 year", "20 year", "23 year", "lot b", "collection", "set"]
+    },
+    {
+      "name": "Mugen Nobunaga",
+      "msrp": 350,
+      "max_price": 375,
+      "query": "nobunaga",
+      "match_all": ["nobunaga"],
+      "match_any": [],
+      "exclude": [],
+      "_note": "Mugen Spirit Shogun Series, 15yr finished in Chichibu casks. Any Nobunaga barrel at/under cap."
+    },
+    {
+      "name": "William Heavenhill 19 (WHH19, 2025)",
+      "msrp": null,
+      "max_price": 1000,
+      "query": "william heavenhill 19",
+      "match_all": ["heaven"],
+      "match_any": ["19 year", "19-year", "19yr", "19 yr", "19 years", "12th edition"],
+      "exclude": ["wheat", "heritage collection", "heavens door", "heaven's door", "door"],
+      "_note": "12th Edition, 19yr, 138.2 proof. Wheat exclude blocks the Heaven Hill Heritage Collection 19yr Wheat."
+    },
+    {
+      "name": "13th Colony Double Oaked",
+      "msrp": 130,
+      "max_price": 400,
+      "query": "13th colony double oaked",
+      "match_all": ["double oak"],
+      "match_any": ["thirteenth colony", "13th colony", "thirteen colony"],
+      "exclude": [],
+      "_note": "Thirteenth Colony (Americus, GA) Cask Strength Double Oaked, any batch; single-barrel Double Oaked picks also match. 'double oak' covers oak/oaked."
+    },
+    {
+      "name": "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "msrp": 150,
+      "max_price": 250,
+      "query": "jack daniels 14 year",
+      "match_all": ["jack daniel"],
+      "match_any": ["14 year", "14-year", "14yr", "14 yr", "14 years"],
+      "exclude": ["batch 03", "batch 3", "batch #3", "batch no 3", "batch no. 3", "10, 12", "10 12"],
+      "_note": "Batch 1 (2025) and Batch 2 (2026). Batch 03 is already being listed - excluded. Undated listings match; check the batch on the label."
     },
     {
       "name": "Master's Keep Beacon",
@@ -47,42 +119,6 @@
       "match_all": ["sam", "tribute"],
       "match_any": [],
       "exclude": ["batch 1", "batch 2", "first edition", "second edition", "batch no 1", "batch no. 1", "batch no 2", "batch no. 2", "batch #1", "batch #2", "samuel adams"]
-    },
-    {
-      "name": "George T. Stagg (GTS, any batch)",
-      "msrp": 130,
-      "max_price": 500,
-      "query": "george t stagg",
-      "match_all": ["george", "stagg"],
-      "match_any": [],
-      "exclude": ["jr", "rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
-    },
-    {
-      "name": "William Larue Weller (WLW)",
-      "msrp": 150,
-      "max_price": 750,
-      "query": "william larue weller",
-      "match_all": ["larue", "weller"],
-      "match_any": [],
-      "exclude": ["rum", "myers", "tequila", "corazon", "corazón", "expresiones", "anejo", "añejo", "reposado", "cask collection"]
-    },
-    {
-      "name": "Peerless Henry Kraver's Old Reserve 10 Year",
-      "msrp": 200,
-      "max_price": 300,
-      "query": "peerless henry kraver 10 year",
-      "match_all": ["peerless", "kraver"],
-      "match_any": ["10 year", "10-year", "10yr", "10 yr", "10year"],
-      "exclude": ["rye"]
-    },
-    {
-      "name": "Bulleit 20 Year Rye",
-      "msrp": 299,
-      "max_price": 600,
-      "query": "bulleit 20 year rye",
-      "match_all": ["bulleit", "rye"],
-      "match_any": ["20 year", "20-year", "20yr", "20 yr", "20year"],
-      "exclude": ["12 year", "12-year", "12yr"]
     }
   ],
   "shops": [
@@ -119,7 +155,6 @@
     {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
     {"name": "Prime Time Liquor", "domain": "primetimeliquor.com", "note": "slow shipping rep - it delivers"},
     {"name": "Mission Trails Wine & Spirits", "domain": "missiontrailswineandspirits.com", "note": "same operator as Sip Whiskey; fulfillment complaints - pay by card"},
-    {"name": "WineToShip", "domain": "winetoship.com", "note": "claims NC-licensed; wrong-item complaints - pay by card, save tracking"},
     {"name": "AtoZBev", "domain": "atozbev.com", "note": "real FL shop, mixed trust scores - pay by card"},
     {"name": "LoveScotch", "domain": "lovescotch.com", "note": "no MI - ship to NC, cart-test first hit"},
     {"name": "Keg N Bottle", "domain": "www.kegnbottle.com", "note": "no MI - ship to NC, cart-test first hit"},
@@ -128,6 +163,11 @@
     {"name": "SB Wine & Spirit", "domain": "sbspirit.com", "note": "Hanover Park IL B&M since 1998 - cart-test MI, pay by card"},
     {"name": "Bonded Bottle Shop", "domain": "bondedbottleshop.com", "note": "no MI - ship to NC, cart-test first hit; dropship backend, pay by card"},
     {"name": "Lueken's Liquors", "domain": "luekensliquors.com", "note": "select-state shipping - cart-test MI and NC on first hit"},
-    {"name": "KY Bourbon Direct", "domain": "kybourbondirect.com", "note": "no MI - ship to NC, cart-test first hit"}
+    {"name": "KY Bourbon Direct", "domain": "kybourbondirect.com", "note": "no MI - ship to NC, cart-test first hit"},
+    {"name": "The Liquor Barn", "domain": "theliquorbarn.com", "note": "Chicago North Shore, 3 stores since 1982; lists allocated at MSRP - cart-test MI and NC"},
+    {"name": "PB Express Liquor", "domain": "pbexpressliquor.com", "note": "San Diego B&M; policy ships MI and NC"},
+    {"name": "Bitters & Bottles", "domain": "bittersandbottles.com", "note": "South SF B&M - cart-test MI and NC"},
+    {"name": "The Liquor Bros", "domain": "theliquorbros.com", "note": "SoCal family chain since 1993 - cart-test MI and NC"},
+    {"name": "Mugen Spirit (brand DTC)", "domain": "mugenspirit.com", "note": "no MI - ship to NC; drops sell out in minutes"}
   ]
 }

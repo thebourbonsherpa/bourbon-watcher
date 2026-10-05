@@ -1,4 +1,4 @@
-# Bourbon Phone Watcher (v5.2)
+# Bourbon Phone Watcher (v5.3)
 
 A tiny 24/7 watcher that pings your phone via Telegram the moment one of your
 target bottles flips to in-stock at or under your price cap. Runs free on
@@ -32,9 +32,19 @@ failures abort that shop's search pass for the run. A run takes ~2-3 minutes.
   shops use for allocated bottles.
 - The quoted price is the cheapest AVAILABLE variant - never a sold-out
   cheaper variant.
+- `global_exclude` (config) rides on every bottle: bundles, combos, gift
+  boxes, mystery boxes, "spend $X get it for $Y" listings, empties. Watch
+  for substring traps when adding terms: "50ml" matched every "750ml" title.
+- `gate_tags` (config, default `unavailable`): a product carrying one of
+  these Shopify tags is treated as not buyable. Some shops (The Liquor Barn)
+  keep allocated bottles listed at MSRP and "available" while a tag
+  disables the cart.
+- Before a search-pass hit can alert, the watcher re-reads the product's
+  `.js` (live tags, availability, price). Search results carry no tags and
+  can lag; this costs one extra request per would-be alert.
 - Alerts fire once per listing per stock cycle (no repeat spam) and are only
   marked "sent" after Telegram confirms delivery - a failed send re-fires
-  next run.
+  next run. state.json keeps only alerted listings (v5.3).
 - Shop caution notes from config.json ride along in the alert, plus a
   "confirm it ships to you + landed price" footer. Some roster shops are
   no-MI/ship-to-NC - the note says so.
@@ -101,10 +111,10 @@ on it runs on schedule (a cron-job.org job hitting workflow_dispatch every
 - **NEVER re-upload a local/blank state.json.** The live one on GitHub holds
   alert history, the dark-shop counters, and the Telegram offset.
   Overwriting it re-fires old alerts and replays commands.
-- Bottles live in TWO places: config.json (this watcher) and watchlist.md
-  (the Cowork sweep). Keep them in sync or one layer goes blind.
+- config.json is the only live bottle list. The Cowork sweep was retired
+  (Oct 2026); watchlist.md is reference only.
 - Non-Shopify shops (ReserveBar, Corkery, Trackside, The Liquor Book) can't
-  be watched here - they're covered by the Cowork layer.
+  be watched here and are no longer covered by anything automated.
 - cron-job.org's GitHub token expires ~June 2027; renew it or the trigger
   silently 401s (the heartbeat stopping is the tell).
 

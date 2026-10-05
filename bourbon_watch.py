@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bourbon phone watcher (v5 - hybrid feed + per-bottle search, per-shop pacing,
+Bourbon phone watcher (v5.3 - hybrid feed + per-bottle search, per-shop pacing,
 parallel shops, price ceilings, alert notes, weekly heartbeat with health
 reporting).
 
@@ -37,7 +37,7 @@ import requests
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.1)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.3)"}
 FEED_PAGES = 3       # products.json pages per shop (250 each, newest-first)
 MIN_INTERVAL = 0.5   # min seconds between requests TO THE SAME shop
 GLOBAL_INTERVAL = 0.4  # min seconds between requests ACROSS ALL shops
@@ -46,6 +46,10 @@ ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
                      # connection blips, which used to fail a shop instantly
 MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
 SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
+
+VERSION = "5.3"
+RUN_HISTORY = 100    # compact per-run records kept in state.json
+_tg_failures = [0]   # Telegram sends that never confirmed, this run
 
 _global_lock = threading.Lock()
 _global_next = [0.0]  # next allowed request time, shared by all workers
@@ -194,6 +198,32 @@ def to_price(val):
         return None
 
 
+def tags_of(product):
+    """Shopify tags as a lowercase set. products.json gives a list; some
+    endpoints give a comma-separated string."""
+    t = product.get("tags") or []
+    if isinstance(t, str):
+        t = t.split(",")
+    return {x.strip().lower() for x in t if x and x.strip()}
+
+
+def confirm_listing(client, purl, gate_tags):
+    """Re-read one product's .js before it can alert. The search endpoint
+    carries no tags and can lag, and some shops (Liquor Barn) keep allocated
+    bottles 'available' at MSRP while a tag like 'unavailable' disables the
+    cart. Returns (available, price) from the live product, with available
+    forced False if a gate tag is present; None if the check itself failed
+    (caller keeps what it had rather than dropping a real hit)."""
+    data, _ = client.get_json(purl + ".js")
+    if not isinstance(data, dict) or "variants" not in data:
+        return None
+    if tags_of(data) & gate_tags:
+        return False, None
+    variants = [dict(v, price=(v.get("price") or 0) / 100.0)
+                for v in data.get("variants", [])]
+    return variant_pricing(variants)
+
+
 def variant_pricing(variants):
     """(available, price) for a feed product. available = any variant is.
     price = the cheapest AVAILABLE variant when in stock, so an alert quotes
@@ -210,7 +240,8 @@ def variant_pricing(variants):
     return available, (min(all_prices) if all_prices else None)
 
 
-def scan_shop(shop, bottles, do_suggest=True):
+def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
+              default_floor=0):
     """Scan one shop. Runs in a worker thread and touches no shared state;
     returns (shop, any_ok, last_err, feed_ok, candidates) where candidates is
     a list of (bottle, purl, title, available, price), deduped by
@@ -236,6 +267,8 @@ def scan_shop(shop, bottles, do_suggest=True):
         for p in feed:
             title = p.get("title", "")
             available, price = variant_pricing(p.get("variants", []) or [])
+            if available and tags_of(p) & gate_tags:
+                available = False   # tag-gated: listed, but cart disabled
             purl = f"https://{domain}/products/{p.get('handle', '')}"
             for b in bottles:
                 if title_matches(title, b):
@@ -275,8 +308,19 @@ def scan_shop(shop, bottles, do_suggest=True):
             if (b.get("name"), purl) in seen:
                 continue
             seen.add((b.get("name"), purl))
-            cands.append((b, purl, title, bool(p.get("available")),
-                          to_price(p.get("price"))))
+            available = bool(p.get("available"))
+            price = to_price(p.get("price"))
+            cap = b.get("max_price")
+            floor = b.get("min_price", default_floor)
+            if (available and price is not None and price >= floor
+                    and (cap is None or price <= cap)):
+                # Would alert: confirm against the live product first
+                # (tags, real variant availability and price). Rare, so the
+                # extra request is cheap.
+                checked = confirm_listing(client, purl, gate_tags)
+                if checked is not None:
+                    available, price = checked
+            cands.append((b, purl, title, available, price))
     return shop, any_ok, last_err, feed_ok, cands
 
 
@@ -301,6 +345,7 @@ def send_telegram(token, chat_id, text, retries=3):
                   file=sys.stderr)
         if attempt < retries:
             time.sleep(2 * attempt)
+    _tg_failures[0] += 1
     return False
 
 
@@ -510,6 +555,8 @@ def main():
         print("Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID", file=sys.stderr)
         sys.exit(1)
 
+    t0 = time.monotonic()
+    started = datetime.datetime.now(datetime.timezone.utc)
     config = load_json(CONFIG, None)
     state = load_json(STATE, {})
 
@@ -536,6 +583,13 @@ def main():
     bottles = config.get("bottles", [])
     shops = [s for s in config.get("shops", []) if s.get("domain")]
     default_floor = config.get("min_price", 0)  # global junk-price floor
+    # Global excludes (bundles, combos, empties...) ride on every bottle so
+    # a 5-pack or a combo can never alert as the bottle itself.
+    global_ex = config.get("global_exclude", [])
+    for b in bottles:
+        b["exclude"] = list(b.get("exclude", [])) + list(global_ex)
+    gate_tags = frozenset(t.lower() for t in
+                          config.get("gate_tags", ["unavailable"]))
 
     # Prune state for shops no longer on the roster - their URLs can never
     # match again and just accumulate (old cut shops were still in state).
@@ -564,7 +618,8 @@ def main():
     # stay single-threaded.
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         results = list(ex.map(
-            lambda s: scan_shop(s, bottles, s["domain"] in suggest_domains),
+            lambda s: scan_shop(s, bottles, s["domain"] in suggest_domains,
+                                gate_tags, default_floor),
             shops))
 
     for shop, any_ok, last_err, feed_ok, cands in results:
@@ -601,8 +656,10 @@ def main():
     persistent = [s.get("name", s["domain"]) for s in shops
                   if misses[s["domain"]] >= DARK_RUNS]
 
+    alerts_sent = 0
     for purl, msg in alerts:
         if send_telegram(token, chat_id, msg):
+            alerts_sent += 1
             in_stock[purl] = True   # record as alerted only on confirmed delivery
             print("ALERT:", msg.replace("\n", " | "))
         else:
@@ -662,10 +719,42 @@ def main():
         else:
             print("Snapshot send failed.", file=sys.stderr)
 
-    state["in_stock"] = in_stock
+    # Only 'already alerted' (True) entries carry information: absent and
+    # False behave identically in consider(), so dropping False keeps
+    # state.json small (it had grown to ~600 entries, 98% False).
+    state["in_stock"] = {u: True for u, v in in_stock.items() if v}
     state["bottle_state"] = {k: v for k, v in {**prev_state, **cur_state}.items()
                              if k in bottle_names}
     state["date"] = today.isoformat()
+
+    # ---- Run summary: a public, unauthenticated health record. The repo is
+    # public, so raw state.json can be read without a GitHub login - no log
+    # downloads needed to check how the watcher is doing.
+    by_bottle = {}
+    for b in bottles:
+        name = b.get("name")
+        cap = b.get("max_price")
+        ms = [m for m in matches if m["bottle"] == name]
+        ins = [m for m in ms if m["available"] and m["price"]]
+        under = [m for m in ins if (cap is None or m["price"] <= cap)
+                 and m["price"] >= m.get("floor", 0)]
+        low = min((m["price"] for m in ins), default=None)
+        by_bottle[name] = {"listings": len(ms), "in_stock": len(ins),
+                           "under_cap": len(under), "low_in_stock": low}
+    dur = round(time.monotonic() - t0, 1)
+    state["last_run"] = {
+        "utc": started.isoformat(timespec="seconds"), "version": VERSION,
+        "duration_s": dur, "shops_total": total, "shops_reached": monitored,
+        "feeds_visible": len(feed_used),
+        "unreachable": [[n, r] for n, r in unreachable],
+        "dark_1_day_plus": persistent,
+        "alerts_found": len(alerts), "alerts_sent": alerts_sent,
+        "telegram_failures": _tg_failures[0], "bottles": by_bottle,
+    }
+    hist = state.get("run_history", [])
+    hist.append([started.strftime("%m-%d %H:%M"), monitored, total,
+                 len(alerts), dur, _tg_failures[0]])
+    state["run_history"] = hist[-RUN_HISTORY:]
     with open(STATE, "w") as f:
         json.dump(state, f, indent=2)
 
