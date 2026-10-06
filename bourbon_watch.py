@@ -37,7 +37,7 @@ import requests
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.4.1)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.4.2)"}
 FEED_PAGES = 2       # products.json pages per shop (250 each, newest-first).
                      # Was 3; v5.4 trimmed it to cut ~45 requests/run. At a
                      # 5-min cadence the newest 500 easily covers new listings.
@@ -49,7 +49,7 @@ ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
 MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
 SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
 
-VERSION = "5.4.1"
+VERSION = "5.4.2"
 RUN_HISTORY = 100    # compact per-run records kept in state.json
 _tg_failures = [0]   # Telegram sends that never confirmed, this run
 
@@ -76,14 +76,14 @@ _throttle_hits = [0]
 
 
 def _throttle_hit():
+    # v5.4.2: count only. The v5.4 global slowdown backfired on GitHub: when
+    # a runner's shared IP is already burned, slowing down doesn't earn the
+    # budget back, it just spends the run waiting (first live run: 110 hits,
+    # 15/47 shops). Failing fast and moving on reached more shops. Throttled
+    # requests still back off individually in get_json.
     with _global_lock:
         _throttle_hits[0] += 1
         _ok_streak[0] = 0
-        _interval[0] = min(MAX_INTERVAL, _interval[0] * 2)
-        _peak_interval[0] = max(_peak_interval[0], _interval[0])
-        # Pause everyone UNTIL 3s from now - not 3s more per hit. v5.4 added
-        # 3s per 429, so a sustained storm stacked minutes of waiting.
-        _global_next[0] = max(_global_next[0], time.monotonic() + 3.0)
 
 
 def _throttle_ok():
