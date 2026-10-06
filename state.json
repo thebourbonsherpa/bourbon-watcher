@@ -18,7 +18,7 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -26,7 +26,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 899.99
+      "price": 1199.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 799.99
+      "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -65,7 +65,7 @@
       "price": 379.99
     }
   },
-  "suggest_cursor": 41,
+  "suggest_cursor": 9,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -116,9 +116,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-06T23:05:14+00:00",
+    "utc": "2026-10-06T23:10:16+00:00",
     "version": "5.4.2",
-    "duration_s": 109.7,
+    "duration_s": 118.1,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -128,39 +128,39 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 0,
+    "throttle_hits": 21,
     "pacer_peak_s": 0.4,
     "dark_before_retry": 0,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 37,
-        "in_stock": 31,
+        "listings": 35,
+        "in_stock": 26,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 55,
-        "in_stock": 31,
+        "listings": 42,
+        "in_stock": 29,
         "under_cap": 0,
-        "low_in_stock": 799.99
+        "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 41,
-        "in_stock": 26,
+        "listings": 32,
+        "in_stock": 21,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 10,
-        "in_stock": 4,
+        "listings": 7,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 999.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 27,
-        "in_stock": 13,
+        "listings": 19,
+        "in_stock": 14,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
@@ -171,7 +171,7 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 2,
+        "listings": 5,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 2899.99
@@ -183,40 +183,32 @@
         "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 12,
+        "listings": 11,
         "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 8,
-        "in_stock": 2,
+        "listings": 7,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 749.0
+        "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 4,
+        "listings": 10,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 4,
         "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 899.99
+        "low_in_stock": 1199.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 14:15",
-      47,
-      47,
-      0,
-      124.6,
-      0
-    ],
     [
       "10-06 14:20",
       47,
@@ -1007,6 +999,14 @@
       47,
       0,
       109.7,
+      0
+    ],
+    [
+      "10-06 23:10",
+      47,
+      47,
+      0,
+      118.1,
       0
     ]
   ],
