@@ -1,5 +1,5 @@
 {
-  "_comment": "v5.3. The watcher scans every shop below for each bottle's match rules and alerts when a match is in stock between min_price and max_price. match_all = every term in the title; match_any = at least one; exclude = none. global_exclude is appended to every bottle's exclude list (bundles, combos, empties). gate_tags: a product carrying any of these Shopify tags is treated as not buyable (Liquor Barn keeps allocated bottles listed at MSRP with an 'unavailable' tag). Keep terms lowercase and apostrophe-free. ALWAYS live-test new rules against shop search before committing.",
+  "_comment": "v5.3. The watcher scans every shop below for each bottle's match rules and alerts when a match is in stock between min_price and max_price. match_all = every term in the title; match_any = at least one; exclude = none. global_exclude is appended to every bottle's exclude list (bundles, combos, empties). gate_tags: a product carrying any of these Shopify tags is treated as not buyable (Liquor Barn keeps allocated bottles listed at MSRP with an 'unavailable' tag). hot=true shops are scanned first every run (v5.4); the rest are shuffled. Keep terms lowercase and apostrophe-free. ALWAYS live-test new rules against shop search before committing.",
   "heartbeat_days": 7,
   "min_price": 50,
   "global_exclude": ["bundle", "combo", "2-pack", "3-pack", "2 pack", "3 pack", "gift set", "gift box", "dram set", " + ", "empty", "miniature", "glencairn", "t-shirt", "mystery", "raffle", "prize", "spend $", "get it for", "read the description"],
@@ -125,13 +125,13 @@
   ],
   "shops": [
     {"name": "Remedy Liquor", "domain": "www.remedyliquor.com"},
-    {"name": "Bourbon Outfitter", "domain": "bourbonoutfitter.com"},
+    {"name": "Bourbon Outfitter", "domain": "bourbonoutfitter.com", "hot": true},
     {"name": "SharedPour", "domain": "sharedpour.com", "note": "ScamDetector 19.8 - risky, pay by card, save tracking"},
     {"name": "Estates Liquor", "domain": "estatesliquor.com"},
-    {"name": "Main Street Liquor / BuyMyLiquor", "domain": "www.buymyliquor.com"},
+    {"name": "Main Street Liquor / BuyMyLiquor", "domain": "www.buymyliquor.com", "hot": true},
     {"name": "Quality Liquor Store", "domain": "qualityliquorstore.com"},
     {"name": "Sip Whiskey", "domain": "sipwhiskey.com", "note": "F BBB / non-delivery reports - pay by card, save tracking"},
-    {"name": "DramFellows", "domain": "dramfellows.com", "note": "order-failure complaints - pay by card"},
+    {"name": "DramFellows", "domain": "dramfellows.com", "hot": true, "note": "order-failure complaints - pay by card"},
     {"name": "Del Mesa Liquor", "domain": "delmesaliquor.com"},
     {"name": "Chips Liquor", "domain": "chipsliquor.com"},
     {"name": "Wooden Cork", "domain": "woodencork.com"},
@@ -152,7 +152,7 @@
     {"name": "The Rare Whiskey Shop", "domain": "therarewhiskeyshop.com"},
     {"name": "Blackwell's Wines & Spirits", "domain": "blackwellswines.com"},
     {"name": "Bottle Shop & Tasting Room", "domain": "bottleshopandtastingroom.com"},
-    {"name": "Beverage Warehouse MI", "domain": "beveragewarehousemi.com", "note": "in-state MI - safest legal path"},
+    {"name": "Beverage Warehouse MI", "domain": "beveragewarehousemi.com", "hot": true, "note": "in-state MI - safest legal path"},
     {"name": "Nestor Liquor", "domain": "nestorliquor.com", "note": "no MI - ship to NC instead; CS complaints, pay by card, save tracking"},
     {"name": "3 Brothers Liquor", "domain": "3brothersliquor.com"},
     {"name": "Prime Time Liquor", "domain": "primetimeliquor.com", "note": "slow shipping rep - it delivers"},
@@ -166,10 +166,10 @@
     {"name": "Bonded Bottle Shop", "domain": "bondedbottleshop.com", "note": "no MI - ship to NC, cart-test first hit; dropship backend, pay by card"},
     {"name": "Lueken's Liquors", "domain": "luekensliquors.com", "note": "select-state shipping - cart-test MI and NC on first hit"},
     {"name": "KY Bourbon Direct", "domain": "kybourbondirect.com", "note": "no MI - ship to NC, cart-test first hit"},
-    {"name": "The Liquor Barn", "domain": "theliquorbarn.com", "note": "Chicago North Shore, 3 stores since 1982; lists allocated at MSRP - cart-test MI and NC"},
-    {"name": "PB Express Liquor", "domain": "pbexpressliquor.com", "note": "San Diego B&M; policy ships MI and NC"},
-    {"name": "Bitters & Bottles", "domain": "bittersandbottles.com", "note": "South SF B&M - cart-test MI and NC"},
+    {"name": "The Liquor Barn", "domain": "theliquorbarn.com", "hot": true, "note": "Chicago North Shore, 3 stores since 1982; lists allocated at MSRP - cart-test MI and NC"},
+    {"name": "PB Express Liquor", "domain": "pbexpressliquor.com", "hot": true, "note": "San Diego B&M; policy ships MI and NC"},
+    {"name": "Bitters & Bottles", "domain": "bittersandbottles.com", "hot": true, "note": "South SF B&M - cart-test MI and NC"},
     {"name": "The Liquor Bros", "domain": "theliquorbros.com", "note": "SoCal family chain since 1993 - cart-test MI and NC"},
-    {"name": "Mugen Spirit (brand DTC)", "domain": "mugenspirit.com", "note": "no MI - ship to NC; drops sell out in minutes"}
+    {"name": "Mugen Spirit (brand DTC)", "domain": "mugenspirit.com", "hot": true, "note": "no MI - ship to NC; drops sell out in minutes"}
   ]
 }
