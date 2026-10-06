@@ -1,4 +1,4 @@
-# Bourbon Phone Watcher (v5.4)
+# Bourbon Phone Watcher (v5.4.1)
 
 A tiny 24/7 watcher that pings your phone via Telegram the moment one of your
 target bottles flips to in-stock at or under your price cap. Runs free on
@@ -25,8 +25,13 @@ scrapers, so some runs start with the IP's budget already half spent.
 
 Throttle handling (v5.4):
 - **Adaptive pacer.** Normal speed is ~2.5 requests/sec. Any HTTP 429/430
-  slows the WHOLE watcher (interval doubles, up to 1.6s, plus a 3s pause);
-  every 10 successes eases it back toward normal.
+  slows the WHOLE watcher (interval doubles, up to 1.6s, and everyone
+  pauses until 3s from now - pauses never stack); every 10 successes eases
+  it back toward normal.
+- **Hard time budget.** No request starts after 190s in the main scan or
+  235s in the retry sweep, so a run throttled start to finish still ends
+  in ~4 minutes, sends its alerts and saves state. Shops cut off by the
+  budget show "run budget" in the unreachable list.
 - **Hot shops first, rest shuffled.** Shops marked `"hot": true` in
   config.json are scanned first every run; the rest are shuffled. A
   throttled run used to lose the same tail of the roster every time.
@@ -151,6 +156,9 @@ on it runs on schedule (a cron-job.org job hitting workflow_dispatch every
 Free. Public repo = unlimited Actions minutes; Telegram is free.
 
 ## Version history
+- **5.4.1** (2026-10-06) - hard run budget; throttle pauses no longer
+  stack. 5.4 hung on a sustained storm until GitHub's 10-minute kill, so
+  runs sent nothing and queued runs were cancelled.
 - **5.4** (2026-10-06) - adaptive global pacer, hot shops first + shuffled
   order, end-of-run retry sweep, feed window 750 -> 500.
 - **5.3.1** (2026-10-06) - search-pass confirm fails closed.

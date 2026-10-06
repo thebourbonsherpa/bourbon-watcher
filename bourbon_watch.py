@@ -37,7 +37,7 @@ import requests
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.4)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.4.1)"}
 FEED_PAGES = 2       # products.json pages per shop (250 each, newest-first).
                      # Was 3; v5.4 trimmed it to cut ~45 requests/run. At a
                      # 5-min cadence the newest 500 easily covers new listings.
@@ -49,13 +49,18 @@ ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
 MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
 SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
 
-VERSION = "5.4"
+VERSION = "5.4.1"
 RUN_HISTORY = 100    # compact per-run records kept in state.json
 _tg_failures = [0]   # Telegram sends that never confirmed, this run
 
 MAX_INTERVAL = 1.6     # adaptive pacer ceiling (seconds between requests)
+RUN_BUDGET = 190       # main scan: no request starts after this many seconds
 RETRY_WAIT = 15        # cool-down before the end-of-run retry sweep
-RETRY_DEADLINE = 230   # no retry work starts after this many seconds
+RETRY_DEADLINE = 235   # retry sweep: no request starts after this many seconds
+# v5.4.1: the budget is enforced inside every request, so a run that is
+# throttled from start to finish still ends in ~4 minutes, sends its alerts
+# and saves state. v5.4 had no ceiling and hung until GitHub killed it at 10m.
+_deadline = [float("inf")]   # monotonic time after which no request starts
 
 _global_lock = threading.Lock()
 _global_next = [0.0]  # next allowed request time, shared by all workers
@@ -76,7 +81,9 @@ def _throttle_hit():
         _ok_streak[0] = 0
         _interval[0] = min(MAX_INTERVAL, _interval[0] * 2)
         _peak_interval[0] = max(_peak_interval[0], _interval[0])
-        _global_next[0] = max(_global_next[0], time.monotonic()) + 3.0
+        # Pause everyone UNTIL 3s from now - not 3s more per hit. v5.4 added
+        # 3s per 429, so a sustained storm stacked minutes of waiting.
+        _global_next[0] = max(_global_next[0], time.monotonic() + 3.0)
 
 
 def _throttle_ok():
@@ -122,7 +129,11 @@ class ShopClient:
         the shop out on the first blip."""
         err = None
         for attempt in range(ATTEMPTS):
+            if time.monotonic() > _deadline[0]:
+                return None, err or "run budget"
             self._pace()
+            if time.monotonic() > _deadline[0]:
+                return None, err or "run budget"
             try:
                 r = self.session.get(url, timeout=15)
             except requests.exceptions.Timeout:
@@ -145,7 +156,8 @@ class ShopClient:
                     wait = float(ra) if ra else 2.0 ** attempt
                 except ValueError:
                     wait = 2.0 ** attempt
-                time.sleep(min(wait, 5))
+                time.sleep(max(0.0, min(wait, 5,
+                                        _deadline[0] - time.monotonic())))
                 continue
             if r.status_code != 200:
                 return None, f"HTTP {r.status_code}"
@@ -717,6 +729,7 @@ def main():
 
     # Scan shops in parallel; merge results sequentially so in_stock/alerts
     # stay single-threaded.
+    _deadline[0] = t0 + RUN_BUDGET
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         results = list(ex.map(scan, order))
 
@@ -725,8 +738,9 @@ def main():
     # throttled run's losses without pushing the run past ~4 minutes.
     recovered = 0
     dark_first = [r[0] for r in results if not r[1]]
-    if dark_first and time.monotonic() - t0 < RETRY_DEADLINE:
+    if dark_first and time.monotonic() - t0 < RETRY_DEADLINE - RETRY_WAIT - 10:
         time.sleep(RETRY_WAIT)
+        _deadline[0] = t0 + RETRY_DEADLINE
         retried = {}
         for s in dark_first:
             if time.monotonic() - t0 > RETRY_DEADLINE:
