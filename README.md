@@ -38,7 +38,15 @@ failures abort that shop's search pass for the run. A run takes ~2-3 minutes.
 - `gate_tags` (config, default `unavailable`): a product carrying one of
   these Shopify tags is treated as not buyable. Some shops (The Liquor Barn)
   keep allocated bottles listed at MSRP and "available" while a tag
-  disables the cart.
+  disables the cart. Pre-order tags are deliberately NOT gated: buyable
+  pre-orders alert (that's how the Bulleit 20 was caught).
+- Early warning (`early_warning`, `early_warning_hours`, default 72):
+  a one-time NEW LISTING ping when a matching listing first appears but
+  isn't buyable yet (placeholder price, sold out, coming soon, tagged). It
+  means the shop is about to drop. Only listings created/published within
+  the window count, and a shop/bottle pair must have had one full search
+  pass first, so old listings never ping. Max 5 per run plus one overflow
+  summary.
 - Before a search-pass hit can alert, the watcher re-reads the product's
   `.js` (live tags, availability, price). Search results carry no tags and
   can lag; this costs one extra request per would-be alert.

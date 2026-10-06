@@ -224,6 +224,26 @@ def confirm_listing(client, purl, gate_tags):
     return variant_pricing(variants)
 
 
+def is_recent(product, hours):
+    """True if the product was created or published within `hours`. Used by
+    the early warning so a listing that merely re-surfaces in search (the
+    search endpoint returns only the top 10) isn't mistaken for a new one."""
+    now = datetime.datetime.now(datetime.timezone.utc)
+    for key in ("published_at", "created_at"):
+        raw = product.get(key)
+        if not raw:
+            continue
+        try:
+            ts = datetime.datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+            if ts.tzinfo is None:
+                ts = ts.replace(tzinfo=datetime.timezone.utc)
+        except ValueError:
+            continue
+        if (now - ts).total_seconds() <= hours * 3600:
+            return True
+    return False
+
+
 def variant_pricing(variants):
     """(available, price) for a feed product. available = any variant is.
     price = the cheapest AVAILABLE variant when in stock, so an alert quotes
@@ -241,10 +261,14 @@ def variant_pricing(variants):
 
 
 def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
-              default_floor=0):
+              default_floor=0, seen=frozenset(), baselined=frozenset(),
+              fresh_hours=0):
     """Scan one shop. Runs in a worker thread and touches no shared state;
-    returns (shop, any_ok, last_err, feed_ok, candidates) where candidates is
-    a list of (bottle, purl, title, available, price), deduped by
+    returns (shop, any_ok, last_err, feed_ok, candidates, searched) where
+    candidates is a list of (bottle, purl, title, available, price, fresh)
+    and searched names the bottles whose search pass completed. fresh marks a
+    never-seen listing created/published within fresh_hours (early warning;
+    0 disables). Candidates are deduped by
     (bottle, purl) with the feed version preferred (richer variant data).
     The feed pass always runs; the per-bottle search pass runs when
     do_suggest is True (this run's rotation slice) OR when the feed failed
@@ -254,8 +278,9 @@ def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
     any_ok = False
     last_err = None
     feed_ok = False
-    seen = set()
+    dedupe = set()
     cands = []
+    searched = []
 
     # Pass 1: the feed - newly created listings.
     feed, err = feed_products(client, domain)
@@ -270,10 +295,12 @@ def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
             if available and tags_of(p) & gate_tags:
                 available = False   # tag-gated: listed, but cart disabled
             purl = f"https://{domain}/products/{p.get('handle', '')}"
+            fresh = bool(fresh_hours) and purl not in seen \
+                and is_recent(p, fresh_hours)
             for b in bottles:
                 if title_matches(title, b):
-                    seen.add((b.get("name"), purl))
-                    cands.append((b, purl, title, available, price))
+                    dedupe.add((b.get("name"), purl))
+                    cands.append((b, purl, title, available, price, fresh))
 
     # Pass 2: native search, once per bottle - restocks of older listings
     # that sit beyond the feed window. Shops that disable products.json are
@@ -299,15 +326,16 @@ def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
             continue
         consecutive_fail = 0
         any_ok = True
+        searched.append(b.get("name"))
         for p in prods:
             title = p.get("title", "")
             if not title_matches(title, b):
                 continue
             rel = (p.get("url") or "").split("?")[0]
             purl = f"https://{domain}{rel}"
-            if (b.get("name"), purl) in seen:
+            if (b.get("name"), purl) in dedupe:
                 continue
-            seen.add((b.get("name"), purl))
+            dedupe.add((b.get("name"), purl))
             available = bool(p.get("available"))
             price = to_price(p.get("price"))
             cap = b.get("max_price")
@@ -320,8 +348,16 @@ def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
                 checked = confirm_listing(client, purl, gate_tags)
                 if checked is not None:
                     available, price = checked
-            cands.append((b, purl, title, available, price))
-    return shop, any_ok, last_err, feed_ok, cands
+            fresh = False
+            if (fresh_hours and purl not in seen
+                    and b.get("name") in baselined):
+                # Unseen via search at a shop/bottle already baselined:
+                # check the product's age before calling it new.
+                data, _ = client.get_json(purl + ".js")
+                if isinstance(data, dict):
+                    fresh = is_recent(data, fresh_hours)
+            cands.append((b, purl, title, available, price, fresh))
+    return shop, any_ok, last_err, feed_ok, cands, searched
 
 
 def send_telegram(token, chat_id, text, retries=3):
@@ -590,6 +626,15 @@ def main():
         b["exclude"] = list(b.get("exclude", [])) + list(global_ex)
     gate_tags = frozenset(t.lower() for t in
                           config.get("gate_tags", ["unavailable"]))
+    # Early warning: ping once when a matching listing first appears but
+    # isn't buyable yet (placeholder price, sold out, coming soon, gated) -
+    # the shop is about to drop. seen_listings remembers every matched URL;
+    # baselined records which (shop, bottle) pairs have had a full search
+    # pass, so an old listing surfacing in search isn't called new.
+    early = config.get("early_warning", True)
+    fresh_hours = config.get("early_warning_hours", 72) if early else 0
+    seen_listings = state.get("seen_listings", {})
+    baselined = state.get("baselined", {})
 
     # Prune state for shops no longer on the roster - their URLs can never
     # match again and just accumulate (old cut shops were still in state).
@@ -619,19 +664,47 @@ def main():
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         results = list(ex.map(
             lambda s: scan_shop(s, bottles, s["domain"] in suggest_domains,
-                                gate_tags, default_floor),
+                                gate_tags, default_floor,
+                                frozenset(seen_listings),
+                                frozenset(baselined.get(s["domain"], [])),
+                                fresh_hours),
             shops))
 
-    for shop, any_ok, last_err, feed_ok, cands in results:
+    today_s = datetime.date.today().isoformat()
+    early_pings = []   # (purl, message) for fresh, not-yet-buyable listings
+    for shop, any_ok, last_err, feed_ok, cands, searched in results:
         domain = shop["domain"]
         shop_name = shop.get("name", domain)
         shop_note = shop.get("note")
         if feed_ok:
             feed_used.append(domain)
-        for b, purl, title, available, price in cands:
+        names = {b.get("name") for b in bottles}
+        baselined[domain] = sorted((set(baselined.get(domain, []))
+                                    | set(searched)) & names)
+        for b, purl, title, available, price, fresh in cands:
             floor = b.get("min_price", default_floor)
             consider(b, shop_name, shop_note, purl, title, available, price,
                      in_stock, alerts, floor)
+            cap = b.get("max_price")
+            buyable_listed = bool(available) and price is not None \
+                and price >= floor
+            if (fresh and not buyable_listed
+                    and not any(u == purl for u, _ in early_pings)):
+                if price is None or price < floor:
+                    status = (f"placeholder price ${price:,.2f}" if price
+                              else "no price yet")
+                else:
+                    status = f"not buyable yet, listed at ${price:,.2f}"
+                cap_str = f" (cap ${cap})" if cap else ""
+                lines = [f"\U0001F440 NEW LISTING: {b.get('name')}{cap_str}",
+                         f"{shop_name} - {status}", f"\"{title}\"", purl,
+                         "Heads-up only. The in-stock alert fires if it goes "
+                         "live under cap."]
+                if shop_note:
+                    lines.append(f"⚠ {shop_note}")
+                early_pings.append((purl, "\n".join(lines)))
+            else:
+                seen_listings.setdefault(purl, today_s)
             matches.append({"bottle": b.get("name"), "shop": shop_name,
                             "available": available, "price": price,
                             "floor": floor})
@@ -665,6 +738,23 @@ def main():
         else:
             print("ALERT NOT DELIVERED (will retry next run):", purl,
                   file=sys.stderr)
+
+    # Early-warning pings: capped per run so a shop importing its catalog
+    # can't flood the phone; the overflow goes in one summary message.
+    EARLY_MAX = 5
+    early_sent = 0
+    for purl, msg in early_pings[:EARLY_MAX]:
+        if send_telegram(token, chat_id, msg):
+            early_sent += 1
+            seen_listings[purl] = today_s   # only once delivered
+    rest = early_pings[EARLY_MAX:]
+    if rest:
+        summary = (f"\U0001F440 +{len(rest)} more new listings:\n" +
+                   "\n".join(m.split("\n")[0][2:].replace("NEW LISTING: ", "")
+                             + " - " + m.split("\n")[3] for _, m in rest[:20]))
+        if send_telegram(token, chat_id, summary):
+            for purl, _ in rest:
+                seen_listings[purl] = today_s
 
     total = len(shops)
     monitored = len(monitored_domains)
@@ -726,6 +816,15 @@ def main():
     state["bottle_state"] = {k: v for k, v in {**prev_state, **cur_state}.items()
                              if k in bottle_names}
     state["date"] = today.isoformat()
+    seen_listings = {u: d for u, d in seen_listings.items()
+                     if urllib.parse.urlparse(u).netloc.replace("www.", "")
+                     in roster_hosts}
+    if len(seen_listings) > 5000:   # keep the newest
+        seen_listings = dict(sorted(seen_listings.items(),
+                                    key=lambda kv: kv[1])[-5000:])
+    state["seen_listings"] = seen_listings
+    state["baselined"] = {d: v for d, v in baselined.items()
+                          if d in {s["domain"] for s in shops}}
 
     # ---- Run summary: a public, unauthenticated health record. The repo is
     # public, so raw state.json can be read without a GitHub login - no log
@@ -749,6 +848,7 @@ def main():
         "unreachable": [[n, r] for n, r in unreachable],
         "dark_1_day_plus": persistent,
         "alerts_found": len(alerts), "alerts_sent": alerts_sent,
+        "early_warnings": len(early_pings), "early_warnings_sent": early_sent,
         "telegram_failures": _tg_failures[0], "bottles": by_bottle,
     }
     hist = state.get("run_history", [])

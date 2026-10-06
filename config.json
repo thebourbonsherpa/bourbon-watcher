@@ -3,7 +3,9 @@
   "heartbeat_days": 7,
   "min_price": 50,
   "global_exclude": ["bundle", "combo", "2-pack", "3-pack", "2 pack", "3 pack", "gift set", "gift box", "dram set", " + ", "empty", "miniature", "glencairn", "t-shirt", "mystery", "raffle", "prize", "spend $", "get it for", "read the description"],
-  "gate_tags": ["unavailable", "coming-soon", "in-store-only", "pre-order", "preorder"],
+  "gate_tags": ["unavailable", "coming-soon", "in-store-only"],
+  "early_warning": true,
+  "early_warning_hours": 72,
   "bottles": [
     {
       "name": "King of Kentucky (single barrel)",
