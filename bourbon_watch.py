@@ -47,7 +47,7 @@ ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
 MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
 SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
 
-VERSION = "5.3"
+VERSION = "5.3.1"
 RUN_HISTORY = 100    # compact per-run records kept in state.json
 _tg_failures = [0]   # Telegram sends that never confirmed, this run
 
@@ -345,8 +345,14 @@ def scan_shop(shop, bottles, do_suggest=True, gate_tags=frozenset(),
                 # Would alert: confirm against the live product first
                 # (tags, real variant availability and price). Rare, so the
                 # extra request is cheap.
+                # FAIL CLOSED: search results carry no tags, so if this
+                # confirm fails (429 etc.) the hit is held, not sent, and
+                # re-checked on the shop's next search pass. Failing open let
+                # tag-gated Liquor Barn WLW alert twice on 2026-10-06.
                 checked = confirm_listing(client, purl, gate_tags)
-                if checked is not None:
+                if checked is None:
+                    available = False
+                else:
                     available, price = checked
             fresh = False
             if (fresh_hours and purl not in seen
