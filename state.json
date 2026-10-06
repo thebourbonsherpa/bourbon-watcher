@@ -46,7 +46,7 @@
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1949.99
+      "price": 1899.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -91,13 +91,13 @@
     "primebarrel.com": 0,
     "whiskeycaviar.com": 0,
     "barrelshoppe.com": 0,
-    "seelbachs.com": 0,
+    "seelbachs.com": 1,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 0,
+    "blackwellswines.com": 1,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
     "nestorliquor.com": 0,
-    "3brothersliquor.com": 0,
+    "3brothersliquor.com": 1,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
     "atozbev.com": 0,
@@ -107,22 +107,43 @@
     "cellar.com": 0,
     "sbspirit.com": 0,
     "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
+    "luekensliquors.com": 1,
     "kybourbondirect.com": 0,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
-    "theliquorbros.com": 0,
+    "theliquorbros.com": 1,
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-06T15:55:13+00:00",
+    "utc": "2026-10-06T15:57:29+00:00",
     "version": "5.3",
-    "duration_s": 124.7,
+    "duration_s": 147.6,
     "shops_total": 47,
-    "shops_reached": 47,
-    "feeds_visible": 47,
-    "unreachable": [],
+    "shops_reached": 42,
+    "feeds_visible": 39,
+    "unreachable": [
+      [
+        "Seelbach's",
+        "HTTP 429"
+      ],
+      [
+        "Blackwell's Wines & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "3 Brothers Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Lueken's Liquors",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ]
+    ],
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
@@ -131,34 +152,34 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 49,
+        "listings": 47,
         "in_stock": 39,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
         "listings": 68,
-        "in_stock": 50,
+        "in_stock": 53,
         "under_cap": 0,
         "low_in_stock": 789.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 67,
-        "in_stock": 55,
+        "listings": 69,
+        "in_stock": 58,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 13,
-        "in_stock": 8,
+        "listings": 10,
+        "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 38,
+        "listings": 35,
         "in_stock": 28,
         "under_cap": 0,
-        "low_in_stock": 1949.99
+        "low_in_stock": 1899.99
       },
       "Mugen Nobunaga": {
         "listings": 4,
@@ -173,31 +194,31 @@
         "low_in_stock": 2469.0
       },
       "13th Colony Double Oaked": {
-        "listings": 3,
+        "listings": 4,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 874.99
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 13,
-        "in_stock": 10,
+        "listings": 11,
+        "in_stock": 9,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
         "listings": 8,
-        "in_stock": 3,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 7,
-        "in_stock": 4,
+        "listings": 6,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 1329.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 4,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -998,11 +1019,11 @@
       0
     ],
     [
-      "10-06 15:55",
-      47,
+      "10-06 15:57",
+      42,
       47,
       0,
-      124.7,
+      147.6,
       0
     ]
   ],
