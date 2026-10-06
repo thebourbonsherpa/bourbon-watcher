@@ -22,15 +22,15 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1329.0
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1279.0
+      "price": 1249.99
     },
     "King of Kentucky (single barrel)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -46,7 +46,7 @@
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1949.99
+      "price": 1899.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -54,7 +54,7 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2499.99
     },
     "13th Colony Double Oaked": {
       "available": false,
@@ -65,7 +65,7 @@
       "price": 379.99
     }
   },
-  "suggest_cursor": 32,
+  "suggest_cursor": 0,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -93,92 +93,36 @@
     "barrelshoppe.com": 0,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 2,
-    "bottleshopandtastingroom.com": 2,
-    "beveragewarehousemi.com": 2,
-    "nestorliquor.com": 2,
-    "3brothersliquor.com": 2,
-    "primetimeliquor.com": 2,
-    "missiontrailswineandspirits.com": 2,
-    "atozbev.com": 2,
-    "lovescotch.com": 1,
-    "www.kegnbottle.com": 2,
-    "www.missionliquor.com": 2,
-    "cellar.com": 2,
-    "sbspirit.com": 2,
-    "bondedbottleshop.com": 2,
-    "luekensliquors.com": 2,
-    "kybourbondirect.com": 2,
-    "theliquorbarn.com": 2,
-    "pbexpressliquor.com": 2,
-    "bittersandbottles.com": 2,
-    "theliquorbros.com": 2,
-    "mugenspirit.com": 2
+    "blackwellswines.com": 0,
+    "bottleshopandtastingroom.com": 0,
+    "beveragewarehousemi.com": 0,
+    "nestorliquor.com": 0,
+    "3brothersliquor.com": 0,
+    "primetimeliquor.com": 0,
+    "missiontrailswineandspirits.com": 0,
+    "atozbev.com": 0,
+    "lovescotch.com": 0,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 0,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 3,
+    "kybourbondirect.com": 3,
+    "theliquorbarn.com": 3,
+    "pbexpressliquor.com": 3,
+    "bittersandbottles.com": 3,
+    "theliquorbros.com": 3,
+    "mugenspirit.com": 3
   },
   "last_run": {
-    "utc": "2026-10-06T13:50:22+00:00",
+    "utc": "2026-10-06T13:55:52+00:00",
     "version": "5.3",
-    "duration_s": 167.6,
+    "duration_s": 106.4,
     "shops_total": 47,
-    "shops_reached": 26,
-    "feeds_visible": 26,
+    "shops_reached": 40,
+    "feeds_visible": 40,
     "unreachable": [
-      [
-        "Blackwell's Wines & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Bottle Shop & Tasting Room",
-        "HTTP 429"
-      ],
-      [
-        "Beverage Warehouse MI",
-        "HTTP 429"
-      ],
-      [
-        "Nestor Liquor",
-        "HTTP 429"
-      ],
-      [
-        "3 Brothers Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Prime Time Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Mission Trails Wine & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "AtoZBev",
-        "HTTP 429"
-      ],
-      [
-        "LoveScotch",
-        "HTTP 429"
-      ],
-      [
-        "Keg N Bottle",
-        "HTTP 403"
-      ],
-      [
-        "Mission Wine & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Cellar.com (Schneider's of Capitol Hill)",
-        "HTTP 429"
-      ],
-      [
-        "SB Wine & Spirit",
-        "HTTP 429"
-      ],
-      [
-        "Bonded Bottle Shop",
-        "HTTP 429"
-      ],
       [
         "Lueken's Liquors",
         "HTTP 429"
@@ -216,34 +160,34 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 43,
+        "listings": 44,
         "in_stock": 36,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 37,
-        "in_stock": 32,
+        "listings": 58,
+        "in_stock": 38,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 28,
-        "in_stock": 23,
+        "listings": 60,
+        "in_stock": 46,
         "under_cap": 0,
-        "low_in_stock": 1279.0
+        "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 9,
-        "in_stock": 7,
+        "listings": 10,
+        "in_stock": 4,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 22,
-        "in_stock": 17,
+        "listings": 19,
+        "in_stock": 13,
         "under_cap": 0,
-        "low_in_stock": 1949.99
+        "low_in_stock": 1899.99
       },
       "Mugen Nobunaga": {
         "listings": 2,
@@ -252,13 +196,13 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 4,
-        "in_stock": 3,
+        "listings": 3,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2499.99
       },
       "13th Colony Double Oaked": {
-        "listings": 2,
+        "listings": 1,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -276,28 +220,20 @@
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
+        "listings": 1,
+        "in_stock": 1,
+        "under_cap": 0,
+        "low_in_stock": 1699.99
+      },
+      "Mister Sam Tribute (Batch 3 or 4)": {
         "listings": 3,
         "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1329.0
-      },
-      "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 2,
-        "in_stock": 0,
-        "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 05:35",
-      44,
-      47,
-      0,
-      121.5,
-      0
-    ],
     [
       "10-06 05:40",
       12,
@@ -1088,6 +1024,14 @@
       47,
       0,
       167.6,
+      0
+    ],
+    [
+      "10-06 13:55",
+      40,
+      47,
+      0,
+      106.4,
       0
     ]
   ],
