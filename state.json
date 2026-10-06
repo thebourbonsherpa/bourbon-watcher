@@ -18,7 +18,7 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -26,7 +26,7 @@
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 899.99
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -38,15 +38,15 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 799.99
+      "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 999.0
+      "price": 549.0
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1899.99
+      "price": 1799.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -65,7 +65,7 @@
       "price": 379.99
     }
   },
-  "suggest_cursor": 42,
+  "suggest_cursor": 10,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -116,12 +116,12 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-06T16:30:20+00:00",
+    "utc": "2026-10-06T16:35:14+00:00",
     "version": "5.3",
-    "duration_s": 133.1,
+    "duration_s": 126.2,
     "shops_total": 47,
     "shops_reached": 47,
-    "feeds_visible": 44,
+    "feeds_visible": 47,
     "unreachable": [],
     "dark_1_day_plus": [],
     "alerts_found": 0,
@@ -131,34 +131,34 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 43,
-        "in_stock": 35,
+        "listings": 45,
+        "in_stock": 32,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 65,
-        "in_stock": 40,
+        "listings": 58,
+        "in_stock": 35,
         "under_cap": 0,
-        "low_in_stock": 799.99
+        "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 65,
-        "in_stock": 50,
+        "listings": 62,
+        "in_stock": 45,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 10,
+        "listings": 9,
         "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 999.0
+        "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 31,
-        "in_stock": 16,
+        "listings": 26,
+        "in_stock": 18,
         "under_cap": 0,
-        "low_in_stock": 1899.99
+        "low_in_stock": 1799.99
       },
       "Mugen Nobunaga": {
         "listings": 4,
@@ -167,52 +167,44 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 3,
+        "listings": 6,
         "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 2499.99
       },
       "13th Colony Double Oaked": {
-        "listings": 1,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 12,
-        "in_stock": 8,
+        "listings": 13,
+        "in_stock": 10,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
         "listings": 9,
-        "in_stock": 2,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 749.0
+        "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 4,
+        "listings": 10,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 5,
         "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 899.99
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 08:15",
-      47,
-      47,
-      0,
-      125.4,
-      0
-    ],
     [
       "10-06 08:20",
       47,
@@ -1003,6 +995,14 @@
       47,
       0,
       133.1,
+      0
+    ],
+    [
+      "10-06 16:35",
+      47,
+      47,
+      0,
+      126.2,
       0
     ]
   ],
