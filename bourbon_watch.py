@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Bourbon phone watcher (v5.3 - hybrid feed + per-bottle search, per-shop pacing,
+Bourbon phone watcher (v5.4 - hybrid feed + per-bottle search, adaptive pacing,
 parallel shops, price ceilings, alert notes, weekly heartbeat with health
 reporting).
 
 Every shop is scanned TWO ways each run:
-  1. Its public /products.json feed (newest ~750 products) - catches newly
+  1. Its public /products.json feed (newest ~500 products) - catches newly
      created listings fast.
   2. Its native Shopify /search/suggest.json, once per bottle - catches
      RESTOCKS of listings created long ago. On big catalogs those sit far
@@ -30,15 +30,17 @@ Env vars required:
   TELEGRAM_BOT_TOKEN  - from @BotFather
   TELEGRAM_CHAT_ID    - your Telegram numeric chat id
 """
-import json, os, sys, time, datetime, threading, urllib.parse
+import json, os, random, sys, time, datetime, threading, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "config.json")
 STATE = os.path.join(HERE, "state.json")
-UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.3)"}
-FEED_PAGES = 3       # products.json pages per shop (250 each, newest-first)
+UA = {"User-Agent": "Mozilla/5.0 (compatible; BourbonWatch/5.4)"}
+FEED_PAGES = 2       # products.json pages per shop (250 each, newest-first).
+                     # Was 3; v5.4 trimmed it to cut ~45 requests/run. At a
+                     # 5-min cadence the newest 500 easily covers new listings.
 MIN_INTERVAL = 0.5   # min seconds between requests TO THE SAME shop
 GLOBAL_INTERVAL = 0.4  # min seconds between requests ACROSS ALL shops
                        # (~2.5 req/s aggregate - under Shopify's per-IP edge limit)
@@ -47,12 +49,42 @@ ATTEMPTS = 3         # tries per request; retries cover 429s AND timeouts /
 MAX_WORKERS = 8      # shops scanned concurrently (global pacer governs volume)
 SUGGEST_DEFAULT = 15 # shops given the per-bottle search pass per run
 
-VERSION = "5.3.1"
+VERSION = "5.4"
 RUN_HISTORY = 100    # compact per-run records kept in state.json
 _tg_failures = [0]   # Telegram sends that never confirmed, this run
 
+MAX_INTERVAL = 1.6     # adaptive pacer ceiling (seconds between requests)
+RETRY_WAIT = 15        # cool-down before the end-of-run retry sweep
+RETRY_DEADLINE = 230   # no retry work starts after this many seconds
+
 _global_lock = threading.Lock()
 _global_next = [0.0]  # next allowed request time, shared by all workers
+# Adaptive pacing (v5.4): Shopify's edge throttles per client IP across all
+# stores, and GitHub runners share IPs with other scrapers, so some runs start
+# with the IP's budget half spent. On a 429/430 the WHOLE watcher slows down
+# (interval doubles, plus a short global pause) instead of every worker
+# retrying into the wall; a streak of successes eases it back to normal.
+_interval = [GLOBAL_INTERVAL]
+_ok_streak = [0]
+_peak_interval = [GLOBAL_INTERVAL]
+_throttle_hits = [0]
+
+
+def _throttle_hit():
+    with _global_lock:
+        _throttle_hits[0] += 1
+        _ok_streak[0] = 0
+        _interval[0] = min(MAX_INTERVAL, _interval[0] * 2)
+        _peak_interval[0] = max(_peak_interval[0], _interval[0])
+        _global_next[0] = max(_global_next[0], time.monotonic()) + 3.0
+
+
+def _throttle_ok():
+    with _global_lock:
+        _ok_streak[0] += 1
+        if _ok_streak[0] >= 10 and _interval[0] > GLOBAL_INTERVAL:
+            _interval[0] = max(GLOBAL_INTERVAL, _interval[0] * 0.7)
+            _ok_streak[0] = 0
 
 
 class ShopClient:
@@ -75,7 +107,7 @@ class ShopClient:
         # outside the lock so it doesn't serialize everyone else.
         with _global_lock:
             slot = max(time.monotonic(), _global_next[0])
-            _global_next[0] = slot + GLOBAL_INTERVAL
+            _global_next[0] = slot + _interval[0]
         wait = slot - time.monotonic()
         if wait > 0:
             time.sleep(wait)
@@ -102,6 +134,7 @@ class ShopClient:
             except Exception as e:
                 return None, type(e).__name__
             if r.status_code in (429, 430):
+                _throttle_hit()
                 # 429 = rate limited; 430 = Shopify's custom "security
                 # rejection" for suspected bot traffic. Both mean back off
                 # and retry - failing instantly on 430 would blind a shop
@@ -116,6 +149,7 @@ class ShopClient:
                 continue
             if r.status_code != 200:
                 return None, f"HTTP {r.status_code}"
+            _throttle_ok()
             try:
                 return r.json(), None
             except ValueError:
@@ -665,16 +699,43 @@ def main():
                        for i in range(k)} if shops else set()
     state["suggest_cursor"] = (cursor + k) % max(len(shops), 1)
 
+    # Scan order (v5.4): "hot" shops first, the rest shuffled every run. A
+    # throttled run loses whatever is scanned last; with a fixed order that
+    # was always the same tail (where the newest, best shops sat).
+    hot = [s for s in shops if s.get("hot")]
+    rest = [s for s in shops if not s.get("hot")]
+    random.shuffle(rest)
+    order = hot + rest
+
+    def scan(s, suggest=None):
+        return scan_shop(s, bottles,
+                         s["domain"] in suggest_domains if suggest is None
+                         else suggest,
+                         gate_tags, default_floor, frozenset(seen_listings),
+                         frozenset(baselined.get(s["domain"], [])),
+                         fresh_hours)
+
     # Scan shops in parallel; merge results sequentially so in_stock/alerts
     # stay single-threaded.
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        results = list(ex.map(
-            lambda s: scan_shop(s, bottles, s["domain"] in suggest_domains,
-                                gate_tags, default_floor,
-                                frozenset(seen_listings),
-                                frozenset(baselined.get(s["domain"], [])),
-                                fresh_hours),
-            shops))
+        results = list(ex.map(scan, order))
+
+    # Retry sweep (v5.4): after a short cool-down, give every shop that went
+    # dark one more feed-only pass, one at a time. Recovers most of a
+    # throttled run's losses without pushing the run past ~4 minutes.
+    recovered = 0
+    dark_first = [r[0] for r in results if not r[1]]
+    if dark_first and time.monotonic() - t0 < RETRY_DEADLINE:
+        time.sleep(RETRY_WAIT)
+        retried = {}
+        for s in dark_first:
+            if time.monotonic() - t0 > RETRY_DEADLINE:
+                break
+            r = scan(s, suggest=False)
+            if r[1]:
+                retried[s["domain"]] = r
+        recovered = len(retried)
+        results = [retried.get(r[0]["domain"], r) for r in results]
 
     today_s = datetime.date.today().isoformat()
     early_pings = []   # (purl, message) for fresh, not-yet-buyable listings
@@ -855,6 +916,9 @@ def main():
         "dark_1_day_plus": persistent,
         "alerts_found": len(alerts), "alerts_sent": alerts_sent,
         "early_warnings": len(early_pings), "early_warnings_sent": early_sent,
+        "throttle_hits": _throttle_hits[0],
+        "pacer_peak_s": round(_peak_interval[0], 2),
+        "dark_before_retry": len(dark_first), "recovered_on_retry": recovered,
         "telegram_failures": _tg_failures[0], "bottles": by_bottle,
     }
     hist = state.get("run_history", [])

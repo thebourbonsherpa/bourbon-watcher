@@ -1,4 +1,4 @@
-# Bourbon Phone Watcher (v5.3)
+# Bourbon Phone Watcher (v5.4)
 
 A tiny 24/7 watcher that pings your phone via Telegram the moment one of your
 target bottles flips to in-stock at or under your price cap. Runs free on
@@ -8,7 +8,7 @@ GitHub Actions. No computer of yours needs to be on.
 Every run, each roster shop gets checked TWO ways:
 
 1. **Feed pass (every shop, every run):** reads the shop's public
-   products.json feed - the newest ~750 products. Catches newly created
+   products.json feed - the newest ~500 products. Catches newly created
    listings fast.
 2. **Search pass (rotating slice):** queries the shop's native Shopify search
    once per bottle. Catches RESTOCKS of listings created long ago - on big
@@ -19,11 +19,22 @@ Every run, each roster shop gets checked TWO ways:
    feed fails or is empty are always searched - it's their only coverage.
 
 Shops are scanned in parallel, but requests are paced twice: per shop AND
-globally (~2.5 requests/sec total). Most roster stores share Shopify's edge
-network, which rate-limits per client IP ACROSS stores - without the global
-cap, 30+ shops 429 at once. HTTP 429 and 430 (Shopify's bot-rejection code)
-are retried with backoff; timeouts get one retry; two consecutive hard
-failures abort that shop's search pass for the run. A run takes ~2-3 minutes.
+globally. Most roster stores share Shopify's edge network, which rate-limits
+per client IP ACROSS stores, and GitHub runners share IPs with other
+scrapers, so some runs start with the IP's budget already half spent.
+
+Throttle handling (v5.4):
+- **Adaptive pacer.** Normal speed is ~2.5 requests/sec. Any HTTP 429/430
+  slows the WHOLE watcher (interval doubles, up to 1.6s, plus a 3s pause);
+  every 10 successes eases it back toward normal.
+- **Hot shops first, rest shuffled.** Shops marked `"hot": true` in
+  config.json are scanned first every run; the rest are shuffled. A
+  throttled run used to lose the same tail of the roster every time.
+- **Retry sweep.** After a 15s cool-down, any shop that went dark gets one
+  more feed-only pass (no new retry work starts after ~230s).
+- Two consecutive hard failures abort a shop's search pass for the run.
+
+A clean run takes ~2 minutes; a throttled run up to ~4.
 
 ## Alert rules
 - A hit must be in stock AND have a real price between the junk floor
@@ -49,7 +60,9 @@ failures abort that shop's search pass for the run. A run takes ~2-3 minutes.
   summary.
 - Before a search-pass hit can alert, the watcher re-reads the product's
   `.js` (live tags, availability, price). Search results carry no tags and
-  can lag; this costs one extra request per would-be alert.
+  can lag; this costs one extra request per would-be alert. If that check
+  itself fails, the hit is HELD, not sent (v5.3.1 - failing open let a
+  tag-gated Liquor Barn listing alert twice), and re-checked next pass.
 - Alerts fire once per listing per stock cycle (no repeat spam) and are only
   marked "sent" after Telegram confirms delivery - a failed send re-fires
   next run. state.json keeps only alerted listings (v5.3).
@@ -74,6 +87,13 @@ blip.
   scanning nothing.
 - **Job backstop:** the workflow kills any run at 10 minutes so a wedged run
   can't block the queue.
+- **Public run summary.** Every run writes `last_run` and a rolling
+  `run_history` (last 100 runs, ~8 hours) into state.json: shops reached,
+  unreachable shops with reasons, alerts and early warnings found/sent,
+  Telegram failures, throttle hits, pacer peak, shops recovered on retry,
+  and per-bottle listings / in stock / under cap / cheapest. The repo is
+  public, so this is readable without a GitHub login - ask Claude to
+  "check the watcher."
 
 ## One-time setup (about 15 minutes)
 
@@ -103,7 +123,8 @@ on it runs on schedule (a cron-job.org job hitting workflow_dispatch every
 
 ## Maintaining it (config.json)
 - **Add/drop a shop:** one line in `shops` (name + domain; optional `note`
-  that rides along in alerts as a caution tag).
+  that rides along in alerts as a caution tag; optional `"hot": true` to
+  scan it first every run - keep hot shops to ~8, the worker count).
 - **Add/drop a bottle:** a block in `bottles` with `query` + match rules:
   `match_all` (every term in title), `match_any` (at least one), `exclude`
   (none). ALWAYS live-test new rules against shop search first - the feed
@@ -128,3 +149,12 @@ on it runs on schedule (a cron-job.org job hitting workflow_dispatch every
 
 ## Cost
 Free. Public repo = unlimited Actions minutes; Telegram is free.
+
+## Version history
+- **5.4** (2026-10-06) - adaptive global pacer, hot shops first + shuffled
+  order, end-of-run retry sweep, feed window 750 -> 500.
+- **5.3.1** (2026-10-06) - search-pass confirm fails closed.
+- **5.3** (2026-10-05) - global excludes, tag gating, early-warning NEW
+  LISTING pings, pre-orders alert, public run summary, state trimmed.
+- **5.2** (2026-07-09) - global pacer, 430 handling, config guard,
+  dark-shop tracking.
