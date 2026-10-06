@@ -18,19 +18,19 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 649.99
+      "price": 749.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1184.0
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1249.99
     },
     "King of Kentucky (single barrel)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 649.0
+      "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -46,7 +46,7 @@
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1899.99
+      "price": 2099.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2499.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 725.0
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 21,
+  "suggest_cursor": 36,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -96,121 +96,186 @@
     "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 0,
-    "3brothersliquor.com": 0,
-    "primetimeliquor.com": 0,
-    "missiontrailswineandspirits.com": 0,
-    "atozbev.com": 0,
-    "lovescotch.com": 0,
-    "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0,
-    "theliquorbarn.com": 0,
-    "pbexpressliquor.com": 0,
-    "bittersandbottles.com": 0,
-    "theliquorbros.com": 0,
-    "mugenspirit.com": 0
+    "nestorliquor.com": 1,
+    "3brothersliquor.com": 1,
+    "primetimeliquor.com": 1,
+    "missiontrailswineandspirits.com": 1,
+    "atozbev.com": 1,
+    "lovescotch.com": 1,
+    "www.kegnbottle.com": 1,
+    "www.missionliquor.com": 1,
+    "cellar.com": 1,
+    "sbspirit.com": 1,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
+    "kybourbondirect.com": 1,
+    "theliquorbarn.com": 1,
+    "pbexpressliquor.com": 1,
+    "bittersandbottles.com": 1,
+    "theliquorbros.com": 1,
+    "mugenspirit.com": 1
   },
   "last_run": {
-    "utc": "2026-10-06T09:20:18+00:00",
+    "utc": "2026-10-06T09:25:18+00:00",
     "version": "5.3",
-    "duration_s": 125.8,
+    "duration_s": 143.2,
     "shops_total": 47,
-    "shops_reached": 47,
-    "feeds_visible": 47,
-    "unreachable": [],
+    "shops_reached": 29,
+    "feeds_visible": 29,
+    "unreachable": [
+      [
+        "Nestor Liquor",
+        "HTTP 429"
+      ],
+      [
+        "3 Brothers Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Prime Time Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Mission Trails Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "AtoZBev",
+        "HTTP 429"
+      ],
+      [
+        "LoveScotch",
+        "HTTP 429"
+      ],
+      [
+        "Keg N Bottle",
+        "HTTP 429"
+      ],
+      [
+        "Mission Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Cellar.com (Schneider's of Capitol Hill)",
+        "HTTP 429"
+      ],
+      [
+        "SB Wine & Spirit",
+        "HTTP 429"
+      ],
+      [
+        "Bonded Bottle Shop",
+        "HTTP 429"
+      ],
+      [
+        "Lueken's Liquors",
+        "HTTP 429"
+      ],
+      [
+        "KY Bourbon Direct",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Barn",
+        "HTTP 429"
+      ],
+      [
+        "PB Express Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Bitters & Bottles",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Mugen Spirit (brand DTC)",
+        "HTTP 429"
+      ]
+    ],
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 62,
-        "in_stock": 51,
+        "listings": 43,
+        "in_stock": 35,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 98,
-        "in_stock": 77,
+        "listings": 39,
+        "in_stock": 34,
         "under_cap": 0,
-        "low_in_stock": 649.0
+        "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 94,
-        "in_stock": 83,
+        "listings": 44,
+        "in_stock": 38,
         "under_cap": 0,
-        "low_in_stock": 1150.0
+        "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 21,
-        "in_stock": 17,
+        "listings": 9,
+        "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 39,
-        "in_stock": 32,
+        "listings": 15,
+        "in_stock": 10,
         "under_cap": 0,
-        "low_in_stock": 1899.99
+        "low_in_stock": 2099.99
       },
       "Mugen Nobunaga": {
-        "listings": 4,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 8,
-        "in_stock": 6,
+        "listings": 3,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2499.99
       },
       "13th Colony Double Oaked": {
-        "listings": 8,
-        "in_stock": 6,
+        "listings": 1,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 725.0
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 16,
-        "in_stock": 13,
+        "listings": 6,
+        "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 14,
-        "in_stock": 7,
+        "listings": 5,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 649.99
+        "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 17,
-        "in_stock": 8,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1184.0
+        "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 12,
-        "in_stock": 6,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1249.0
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 01:05",
-      33,
-      47,
-      0,
-      123.5,
-      0
-    ],
     [
       "10-06 01:10",
       8,
@@ -1001,6 +1066,14 @@
       47,
       0,
       125.8,
+      0
+    ],
+    [
+      "10-06 09:25",
+      29,
+      47,
+      0,
+      143.2,
       0
     ]
   ]
