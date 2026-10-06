@@ -22,11 +22,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1329.0
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -46,7 +46,7 @@
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1899.99
+      "price": 1799.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2499.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 31,
+  "suggest_cursor": 46,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -91,13 +91,13 @@
     "primebarrel.com": 0,
     "whiskeycaviar.com": 0,
     "barrelshoppe.com": 0,
-    "seelbachs.com": 1,
+    "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 1,
+    "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
     "nestorliquor.com": 0,
-    "3brothersliquor.com": 1,
+    "3brothersliquor.com": 0,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
     "atozbev.com": 0,
@@ -107,43 +107,22 @@
     "cellar.com": 0,
     "sbspirit.com": 0,
     "bondedbottleshop.com": 0,
-    "luekensliquors.com": 1,
+    "luekensliquors.com": 0,
     "kybourbondirect.com": 0,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
-    "theliquorbros.com": 1,
+    "theliquorbros.com": 0,
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-06T15:57:29+00:00",
+    "utc": "2026-10-06T16:00:32+00:00",
     "version": "5.3",
-    "duration_s": 147.6,
+    "duration_s": 128.6,
     "shops_total": 47,
-    "shops_reached": 42,
-    "feeds_visible": 39,
-    "unreachable": [
-      [
-        "Seelbach's",
-        "HTTP 429"
-      ],
-      [
-        "Blackwell's Wines & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "3 Brothers Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Lueken's Liquors",
-        "HTTP 429"
-      ],
-      [
-        "The Liquor Bros",
-        "HTTP 429"
-      ]
-    ],
+    "shops_reached": 47,
+    "feeds_visible": 47,
+    "unreachable": [],
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
@@ -152,34 +131,34 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 47,
-        "in_stock": 39,
+        "listings": 46,
+        "in_stock": 36,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 68,
-        "in_stock": 53,
+        "listings": 64,
+        "in_stock": 39,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 69,
-        "in_stock": 58,
+        "listings": 68,
+        "in_stock": 47,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 10,
+        "listings": 12,
         "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 35,
-        "in_stock": 28,
+        "listings": 27,
+        "in_stock": 16,
         "under_cap": 0,
-        "low_in_stock": 1899.99
+        "low_in_stock": 1799.99
       },
       "Mugen Nobunaga": {
         "listings": 4,
@@ -189,51 +168,43 @@
       },
       "William Heavenhill 19 (WHH19, 2025)": {
         "listings": 4,
-        "in_stock": 3,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2499.99
       },
       "13th Colony Double Oaked": {
-        "listings": 4,
-        "in_stock": 1,
+        "listings": 3,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
         "listings": 11,
-        "in_stock": 9,
+        "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 8,
+        "listings": 10,
         "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 6,
-        "in_stock": 3,
-        "under_cap": 0,
-        "low_in_stock": 1329.0
-      },
-      "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 4,
+        "listings": 5,
         "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1999.99
+        "low_in_stock": 1699.99
+      },
+      "Mister Sam Tribute (Batch 3 or 4)": {
+        "listings": 6,
+        "in_stock": 2,
+        "under_cap": 0,
+        "low_in_stock": 899.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 07:40",
-      47,
-      47,
-      0,
-      129.9,
-      0
-    ],
     [
       "10-06 07:45",
       47,
@@ -1025,6 +996,14 @@
       0,
       147.6,
       0
+    ],
+    [
+      "10-06 16:00",
+      47,
+      47,
+      0,
+      128.6,
+      0
     ]
   ],
   "seen_listings": {
@@ -1594,7 +1573,10 @@
     "https://canawineco.com/products/william-larue-weller-kentucky-straight-bourbon-whiskey-2006": "2026-10-06",
     "https://woodencork.com/products/brown-formans-king-of-kentucky-18-year-old-bourbon-2022-release-single-barrel-5-131-1-proof": "2026-10-06",
     "https://cellar.com/products/pappy-van-winkle-15-year-old-750ml": "2026-10-06",
-    "https://cellar.com/products/pappy-van-winkle-family-15-year-2016-750ml": "2026-10-06"
+    "https://cellar.com/products/pappy-van-winkle-family-15-year-2016-750ml": "2026-10-06",
+    "https://cellar.com/products/william-larue-weller-2024-750ml": "2026-10-06",
+    "https://cellar.com/products/william-weller-larue-2013-750ml": "2026-10-06",
+    "https://pbexpressliquor.com/products/william-larue-weller-2024-release": "2026-10-06"
   },
   "baselined": {
     "www.remedyliquor.com": [
