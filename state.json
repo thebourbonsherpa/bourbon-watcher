@@ -22,11 +22,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2499.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 29,
+  "suggest_cursor": 44,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -104,25 +104,66 @@
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
     "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0,
-    "theliquorbarn.com": 0,
-    "pbexpressliquor.com": 0,
-    "bittersandbottles.com": 0,
-    "theliquorbros.com": 0,
-    "mugenspirit.com": 0
+    "cellar.com": 1,
+    "sbspirit.com": 1,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
+    "kybourbondirect.com": 1,
+    "theliquorbarn.com": 1,
+    "pbexpressliquor.com": 1,
+    "bittersandbottles.com": 1,
+    "theliquorbros.com": 1,
+    "mugenspirit.com": 1
   },
   "last_run": {
-    "utc": "2026-10-06T12:15:20+00:00",
+    "utc": "2026-10-06T12:20:17+00:00",
     "version": "5.3",
-    "duration_s": 125.3,
+    "duration_s": 139.5,
     "shops_total": 47,
-    "shops_reached": 47,
-    "feeds_visible": 47,
-    "unreachable": [],
+    "shops_reached": 37,
+    "feeds_visible": 37,
+    "unreachable": [
+      [
+        "Cellar.com (Schneider's of Capitol Hill)",
+        "HTTP 429"
+      ],
+      [
+        "SB Wine & Spirit",
+        "HTTP 429"
+      ],
+      [
+        "Bonded Bottle Shop",
+        "HTTP 429"
+      ],
+      [
+        "Lueken's Liquors",
+        "HTTP 429"
+      ],
+      [
+        "KY Bourbon Direct",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Barn",
+        "HTTP 429"
+      ],
+      [
+        "PB Express Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Bitters & Bottles",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Mugen Spirit (brand DTC)",
+        "HTTP 429"
+      ]
+    ],
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
@@ -131,88 +172,80 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 56,
-        "in_stock": 46,
+        "listings": 44,
+        "in_stock": 36,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 76,
-        "in_stock": 60,
+        "listings": 55,
+        "in_stock": 36,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 75,
-        "in_stock": 63,
+        "listings": 62,
+        "in_stock": 49,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 15,
-        "in_stock": 11,
+        "listings": 11,
+        "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 37,
-        "in_stock": 29,
+        "listings": 26,
+        "in_stock": 16,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
       "Mugen Nobunaga": {
-        "listings": 4,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 5,
-        "in_stock": 4,
-        "under_cap": 0,
-        "low_in_stock": 2469.0
-      },
-      "13th Colony Double Oaked": {
-        "listings": 4,
+        "listings": 3,
         "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": 2499.99
+      },
+      "13th Colony Double Oaked": {
+        "listings": 2,
+        "in_stock": 0,
+        "under_cap": 0,
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 14,
-        "in_stock": 11,
+        "listings": 8,
+        "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 9,
-        "in_stock": 4,
+        "listings": 6,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 8,
-        "in_stock": 5,
-        "under_cap": 0,
-        "low_in_stock": 1299.99
-      },
-      "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 8,
-        "in_stock": 3,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1699.99
+      },
+      "Mister Sam Tribute (Batch 3 or 4)": {
+        "listings": 3,
+        "in_stock": 1,
+        "under_cap": 0,
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 04:00",
-      41,
-      47,
-      0,
-      111.4,
-      0
-    ],
     [
       "10-06 04:05",
       47,
@@ -1004,6 +1037,14 @@
       0,
       125.3,
       0
+    ],
+    [
+      "10-06 12:20",
+      37,
+      47,
+      0,
+      139.5,
+      0
     ]
   ],
   "seen_listings": {
@@ -1565,7 +1606,8 @@
     "https://www.buymyliquor.com/products/wild-turkey-master-s-keep-beacon": "2026-10-06",
     "https://www.buymyliquor.com/products/russells-reserve-15-year-old-2024-limited-release": "2026-10-06",
     "https://www.buymyliquor.com/products/russell-s-reserve-15-year-old-bourbon-2024-release": "2026-10-06",
-    "https://woodencork.com/products/jack-daniels-single-barrel-coy-hill-2021-144-2-proof": "2026-10-06"
+    "https://woodencork.com/products/jack-daniels-single-barrel-coy-hill-2021-144-2-proof": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2020": "2026-10-06"
   },
   "baselined": {
     "www.remedyliquor.com": [
