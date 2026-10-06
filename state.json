@@ -18,19 +18,19 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 649.99
+      "price": 749.0
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1184.0
+      "price": 1499.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1249.0
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1150.0
+      "price": 1249.99
     },
     "King of Kentucky (single barrel)": {
       "available": true,
@@ -38,7 +38,7 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 649.0
+      "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2499.99
     },
     "13th Colony Double Oaked": {
       "available": true,
-      "price": 725.0
+      "price": 874.99
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 19,
+  "suggest_cursor": 34,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -103,116 +103,153 @@
     "atozbev.com": 0,
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 0,
-    "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
-    "kybourbondirect.com": 0,
-    "theliquorbarn.com": 0,
-    "pbexpressliquor.com": 0,
-    "bittersandbottles.com": 0,
-    "theliquorbros.com": 0,
-    "mugenspirit.com": 0
+    "www.missionliquor.com": 1,
+    "cellar.com": 1,
+    "sbspirit.com": 1,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
+    "kybourbondirect.com": 1,
+    "theliquorbarn.com": 1,
+    "pbexpressliquor.com": 1,
+    "bittersandbottles.com": 1,
+    "theliquorbros.com": 1,
+    "mugenspirit.com": 1
   },
   "last_run": {
-    "utc": "2026-10-06T09:35:16+00:00",
+    "utc": "2026-10-06T09:40:18+00:00",
     "version": "5.3",
-    "duration_s": 146.7,
+    "duration_s": 171.7,
     "shops_total": 47,
-    "shops_reached": 47,
-    "feeds_visible": 44,
-    "unreachable": [],
+    "shops_reached": 36,
+    "feeds_visible": 35,
+    "unreachable": [
+      [
+        "Mission Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Cellar.com (Schneider's of Capitol Hill)",
+        "HTTP 429"
+      ],
+      [
+        "SB Wine & Spirit",
+        "HTTP 429"
+      ],
+      [
+        "Bonded Bottle Shop",
+        "HTTP 429"
+      ],
+      [
+        "Lueken's Liquors",
+        "HTTP 429"
+      ],
+      [
+        "KY Bourbon Direct",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Barn",
+        "HTTP 429"
+      ],
+      [
+        "PB Express Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Bitters & Bottles",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Mugen Spirit (brand DTC)",
+        "HTTP 429"
+      ]
+    ],
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
-    "early_warnings": 2,
-    "early_warnings_sent": 2,
+    "early_warnings": 0,
+    "early_warnings_sent": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 58,
-        "in_stock": 49,
+        "listings": 45,
+        "in_stock": 37,
         "under_cap": 0,
         "low_in_stock": 1999.95
       },
       "George T. Stagg (GTS)": {
-        "listings": 98,
-        "in_stock": 80,
+        "listings": 62,
+        "in_stock": 43,
         "under_cap": 0,
-        "low_in_stock": 649.0
+        "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 94,
-        "in_stock": 84,
+        "listings": 63,
+        "in_stock": 52,
         "under_cap": 0,
-        "low_in_stock": 1150.0
+        "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 20,
-        "in_stock": 17,
+        "listings": 13,
+        "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 38,
-        "in_stock": 34,
+        "listings": 34,
+        "in_stock": 25,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
       "Mugen Nobunaga": {
-        "listings": 4,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 8,
-        "in_stock": 6,
+        "listings": 3,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2499.99
       },
       "13th Colony Double Oaked": {
-        "listings": 8,
-        "in_stock": 6,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 725.0
+        "low_in_stock": 874.99
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 17,
-        "in_stock": 14,
+        "listings": 10,
+        "in_stock": 9,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 15,
-        "in_stock": 7,
+        "listings": 7,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 649.99
+        "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 18,
-        "in_stock": 8,
+        "listings": 2,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 1184.0
+        "low_in_stock": 1499.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 13,
-        "in_stock": 7,
+        "listings": 3,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1249.0
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-06 01:20",
-      32,
-      47,
-      0,
-      121.0,
-      0
-    ],
     [
       "10-06 01:25",
       47,
@@ -1004,6 +1041,14 @@
       0,
       146.7,
       0
+    ],
+    [
+      "10-06 09:40",
+      36,
+      47,
+      0,
+      171.7,
+      0
     ]
   ],
   "seen_listings": {
@@ -1397,7 +1442,103 @@
     "https://mugenspirit.com/products/shogun-series-nobunaga-prime-half-barrel": "2026-10-06",
     "https://mugenspirit.com/products/nobunaga-series-inaugural-barrel": "2026-10-06",
     "https://www.buymyliquor.com/products/king-of-kentucky-14-year-single-barrel-high-proof-bourbon": "2026-10-06",
-    "https://dramfellows.com/products/king-of-kentucky-14-year-single-barrel-high-proof-bourbon": "2026-10-06"
+    "https://dramfellows.com/products/king-of-kentucky-14-year-single-barrel-high-proof-bourbon": "2026-10-06",
+    "https://elcerritoliquor.com/products/2025-brown-formans-king-of-kentucky-single-barrel-17-year-old-kentucky-straight-bourbon-whiskey-130-proof-short-barrel-58-copy": "2026-10-06",
+    "https://thebourbonconcierge.com/products/pappy-van-winkle-15-750ml-2012": "2026-10-06",
+    "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-george-t-stagg-2016-144-1-proof": "2026-10-06",
+    "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-william-larue-weller-134-6pf-2015": "2026-10-06",
+    "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-william-larue-weller-2017-128-2-proof": "2026-10-06",
+    "https://thebourbonconcierge.com/products/buffalo-trace-antique-collection-william-larue-weller-2018": "2026-10-06",
+    "https://thebourbonconcierge.com/products/pappy-van-winkle-15-years-old-single-barrel-by-bourbon-connoisseurs-barrel-002-15-years-10-months-old": "2026-10-06",
+    "https://thebourbonconcierge.com/products/2025-george-t-stagg-142-8pf": "2026-10-06",
+    "https://thebourbonconcierge.com/products/brown-formans-king-of-kentucky-2025-no-specific-barrel": "2026-10-06",
+    "https://thebourbonconcierge.com/products/jack-daniels-coy-hill-single-barrel-2021-142-4pf": "2026-10-06",
+    "https://thebourbonconcierge.com/products/2005-william-larue-weller": "2026-10-06",
+    "https://thebourbonconcierge.com/products/pappy-van-winkle-15-year-107-proof-2011": "2026-10-06",
+    "https://thebourbonconcierge.com/products/pappy-van-winkle-15-year-107-proof-2013": "2026-10-06",
+    "https://thebourbonconcierge.com/products/brown-formans-king-of-kentucky-2024-no-specific-barrel": "2026-10-06",
+    "https://thebourbonconcierge.com/products/brown-formans-king-of-kentucky-2020-no-specific-barrel": "2026-10-06",
+    "https://hiproof.com/products/george-t-stagg-2023-release-spend-1100-sazerac-get-it-for-124-99-copy-1": "2026-10-06",
+    "https://whiskeycaviar.com/products/copy-of-brown-formans-king-of-kentucky-2022-release": "2026-10-06",
+    "https://whiskeycaviar.com/products/brown-formans-king-of-kentucky-single-barrel-kentucky-straight-bourbon-2020-release": "2026-10-06",
+    "https://whiskeycaviar.com/products/brown-formans-king-of-kentucky-2024-release": "2026-10-06",
+    "https://whiskeycaviar.com/products/copy-of-brown-formans-king-of-kentucky-2020-release": "2026-10-06",
+    "https://whiskeycaviar.com/products/brown-formans-king-of-kentucky-2022-release": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-stagg-george-t-stagg-bourbon-whiskey-2023": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-t-stagg-bourbon-whiskey-2020": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-t-stagg-bourbon-whiskey-2024": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-stagg-george-t-stagg-bourbon-whiskey-2019": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-stagg-george-t-stagg-bourbon-whiskey-2018": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-stagg-george-t-stagg-bourbon-whiskey-2022": "2026-10-06",
+    "https://whiskeycaviar.com/products/george-stagg-george-t-stagg-bourbon-whiskey-2011-71-3-750-ml": "2026-10-06",
+    "https://whiskeycaviar.com/products/william-larue-weller-2023-bourbon-whiskey": "2026-10-06",
+    "https://whiskeycaviar.com/products/william-larue-weller-2020": "2026-10-06",
+    "https://whiskeycaviar.com/products/william-larue-weller-2021": "2026-10-06",
+    "https://whiskeycaviar.com/products/william-larue-weller-2022-bourbon-whiskey": "2026-10-06",
+    "https://whiskeycaviar.com/products/william-larue-weller-2024-750ml": "2026-10-06",
+    "https://whiskeycaviar.com/products/copy-of-william-larue-weller-2018-bourbon-whiskey": "2026-10-06",
+    "https://whiskeycaviar.com/products/jack-daniel-coy-hill-2024-release-750-ml": "2026-10-06",
+    "https://whiskeycaviar.com/products/jack-daniels-single-barrel-coy-hill-2021-143-5-proof-whiskey": "2026-10-06",
+    "https://whiskeycaviar.com/products/jack-daniels-single-barrel-coy-hill-high-proof-whiskey": "2026-10-06",
+    "https://whiskeycaviar.com/products/pappy-van-winkle-15-year-bourbon": "2026-10-06",
+    "https://whiskeycaviar.com/products/pappy-van-winkle-15-year-bourbon-santa-red-foil": "2026-10-06",
+    "https://whiskeycaviar.com/products/jack-daniel-s-14-year-old-tennessee-whiskey-batch-1": "2026-10-06",
+    "https://whiskeycaviar.com/products/wild-turkey-masters-keep-beacon-bourbon-whiskey-750-ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/king-of-kentucky-bourbon-2023": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2023": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2008-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2013-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2007-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2015-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2009-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2003-release": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/george-t-stagg-2020": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2022": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/william-larue-weller-2023": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2022": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-family-reserve-15-year-old-2023": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2020-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2015-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2014-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2021-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2018-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2019-750ml": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/thirteenth-colony-cask-strength-double-oaked-straight-bourbon": "2026-10-06",
+    "https://therarewhiskeyshop.com/products/russells-reserve-15-year-old-limited-release-bourbon": "2026-10-06",
+    "https://blackwellswines.com/products/george-t-stagg-bourbon-whiskey": "2026-10-06",
+    "https://blackwellswines.com/products/william-larue-weller-bourbon-whiskey": "2026-10-06",
+    "https://blackwellswines.com/products/pappy-van-winkle-15-year-old-bourbon-whiskey-107-proof": "2026-10-06",
+    "https://blackwellswines.com/products/jack-daniels-14-years-old-tennessee-whiskey-batch-1": "2026-10-06",
+    "https://blackwellswines.com/products/mister-sam-blended-canadian-whiskey": "2026-10-06",
+    "https://nestorliquor.com/products/william-larue-weller-bourbon-2023-133-6-proof": "2026-10-06",
+    "https://nestorliquor.com/products/pappy-van-winkle-15-year": "2026-10-06",
+    "https://nestorliquor.com/products/jack-daniels-14-year-old-tennessee-whiskey": "2026-10-06",
+    "https://3brothersliquor.com/products/george-t-stagg-kentucky-straight-bourbon-whiskey": "2026-10-06",
+    "https://3brothersliquor.com/products/george-t-stagg-barrel-proof-straight-bourbon-whiskey-fall-2023-edition": "2026-10-06",
+    "https://3brothersliquor.com/products/william-larue-weller-straight-bourbon-whiskey-fall-2023-edition": "2026-10-06",
+    "https://3brothersliquor.com/products/pappy-van-winkles-family-reserve-aged-15-years-old-bourbon-whiskey-2023-release": "2026-10-06",
+    "https://3brothersliquor.com/products/pappy-van-winklea-family-reserve-aged-15-years-bourbon-whiskey-2022-edition": "2026-10-06",
+    "https://primetimeliquor.com/products/george_t_stagg_bourbon_whiskey_2019_750ml": "2026-10-06",
+    "https://primetimeliquor.com/products/william_larue_weller_bourbon_whiskey_2019_750ml": "2026-10-06",
+    "https://primetimeliquor.com/products/pappy_van_winkle_15_year_old_bourbon_whiskey_750ml": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-bourbon-2025-release": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2006-140-6-proof-kentucky-straight-whiskey": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2018-kentucky-straight-bourbon-whiskey": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-spring-2005-lot-b-kentucky-straight-bourbon-whiskey": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2010": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2013": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-2019": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/george-t-stagg-bourbon-2023-release": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2018": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2017": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2025-release": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2022-124-7-proof": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/william-larue-weller-2019": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/jack-daniels-single-barrel-special-release-coy-hill-high-proof": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/jack-daniel-s-2024-special-release-coy-hill-barrelhouse-8": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/pappy-van-winkle-15-year-old-2007-private-select-by-julios-liquors": "2026-10-06",
+    "https://missiontrailswineandspirits.com/products/pappy-van-winkle-15-year-family-reserve": "2026-10-06"
   },
   "baselined": {
     "www.remedyliquor.com": [],
@@ -1605,21 +1746,178 @@
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
-    "hiproof.com": [],
-    "mensjournalspirits.com": [],
-    "primebarrel.com": [],
-    "whiskeycaviar.com": [],
-    "barrelshoppe.com": [],
-    "seelbachs.com": [],
-    "therarewhiskeyshop.com": [],
-    "blackwellswines.com": [],
-    "bottleshopandtastingroom.com": [],
-    "beveragewarehousemi.com": [],
-    "nestorliquor.com": [],
-    "3brothersliquor.com": [],
-    "primetimeliquor.com": [],
-    "missiontrailswineandspirits.com": [],
-    "atozbev.com": [],
+    "hiproof.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "mensjournalspirits.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "primebarrel.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "whiskeycaviar.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "barrelshoppe.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "seelbachs.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "therarewhiskeyshop.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "blackwellswines.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "Russell's Reserve 15",
+      "William Larue Weller (WLW)"
+    ],
+    "bottleshopandtastingroom.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "beveragewarehousemi.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "nestorliquor.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Master's Keep Beacon",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "3brothersliquor.com": [
+      "13th Colony Double Oaked",
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "primetimeliquor.com": [
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Heavenhill 19 (WHH19, 2025)",
+      "William Larue Weller (WLW)"
+    ],
+    "missiontrailswineandspirits.com": [
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Mugen Nobunaga",
+      "Pappy Van Winkle 15",
+      "William Larue Weller (WLW)"
+    ],
+    "atozbev.com": [
+      "George T. Stagg (GTS)",
+      "Jack Daniel's Coy Hill (2021 or 2024)",
+      "King of Kentucky (single barrel)",
+      "Pappy Van Winkle 15",
+      "William Larue Weller (WLW)"
+    ],
     "lovescotch.com": [],
     "www.kegnbottle.com": [],
     "www.missionliquor.com": [],
