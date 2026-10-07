@@ -18,7 +18,7 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 999.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -34,19 +34,19 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1999.95
+      "price": 2299.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 549.99
+      "price": 1399.99
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1899.99
+      "price": 2099.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -57,114 +57,74 @@
       "price": 2899.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
-      "price": 379.99
+      "price": 799.99
     }
   },
-  "suggest_cursor": 33,
+  "suggest_cursor": 1,
   "shop_misses": {
-    "www.remedyliquor.com": 2,
+    "www.remedyliquor.com": 3,
     "bourbonoutfitter.com": 0,
-    "sharedpour.com": 2,
-    "estatesliquor.com": 2,
+    "sharedpour.com": 3,
+    "estatesliquor.com": 3,
     "www.buymyliquor.com": 0,
-    "qualityliquorstore.com": 0,
-    "sipwhiskey.com": 1,
+    "qualityliquorstore.com": 1,
+    "sipwhiskey.com": 2,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 1,
-    "chipsliquor.com": 1,
-    "woodencork.com": 1,
-    "dewinespot.co": 2,
-    "elcerritoliquor.com": 2,
-    "www.thebarreltap.com": 2,
-    "blackbookspirits.com": 0,
-    "canawineco.com": 2,
-    "wheatleywineandspirits.com": 0,
-    "thebourbonconcierge.com": 0,
+    "delmesaliquor.com": 2,
+    "chipsliquor.com": 2,
+    "woodencork.com": 2,
+    "dewinespot.co": 0,
+    "elcerritoliquor.com": 3,
+    "www.thebarreltap.com": 0,
+    "blackbookspirits.com": 1,
+    "canawineco.com": 0,
+    "wheatleywineandspirits.com": 1,
+    "thebourbonconcierge.com": 1,
     "jazzyswine.com": 0,
-    "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
-    "primebarrel.com": 2,
-    "whiskeycaviar.com": 0,
-    "barrelshoppe.com": 2,
-    "seelbachs.com": 0,
+    "hiproof.com": 0,
+    "mensjournalspirits.com": 2,
+    "primebarrel.com": 0,
+    "whiskeycaviar.com": 1,
+    "barrelshoppe.com": 0,
+    "seelbachs.com": 1,
     "therarewhiskeyshop.com": 0,
-    "blackwellswines.com": 2,
-    "bottleshopandtastingroom.com": 0,
+    "blackwellswines.com": 3,
+    "bottleshopandtastingroom.com": 1,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 1,
-    "3brothersliquor.com": 1,
-    "primetimeliquor.com": 1,
+    "nestorliquor.com": 2,
+    "3brothersliquor.com": 2,
+    "primetimeliquor.com": 2,
     "missiontrailswineandspirits.com": 0,
-    "atozbev.com": 0,
-    "lovescotch.com": 0,
-    "www.kegnbottle.com": 2,
-    "www.missionliquor.com": 0,
+    "atozbev.com": 1,
+    "lovescotch.com": 1,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 1,
     "cellar.com": 0,
-    "sbspirit.com": 2,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 2,
-    "kybourbondirect.com": 2,
+    "sbspirit.com": 3,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 3,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
-    "theliquorbros.com": 2,
+    "theliquorbros.com": 3,
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-07T20:20:18+00:00",
+    "utc": "2026-10-07T20:25:18+00:00",
     "version": "5.4.2",
-    "duration_s": 235.5,
+    "duration_s": 235.6,
     "shops_total": 47,
-    "shops_reached": 23,
-    "feeds_visible": 23,
+    "shops_reached": 20,
+    "feeds_visible": 20,
     "unreachable": [
       [
-        "Wooden Cork",
-        "HTTP 429"
-      ],
-      [
-        "KY Bourbon Direct",
-        "HTTP 429"
-      ],
-      [
-        "Keg N Bottle",
-        "HTTP 429"
-      ],
-      [
-        "Del Mesa Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Prime Barrel",
-        "HTTP 429"
-      ],
-      [
-        "The Liquor Bros",
-        "HTTP 429"
-      ],
-      [
-        "Prime Time Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Hi Proof",
-        "HTTP 429"
-      ],
-      [
-        "Blackwell's Wines & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "El Cerrito Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Estates Liquor",
+        "Remedy Liquor",
         "HTTP 429"
       ],
       [
@@ -172,19 +132,43 @@
         "HTTP 429"
       ],
       [
-        "Chips Liquor",
+        "LoveScotch",
         "HTTP 429"
       ],
       [
-        "Sip Whiskey",
+        "3 Brothers Liquor",
         "HTTP 429"
       ],
       [
-        "De Wine Spot",
+        "Wheatley Wine & Spirits",
         "HTTP 429"
       ],
       [
-        "SharedPour",
+        "The Bourbon Concierge",
+        "HTTP 429"
+      ],
+      [
+        "Quality Liquor Store",
+        "HTTP 429"
+      ],
+      [
+        "Prime Time Liquor",
+        "HTTP 429"
+      ],
+      [
+        "KY Bourbon Direct",
+        "HTTP 429"
+      ],
+      [
+        "Mission Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Bonded Bottle Shop",
         "HTTP 429"
       ],
       [
@@ -192,31 +176,59 @@
         "HTTP 429"
       ],
       [
+        "Sip Whiskey",
+        "HTTP 429"
+      ],
+      [
+        "Estates Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Blackbook Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Blackwell's Wines & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Chips Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Wooden Cork",
+        "HTTP 429"
+      ],
+      [
+        "Seelbach's",
+        "HTTP 429"
+      ],
+      [
+        "Del Mesa Liquor",
+        "HTTP 429"
+      ],
+      [
+        "SharedPour",
+        "HTTP 429"
+      ],
+      [
+        "Bottle Shop & Tasting Room",
+        "HTTP 429"
+      ],
+      [
+        "Whiskey Caviar",
+        "HTTP 429"
+      ],
+      [
+        "AtoZBev",
+        "HTTP 429"
+      ],
+      [
+        "El Cerrito Liquor",
+        "HTTP 429"
+      ],
+      [
         "Men's Journal Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Cana Wine",
-        "HTTP 429"
-      ],
-      [
-        "Barrel Shoppe",
-        "HTTP 429"
-      ],
-      [
-        "Lueken's Liquors",
-        "HTTP 429"
-      ],
-      [
-        "The Barrel Tap",
-        "HTTP 429"
-      ],
-      [
-        "Remedy Liquor",
-        "HTTP 429"
-      ],
-      [
-        "3 Brothers Liquor",
         "HTTP 429"
       ]
     ],
@@ -225,44 +237,44 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 292,
+    "throttle_hits": 311,
     "pacer_peak_s": 0.4,
-    "dark_before_retry": 24,
+    "dark_before_retry": 27,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 25,
-        "in_stock": 21,
+        "listings": 10,
+        "in_stock": 7,
         "under_cap": 0,
-        "low_in_stock": 1999.95
+        "low_in_stock": 2299.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 48,
-        "in_stock": 40,
+        "listings": 20,
+        "in_stock": 14,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 39,
-        "in_stock": 32,
+        "listings": 18,
+        "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 11,
-        "in_stock": 7,
+        "listings": 4,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 549.99
+        "low_in_stock": 1399.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 25,
-        "in_stock": 22,
+        "listings": 4,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1899.99
+        "low_in_stock": 2099.99
       },
       "Mugen Nobunaga": {
-        "listings": 2,
+        "listings": 3,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -275,21 +287,21 @@
       },
       "13th Colony Double Oaked": {
         "listings": 1,
-        "in_stock": 1,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 5,
-        "in_stock": 4,
+        "listings": 4,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 379.99
+        "low_in_stock": 799.99
       },
       "Master's Keep Beacon": {
-        "listings": 3,
-        "in_stock": 2,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 749.0
+        "low_in_stock": 999.99
       },
       "Russell's Reserve 15": {
         "listings": 1,
@@ -306,14 +318,6 @@
     }
   },
   "run_history": [
-    [
-      "10-07 11:25",
-      14,
-      47,
-      0,
-      235.5,
-      0
-    ],
     [
       "10-07 11:30",
       47,
@@ -1105,6 +1109,14 @@
       0,
       235.5,
       0
+    ],
+    [
+      "10-07 20:25",
+      20,
+      47,
+      0,
+      235.6,
+      0
     ]
   ],
   "seen_listings": {
@@ -1694,7 +1706,9 @@
     "https://canawineco.com/products/2024-brown-formans-king-of-kentucky-single-barrel-16-year-old-kentucky-straight-bourbon-whiskey-750ml": "2026-10-07",
     "https://dramfellows.com/products/king-of-kentucky-14-year-single-barrel-kentucky-straight-bourbon-whiskey-700ml": "2026-10-07",
     "https://sipwhiskey.com/products/13th-colony-single-barrel-double-oaked-bourbon": "2026-10-07",
-    "https://dewinespot.co/products/jack-daniels-coy-hill-single-barrel-special-release-tennessee-whiskey": "2026-10-07"
+    "https://dewinespot.co/products/jack-daniels-coy-hill-single-barrel-special-release-tennessee-whiskey": "2026-10-07",
+    "https://cellar.com/products/george-t-stagg-2009-141-4-proof-750ml": "2026-10-07",
+    "https://cellar.com/products/william-larue-weller-2019-750ml": "2026-10-07"
   },
   "baselined": {
     "www.remedyliquor.com": [
