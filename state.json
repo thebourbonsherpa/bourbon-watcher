@@ -17,8 +17,8 @@
   "last_update_id": 692807864,
   "bottle_state": {
     "Master's Keep Beacon": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -34,15 +34,15 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1999.99
+      "price": 2299.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 849.99
+      "price": 789.0
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 999.0
+      "price": 3499.99
     },
     "Pappy Van Winkle 15": {
       "available": true,
@@ -53,8 +53,8 @@
       "price": null
     },
     "William Heavenhill 19 (WHH19, 2025)": {
-      "available": true,
-      "price": 2469.0
+      "available": false,
+      "price": null
     },
     "13th Colony Double Oaked": {
       "available": false,
@@ -62,53 +62,53 @@
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
-      "price": 379.99
+      "price": 599.99
     }
   },
-  "suggest_cursor": 43,
+  "suggest_cursor": 11,
   "shop_misses": {
-    "www.remedyliquor.com": 0,
+    "www.remedyliquor.com": 1,
     "bourbonoutfitter.com": 0,
-    "sharedpour.com": 1,
-    "estatesliquor.com": 1,
+    "sharedpour.com": 2,
+    "estatesliquor.com": 2,
     "www.buymyliquor.com": 0,
-    "qualityliquorstore.com": 1,
-    "sipwhiskey.com": 1,
+    "qualityliquorstore.com": 0,
+    "sipwhiskey.com": 0,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 1,
+    "delmesaliquor.com": 0,
     "chipsliquor.com": 0,
-    "woodencork.com": 1,
-    "dewinespot.co": 0,
-    "elcerritoliquor.com": 1,
-    "www.thebarreltap.com": 0,
+    "woodencork.com": 2,
+    "dewinespot.co": 1,
+    "elcerritoliquor.com": 0,
+    "www.thebarreltap.com": 1,
     "blackbookspirits.com": 0,
-    "canawineco.com": 1,
-    "wheatleywineandspirits.com": 0,
+    "canawineco.com": 0,
+    "wheatleywineandspirits.com": 1,
     "thebourbonconcierge.com": 0,
-    "jazzyswine.com": 1,
-    "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
-    "primebarrel.com": 0,
-    "whiskeycaviar.com": 1,
-    "barrelshoppe.com": 1,
-    "seelbachs.com": 0,
-    "therarewhiskeyshop.com": 1,
-    "blackwellswines.com": 0,
-    "bottleshopandtastingroom.com": 0,
+    "jazzyswine.com": 0,
+    "hiproof.com": 0,
+    "mensjournalspirits.com": 0,
+    "primebarrel.com": 1,
+    "whiskeycaviar.com": 0,
+    "barrelshoppe.com": 2,
+    "seelbachs.com": 1,
+    "therarewhiskeyshop.com": 0,
+    "blackwellswines.com": 1,
+    "bottleshopandtastingroom.com": 1,
     "beveragewarehousemi.com": 0,
     "nestorliquor.com": 0,
     "3brothersliquor.com": 0,
-    "primetimeliquor.com": 1,
+    "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
-    "atozbev.com": 1,
-    "lovescotch.com": 1,
-    "www.kegnbottle.com": 1,
-    "www.missionliquor.com": 1,
+    "atozbev.com": 0,
+    "lovescotch.com": 2,
+    "www.kegnbottle.com": 0,
+    "www.missionliquor.com": 2,
     "cellar.com": 0,
     "sbspirit.com": 0,
-    "bondedbottleshop.com": 1,
-    "luekensliquors.com": 1,
-    "kybourbondirect.com": 1,
+    "bondedbottleshop.com": 0,
+    "luekensliquors.com": 0,
+    "kybourbondirect.com": 0,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
@@ -116,27 +116,23 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-07T14:30:23+00:00",
+    "utc": "2026-10-07T14:35:18+00:00",
     "version": "5.4.2",
     "duration_s": 235.5,
     "shops_total": 47,
-    "shops_reached": 25,
-    "feeds_visible": 25,
+    "shops_reached": 33,
+    "feeds_visible": 21,
     "unreachable": [
       [
-        "Bonded Bottle Shop",
+        "De Wine Spot",
         "HTTP 429"
       ],
       [
-        "Quality Liquor Store",
+        "Seelbach's",
         "HTTP 429"
       ],
       [
-        "Whiskey Caviar",
-        "HTTP 429"
-      ],
-      [
-        "Hi Proof",
+        "Remedy Liquor",
         "HTTP 429"
       ],
       [
@@ -144,31 +140,11 @@
         "HTTP 429"
       ],
       [
-        "AtoZBev",
-        "HTTP 429"
-      ],
-      [
-        "Sip Whiskey",
-        "HTTP 429"
-      ],
-      [
-        "Keg N Bottle",
-        "HTTP 429"
-      ],
-      [
-        "Del Mesa Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Lueken's Liquors",
-        "HTTP 429"
-      ],
-      [
-        "Jazzy's Wine",
-        "HTTP 429"
-      ],
-      [
         "Mission Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "The Barrel Tap",
         "HTTP 429"
       ],
       [
@@ -176,7 +152,23 @@
         "HTTP 429"
       ],
       [
-        "Cana Wine",
+        "Wooden Cork",
+        "HTTP 429"
+      ],
+      [
+        "Prime Barrel",
+        "HTTP 429"
+      ],
+      [
+        "Wheatley Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Blackwell's Wines & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Bottle Shop & Tasting Room",
         "HTTP 429"
       ],
       [
@@ -184,31 +176,7 @@
         "HTTP 429"
       ],
       [
-        "Wooden Cork",
-        "HTTP 429"
-      ],
-      [
-        "Men's Journal Spirits",
-        "HTTP 429"
-      ],
-      [
         "SharedPour",
-        "HTTP 429"
-      ],
-      [
-        "Prime Time Liquor",
-        "HTTP 429"
-      ],
-      [
-        "KY Bourbon Direct",
-        "HTTP 429"
-      ],
-      [
-        "El Cerrito Liquor",
-        "HTTP 429"
-      ],
-      [
-        "The Rare Whiskey Shop",
         "HTTP 429"
       ]
     ],
@@ -217,56 +185,56 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 272,
+    "throttle_hits": 363,
     "pacer_peak_s": 0.4,
-    "dark_before_retry": 22,
+    "dark_before_retry": 14,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 6,
-        "in_stock": 2,
+        "listings": 21,
+        "in_stock": 15,
         "under_cap": 0,
-        "low_in_stock": 1999.99
+        "low_in_stock": 2299.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 25,
-        "in_stock": 13,
+        "listings": 65,
+        "in_stock": 51,
         "under_cap": 0,
-        "low_in_stock": 849.99
+        "low_in_stock": 789.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 21,
-        "in_stock": 11,
+        "listings": 34,
+        "in_stock": 25,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 5,
-        "in_stock": 2,
+        "listings": 3,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 999.0
+        "low_in_stock": 3499.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 11,
-        "in_stock": 7,
+        "listings": 4,
+        "in_stock": 4,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
       "Mugen Nobunaga": {
-        "listings": 3,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 0,
+        "listings": 1,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "13th Colony Double Oaked": {
-        "listings": 1,
+        "listings": 0,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -275,13 +243,13 @@
         "listings": 4,
         "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 379.99
+        "low_in_stock": 599.99
       },
       "Master's Keep Beacon": {
         "listings": 1,
-        "in_stock": 0,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
         "listings": 0,
@@ -298,14 +266,6 @@
     }
   },
   "run_history": [
-    [
-      "10-07 06:15",
-      20,
-      47,
-      0,
-      235.4,
-      0
-    ],
     [
       "10-07 06:20",
       25,
@@ -1093,6 +1053,14 @@
     [
       "10-07 14:30",
       25,
+      47,
+      0,
+      235.5,
+      0
+    ],
+    [
+      "10-07 14:35",
+      33,
       47,
       0,
       235.5,
