@@ -42,7 +42,7 @@
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 999.0
+      "price": 979.95
     },
     "Pappy Van Winkle 15": {
       "available": true,
@@ -54,7 +54,7 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2699.99
+      "price": 2469.0
     },
     "13th Colony Double Oaked": {
       "available": true,
@@ -116,12 +116,12 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-07T12:30:24+00:00",
+    "utc": "2026-10-07T12:32:23+00:00",
     "version": "5.4.2",
-    "duration_s": 108.3,
+    "duration_s": 113.0,
     "shops_total": 47,
     "shops_reached": 47,
-    "feeds_visible": 47,
+    "feeds_visible": 46,
     "unreachable": [],
     "dark_1_day_plus": [],
     "alerts_found": 0,
@@ -136,31 +136,31 @@
     "bottles": {
       "King of Kentucky (single barrel)": {
         "listings": 41,
-        "in_stock": 32,
+        "in_stock": 33,
         "under_cap": 0,
         "low_in_stock": 1999.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 55,
-        "in_stock": 40,
+        "listings": 64,
+        "in_stock": 49,
         "under_cap": 0,
         "low_in_stock": 649.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 42,
-        "in_stock": 32,
+        "listings": 51,
+        "in_stock": 41,
         "under_cap": 0,
         "low_in_stock": 1150.0
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 13,
-        "in_stock": 10,
+        "listings": 14,
+        "in_stock": 11,
         "under_cap": 0,
-        "low_in_stock": 999.0
+        "low_in_stock": 979.95
       },
       "Pappy Van Winkle 15": {
-        "listings": 25,
-        "in_stock": 20,
+        "listings": 29,
+        "in_stock": 24,
         "under_cap": 0,
         "low_in_stock": 1799.88
       },
@@ -171,10 +171,10 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 5,
-        "in_stock": 2,
+        "listings": 6,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 2699.99
+        "low_in_stock": 2469.0
       },
       "13th Colony Double Oaked": {
         "listings": 5,
@@ -189,19 +189,19 @@
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 9,
+        "listings": 10,
         "in_stock": 6,
         "under_cap": 0,
         "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 11,
+        "listings": 13,
         "in_stock": 4,
         "under_cap": 0,
         "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 7,
+        "listings": 8,
         "in_stock": 6,
         "under_cap": 0,
         "low_in_stock": 1199.99
@@ -1002,11 +1002,11 @@
       0
     ],
     [
-      "10-07 12:30",
+      "10-07 12:32",
       47,
       47,
       0,
-      108.3,
+      113.0,
       0
     ]
   ],
@@ -1587,7 +1587,8 @@
     "https://cellar.com/products/william-weller-larue-2010-750ml": "2026-10-06",
     "https://theliquorbros.com/products/william-larue-weller": "2026-10-06",
     "https://www.thebarreltap.com/products/pappy-van-winkle-15-year-santa-red-foil-bourbon": "2026-10-07",
-    "https://3brothersliquor.com/products/william-larue-weller-2021-kentucky-bourbon-whiskey": "2026-10-07"
+    "https://3brothersliquor.com/products/william-larue-weller-2021-kentucky-bourbon-whiskey": "2026-10-07",
+    "https://woodencork.com/products/brown-formans-king-of-kentucky-16-year-old-bourbon-2024-release-single-barrel-126-3-proof": "2026-10-07"
   },
   "baselined": {
     "www.remedyliquor.com": [
