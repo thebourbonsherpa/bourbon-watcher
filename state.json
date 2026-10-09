@@ -22,11 +22,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1199.99
+      "price": 899.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -34,15 +34,15 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1999.95
+      "price": 1999.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 549.0
+      "price": 999.0
     },
     "Pappy Van Winkle 15": {
       "available": true,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2899.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 27,
+  "suggest_cursor": 42,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -116,9 +116,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-09T04:20:17+00:00",
+    "utc": "2026-10-09T04:25:13+00:00",
     "version": "5.4.2",
-    "duration_s": 110.4,
+    "duration_s": 108.8,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -135,32 +135,32 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 52,
-        "in_stock": 46,
+        "listings": 33,
+        "in_stock": 27,
         "under_cap": 0,
-        "low_in_stock": 1999.95
+        "low_in_stock": 1999.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 75,
-        "in_stock": 65,
+        "listings": 55,
+        "in_stock": 30,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 64,
-        "in_stock": 56,
+        "listings": 41,
+        "in_stock": 26,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 17,
-        "in_stock": 13,
+        "listings": 9,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 549.0
+        "low_in_stock": 999.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 38,
-        "in_stock": 32,
+        "listings": 23,
+        "in_stock": 13,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
@@ -171,52 +171,44 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 6,
-        "in_stock": 5,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2899.99
       },
       "13th Colony Double Oaked": {
-        "listings": 4,
-        "in_stock": 2,
+        "listings": 1,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 14,
-        "in_stock": 11,
+        "listings": 11,
+        "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
         "listings": 8,
-        "in_stock": 5,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 12,
-        "in_stock": 7,
+        "listings": 4,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1299.99
+        "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 10,
-        "in_stock": 4,
+        "listings": 5,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 1199.99
+        "low_in_stock": 899.99
       }
     }
   },
   "run_history": [
-    [
-      "10-08 20:10",
-      47,
-      47,
-      0,
-      110.7,
-      0
-    ],
     [
       "10-08 20:15",
       47,
@@ -1008,6 +1000,14 @@
       0,
       110.4,
       0
+    ],
+    [
+      "10-09 04:25",
+      47,
+      47,
+      0,
+      108.8,
+      0
     ]
   ],
   "seen_listings": {
@@ -1629,7 +1629,8 @@
     "https://missiontrailswineandspirits.com/products/george-t-stagg-2022-138-7-proof": "2026-10-09",
     "https://elcerritoliquor.com/products/george-t-stagg-bourbon-whiskey-2014": "2026-10-09",
     "https://therarewhiskeyshop.com/products/william-larue-weller-2006-release": "2026-10-09",
-    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2013": "2026-10-09"
+    "https://therarewhiskeyshop.com/products/pappy-van-winkle-15-year-old-2013": "2026-10-09",
+    "https://cellar.com/products/george-t-stagg-2016-750ml": "2026-10-09"
   },
   "baselined": {
     "www.remedyliquor.com": [
