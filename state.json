@@ -22,7 +22,7 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1329.0
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
@@ -34,19 +34,19 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1999.95
+      "price": 1799.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 549.0
+      "price": 999.0
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1949.99
+      "price": 1799.88
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -54,18 +54,18 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2899.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1 or 2)": {
       "available": true,
       "price": 379.99
     }
   },
-  "suggest_cursor": 31,
+  "suggest_cursor": 46,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -116,9 +116,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-10T11:05:13+00:00",
+    "utc": "2026-10-10T11:10:18+00:00",
     "version": "5.4.2",
-    "duration_s": 108.0,
+    "duration_s": 110.4,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -135,34 +135,34 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 45,
-        "in_stock": 39,
+        "listings": 34,
+        "in_stock": 28,
         "under_cap": 0,
-        "low_in_stock": 1999.95
+        "low_in_stock": 1799.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 52,
-        "in_stock": 41,
+        "listings": 54,
+        "in_stock": 30,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 45,
-        "in_stock": 35,
+        "listings": 42,
+        "in_stock": 25,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 11,
-        "in_stock": 8,
+        "listings": 10,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 549.0
+        "low_in_stock": 999.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 33,
-        "in_stock": 25,
+        "listings": 24,
+        "in_stock": 14,
         "under_cap": 0,
-        "low_in_stock": 1949.99
+        "low_in_stock": 1799.88
       },
       "Mugen Nobunaga": {
         "listings": 3,
@@ -171,37 +171,37 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 4,
-        "in_stock": 3,
-        "under_cap": 0,
-        "low_in_stock": 2469.0
-      },
-      "13th Colony Double Oaked": {
         "listings": 3,
         "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": 2899.99
+      },
+      "13th Colony Double Oaked": {
+        "listings": 2,
+        "in_stock": 0,
+        "under_cap": 0,
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1 or 2)": {
-        "listings": 13,
-        "in_stock": 10,
+        "listings": 11,
+        "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 379.99
       },
       "Master's Keep Beacon": {
-        "listings": 6,
-        "in_stock": 3,
+        "listings": 7,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 7,
-        "in_stock": 4,
+        "listings": 5,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1329.0
+        "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 5,
         "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 1199.99
@@ -209,14 +209,6 @@
     }
   },
   "run_history": [
-    [
-      "10-10 02:50",
-      47,
-      47,
-      0,
-      110.0,
-      0
-    ],
     [
       "10-10 02:55",
       47,
@@ -1007,6 +999,14 @@
       47,
       0,
       108.0,
+      0
+    ],
+    [
+      "10-10 11:10",
+      47,
+      47,
+      0,
+      110.4,
       0
     ]
   ],
