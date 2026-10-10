@@ -116,9 +116,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-10T17:25:06+00:00",
+    "utc": "2026-10-10T17:27:04+00:00",
     "version": "5.4.2",
-    "duration_s": 108.4,
+    "duration_s": 108.3,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -141,7 +141,7 @@
         "low_in_stock": 1999.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 53,
+        "listings": 56,
         "in_stock": 38,
         "under_cap": 0,
         "low_in_stock": 849.99
@@ -1002,11 +1002,11 @@
       0
     ],
     [
-      "10-10 17:25",
+      "10-10 17:27",
       47,
       47,
       0,
-      108.4,
+      108.3,
       0
     ]
   ],
