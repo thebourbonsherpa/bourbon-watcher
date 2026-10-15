@@ -116,9 +116,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-15T21:59:37+00:00",
+    "utc": "2026-10-15T22:01:38+00:00",
     "version": "5.4.2",
-    "duration_s": 110.1,
+    "duration_s": 110.3,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -147,7 +147,7 @@
         "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 47,
+        "listings": 48,
         "in_stock": 27,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -159,7 +159,7 @@
         "low_in_stock": 499.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 23,
+        "listings": 25,
         "in_stock": 12,
         "under_cap": 0,
         "low_in_stock": 1899.99
@@ -1002,11 +1002,11 @@
       0
     ],
     [
-      "10-15 21:59",
+      "10-15 22:01",
       47,
       47,
       0,
-      110.1,
+      110.3,
       0
     ]
   ],
