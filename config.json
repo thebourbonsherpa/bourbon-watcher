@@ -1,5 +1,5 @@
 {
-  "_comment": "v5.3. The watcher scans every shop below for each bottle's match rules and alerts when a match is in stock between min_price and max_price. match_all = every term in the title; match_any = at least one; exclude = none. global_exclude is appended to every bottle's exclude list (bundles, combos, empties). gate_tags: a product carrying any of these Shopify tags is treated as not buyable (Liquor Barn keeps allocated bottles listed at MSRP with an 'unavailable' tag). hot=true shops are scanned first every run (v5.4); the rest are shuffled. Keep terms lowercase and apostrophe-free. ALWAYS live-test new rules against shop search before committing.",
+  "_comment": "v5.4.2 config (2026-10-15, 18 bottles). The watcher scans every shop below for each bottle's match rules and alerts when a match is in stock between min_price and max_price. match_all = every term in the title; match_any = at least one; exclude = none. global_exclude is appended to every bottle's exclude list (bundles, combos, empties). gate_tags: a product carrying any of these Shopify tags is treated as not buyable (Liquor Barn keeps allocated bottles listed at MSRP with an 'unavailable' tag). hot=true shops are scanned first every run (v5.4); the rest are shuffled. Keep terms lowercase and apostrophe-free. ALWAYS live-test new rules against shop search before committing.",
   "heartbeat_days": 7,
   "min_price": 50,
   "global_exclude": ["bundle", "combo", "2-pack", "3-pack", "2 pack", "3 pack", "gift set", "gift box", "dram set", " + ", "empty", "miniature", "glencairn", "t-shirt", "mystery", "raffle", "prize", "spend $", "get it for", "read the description"],
@@ -10,7 +10,7 @@
     {
       "name": "King of Kentucky (single barrel)",
       "msrp": 400,
-      "max_price": 700,
+      "max_price": 900,
       "query": "king of kentucky",
       "match_all": ["king of kentucky"],
       "match_any": [],
@@ -20,7 +20,7 @@
     {
       "name": "George T. Stagg (GTS)",
       "msrp": 130,
-      "max_price": 500,
+      "max_price": 400,
       "query": "george t stagg",
       "match_all": ["george", "stagg"],
       "match_any": [],
@@ -30,7 +30,7 @@
     {
       "name": "William Larue Weller (WLW)",
       "msrp": 150,
-      "max_price": 500,
+      "max_price": 600,
       "query": "william larue weller",
       "match_all": ["larue", "weller"],
       "match_any": [],
@@ -49,11 +49,21 @@
     {
       "name": "Pappy Van Winkle 15",
       "msrp": 300,
-      "max_price": 600,
+      "max_price": 1000,
       "query": "pappy van winkle 15",
       "match_all": ["van winkle"],
       "match_any": ["15 year", "15-year", "15yr", "15 yr", "15 years", "reserve 15", "pappy 15", "winkle 15"],
       "exclude": ["rye", "10 year", "12 year", "20 year", "23 year", "lot b", "collection", "set"]
+    },
+    {
+      "name": "Old Rip Van Winkle 10 Year",
+      "msrp": 80,
+      "max_price": 375,
+      "query": "old rip van winkle 10",
+      "match_all": ["rip van winkle"],
+      "match_any": ["10 year", "10-year", "10yr", "10 yr", "10 years", "bbn-10", "107 proof"],
+      "exclude": ["12 year", "13 year", "15 year", "20 year", "23 year", "25 year", "lot b", "rye", "blanton", "weller", "taylor", "eagle rare", "decanter", "glass", "hat", "tequila", "corazon"],
+      "_note": "Excludes multi-bottle combos, Pappy/Lot B, rye, merch. '107 proof' catches Liquor Barn's undated MSRP listing."
     },
     {
       "name": "Mugen Nobunaga",
@@ -64,6 +74,16 @@
       "match_any": [],
       "exclude": [],
       "_note": "Mugen Spirit Shogun Series, 15yr finished in Chichibu casks. Any Nobunaga barrel at/under cap."
+    },
+    {
+      "name": "Mugen Kuko",
+      "msrp": 160,
+      "max_price": 350,
+      "query": "kuko",
+      "match_all": ["kuko"],
+      "match_any": [],
+      "exclude": [],
+      "_note": "Mugen Spirit Yokai Series Kuko (9yr single barrels, incl. store picks). Bundles blocked by global_exclude."
     },
     {
       "name": "William Heavenhill 19 (WHH19, 2025)",
@@ -86,14 +106,54 @@
       "_note": "Thirteenth Colony (Americus, GA) Cask Strength Double Oaked, any batch; single-barrel Double Oaked picks also match. 'double oak' covers oak/oaked."
     },
     {
-      "name": "Jack Daniel's 14 Year (Batch 1 or 2)",
+      "name": "Jack Daniel's 14 Year (Batch 1)",
       "msrp": 150,
       "max_price": 250,
       "query": "jack daniels 14 year",
-      "match_all": ["jack daniel"],
-      "match_any": ["14 year", "14-year", "14yr", "14 yr", "14 years"],
-      "exclude": ["batch 03", "batch 3", "batch #3", "batch no 3", "batch no. 3", "10, 12", "10 12"],
-      "_note": "Batch 1 (2025) and Batch 2 (2026). Batch 03 is already being listed - excluded. Undated listings match; check the batch on the label."
+      "match_all": ["jack daniel", "14"],
+      "match_any": ["batch 1", "batch 01", "batch #1", "batch no 1", "batch no. 1", "batch one"],
+      "exclude": ["10 year", "10 yr", "12 year", "12 yr", "coy hill", "batch 10", "batch 11", "batch 12", "10, 12", "10 12"],
+      "_note": "Batch 1 (2025) only. Undated '14 Year' listings can't be told apart and are skipped - check shops by hand if one appears."
+    },
+    {
+      "name": "Wild Turkey 101 8 Year (1981-87)",
+      "msrp": null,
+      "max_price": 400,
+      "query": "wild turkey 101 8 year",
+      "match_all": ["wild turkey", "101"],
+      "match_any": ["1981", "1982", "1983", "1984", "1985", "1986", "1987", "/81", "/82", "/83", "/84", "/85", "/86", "/87", "1980s"],
+      "exclude": ["1978", "1979", "1988", "1989", "199", "12 year", "12yr", "rare breed", "kentucky spirit", "rye", "3pk"],
+      "_note": "Dusty 1981-87 only. The current WT 101 8 Year sells for $35-55 everywhere, so a year in the title is REQUIRED; undated dusties are missed. '1980s' listings may be 88-89 - check the label."
+    },
+    {
+      "name": "Old Forester Birthday Bourbon 2026",
+      "msrp": 200,
+      "max_price": 275,
+      "query": "old forester birthday bourbon",
+      "match_all": ["forester", "birthday"],
+      "match_any": [],
+      "exclude": ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "250th"],
+      "_note": "2026 = 11yr, 97 proof, $200, Sept 2026. Older years excluded by year; undated listings match (Liquor Barn lists undated at MSRP)."
+    },
+    {
+      "name": "Evan Williams 23 Year (2025)",
+      "msrp": 350,
+      "max_price": 500,
+      "query": "evan williams 23",
+      "match_all": ["evan williams"],
+      "match_any": ["23 year", "23-year", "23yr", "23 yr", "23 years"],
+      "exclude": ["196", "197", "198", "199", "200", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+      "_note": "Japan export / Heaven Hill gift shop, 107 proof. Older bottlings excluded by year; undated listings match - confirm the bottling year."
+    },
+    {
+      "name": "Four Roses Limited Edition 2026",
+      "msrp": 249,
+      "max_price": 300,
+      "query": "four roses limited edition 2026",
+      "match_all": ["four roses", "2026"],
+      "match_any": ["limited"],
+      "exclude": ["anthology", "private selection", "barrel select", "mother"],
+      "_note": "2026 LE Small Batch: 109.2 proof, $249, released Oct 10 2026. Anthology 21yr (also 2026) excluded."
     },
     {
       "name": "Master's Keep Beacon",
