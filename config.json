@@ -136,14 +136,14 @@
       "_note": "2026 = 11yr, 97 proof, $200, Sept 2026. Older years excluded by year; undated listings match (Liquor Barn lists undated at MSRP)."
     },
     {
-      "name": "Evan Williams 23 Year (2025)",
+      "name": "Evan Williams 23 Year (2026)",
       "msrp": 350,
       "max_price": 500,
       "query": "evan williams 23",
       "match_all": ["evan williams"],
       "match_any": ["23 year", "23-year", "23yr", "23 yr", "23 years"],
-      "exclude": ["196", "197", "198", "199", "200", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
-      "_note": "Japan export / Heaven Hill gift shop, 107 proof. Older bottlings excluded by year; undated listings match - confirm the bottling year."
+      "exclude": ["196", "197", "198", "199", "200", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+      "_note": "US release is distillery-only (Evan Williams Bourbon Experience, Louisville), 107 proof; retail listings are resale. Labels carry no release year, so undated listings match and dated 2025-or-earlier ones are excluded - confirm the bottling date on any hit."
     },
     {
       "name": "Four Roses Limited Edition 2026",
