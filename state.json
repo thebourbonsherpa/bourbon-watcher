@@ -18,35 +18,35 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1249.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1249.99
+      "price": 1150.0
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1799.99
+      "price": 1899.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 799.99
+      "price": 649.0
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 499.99
+      "price": 599.99
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1799.88
+      "price": 1899.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -54,15 +54,15 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2899.99
+      "price": 2469.0
     },
     "13th Colony Double Oaked": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 725.0
     },
     "Old Rip Van Winkle 10 Year": {
       "available": true,
-      "price": 849.99
+      "price": 799.0
     },
     "Mugen Kuko": {
       "available": false,
@@ -74,7 +74,7 @@
     },
     "Wild Turkey 101 8 Year (1981-87)": {
       "available": true,
-      "price": 1299.99
+      "price": 999.95
     },
     "Old Forester Birthday Bourbon 2026": {
       "available": true,
@@ -83,9 +83,13 @@
     "Four Roses Limited Edition 2026": {
       "available": false,
       "price": null
+    },
+    "Evan Williams 23 Year (2026)": {
+      "available": true,
+      "price": 999.99
     }
   },
-  "suggest_cursor": 1,
+  "suggest_cursor": 16,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -136,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-15T23:35:19+00:00",
+    "utc": "2026-10-15T23:40:21+00:00",
     "version": "5.4.2",
-    "duration_s": 147.1,
+    "duration_s": 144.4,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -146,8 +150,8 @@
     "dark_1_day_plus": [],
     "alerts_found": 0,
     "alerts_sent": 0,
-    "early_warnings": 2,
-    "early_warnings_sent": 2,
+    "early_warnings": 0,
+    "early_warnings_sent": 0,
     "throttle_hits": 0,
     "pacer_peak_s": 0.4,
     "dark_before_retry": 0,
@@ -155,40 +159,40 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 35,
-        "in_stock": 28,
+        "listings": 48,
+        "in_stock": 41,
         "under_cap": 0,
-        "low_in_stock": 1799.99
+        "low_in_stock": 1899.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 44,
-        "in_stock": 25,
+        "listings": 74,
+        "in_stock": 65,
         "under_cap": 0,
-        "low_in_stock": 799.99
+        "low_in_stock": 649.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 35,
-        "in_stock": 18,
+        "listings": 64,
+        "in_stock": 55,
         "under_cap": 0,
-        "low_in_stock": 1249.99
+        "low_in_stock": 1150.0
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 9,
-        "in_stock": 5,
+        "listings": 18,
+        "in_stock": 15,
         "under_cap": 0,
-        "low_in_stock": 499.99
+        "low_in_stock": 599.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 19,
-        "in_stock": 9,
+        "listings": 30,
+        "in_stock": 27,
         "under_cap": 0,
-        "low_in_stock": 1799.88
+        "low_in_stock": 1899.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 23,
-        "in_stock": 9,
+        "listings": 20,
+        "in_stock": 17,
         "under_cap": 0,
-        "low_in_stock": 849.99
+        "low_in_stock": 799.0
       },
       "Mugen Nobunaga": {
         "listings": 3,
@@ -203,40 +207,40 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 3,
-        "in_stock": 1,
+        "listings": 7,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 2899.99
+        "low_in_stock": 2469.0
       },
       "13th Colony Double Oaked": {
-        "listings": 2,
-        "in_stock": 0,
+        "listings": 8,
+        "in_stock": 6,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 725.0
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 3,
-        "in_stock": 3,
+        "listings": 5,
+        "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 799.99
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 3,
-        "in_stock": 1,
+        "listings": 4,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 1299.99
+        "low_in_stock": 999.95
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 21,
-        "in_stock": 16,
+        "listings": 23,
+        "in_stock": 19,
         "under_cap": 0,
         "low_in_stock": 571.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 0,
-        "in_stock": 0,
+        "listings": 7,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 999.99
       },
       "Four Roses Limited Edition 2026": {
         "listings": 2,
@@ -245,34 +249,26 @@
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 6,
-        "in_stock": 2,
+        "listings": 12,
+        "in_stock": 8,
         "under_cap": 0,
-        "low_in_stock": 749.0
+        "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 5,
-        "in_stock": 1,
+        "listings": 17,
+        "in_stock": 7,
         "under_cap": 0,
-        "low_in_stock": 1699.99
+        "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 5,
-        "in_stock": 1,
+        "listings": 11,
+        "in_stock": 7,
         "under_cap": 0,
-        "low_in_stock": 1999.99
+        "low_in_stock": 1249.0
       }
     }
   },
   "run_history": [
-    [
-      "10-15 15:20",
-      47,
-      47,
-      0,
-      108.4,
-      0
-    ],
     [
       "10-15 15:25",
       47,
@@ -1064,6 +1060,14 @@
       0,
       147.1,
       0
+    ],
+    [
+      "10-15 23:40",
+      47,
+      47,
+      0,
+      144.4,
+      0
     ]
   ],
   "seen_listings": {
@@ -1774,7 +1778,34 @@
     "https://www.kegnbottle.com/products/old-forester-2026-birthday-bourbon-750ml": "2026-10-15",
     "https://www.kegnbottle.com/products/pappy-old-rip-van-winkle-10-year-750-ml": "2026-10-15",
     "https://mensjournalspirits.com/products/old-forester-birthday-bourbon-700-ml": "2026-10-15",
-    "https://dewinespot.co/products/mugen-spirit-yokai-kuko-9-year-four-grain-single-barrel-kentucky-straight-bourbon-the-prime-barrel-pick-163": "2026-10-15"
+    "https://dewinespot.co/products/mugen-spirit-yokai-kuko-9-year-four-grain-single-barrel-kentucky-straight-bourbon-the-prime-barrel-pick-163": "2026-10-15",
+    "https://www.buymyliquor.com/products/old-rip-van-winkle-10-year-old-2024-release": "2026-10-15",
+    "https://www.buymyliquor.com/products/old-forester-birthday-bourbon-2026-limited-edition-aged-11-years-700ml": "2026-10-15",
+    "https://www.buymyliquor.com/products/evan-williams-23-year-old-bourbon-1": "2026-10-15",
+    "https://www.buymyliquor.com/products/evan-williams-23-year-old-bourbon": "2026-10-15",
+    "https://dramfellows.com/products/old-rip-van-winkle-10-year-old-2024-release": "2026-10-15",
+    "https://dramfellows.com/products/old-forester-birthday-bourbon-2026-limited-edition-aged-11-years-700ml": "2026-10-15",
+    "https://dramfellows.com/products/evan-williams-23-year-old-bourbon": "2026-10-15",
+    "https://elcerritoliquor.com/products/old-rip-van-winkle-1979-very-special-stock-10-year-old": "2026-10-15",
+    "https://elcerritoliquor.com/products/wild-turkey-8-year-old-101-proof-1987-1-liter": "2026-10-15",
+    "https://elcerritoliquor.com/products/wild-turkey-1982-8-year-old-101-proof-kentucky-straight-bourbon-whiskey-750ml": "2026-10-15",
+    "https://blackbookspirits.com/products/old-rip-van-winkle-10-year-old-107-proof-bourbon-750-ml": "2026-10-15",
+    "https://dewinespot.co/products/old-rip-van-winkle-10-year-old-107-proof": "2026-10-15",
+    "https://dewinespot.co/products/old-forester-birthday-bourbon-kentucky-straight-bourbon-whiskey": "2026-10-15",
+    "https://dewinespot.co/products/evan-williams-23-years-old-kentucky-straight-bourbon-whiskey": "2026-10-15",
+    "https://sipwhiskey.com/products/old-rip-van-winkle-10-years-old": "2026-10-15",
+    "https://sipwhiskey.com/products/evan-williams-23-year-old-bourbon": "2026-10-15",
+    "https://chipsliquor.com/products/old-rip-van-winkle-10-year-bourbon-2025": "2026-10-15",
+    "https://chipsliquor.com/products/old-rip-van-winkle-10-year-bourbon-2024": "2026-10-15",
+    "https://chipsliquor.com/products/old-rip-van-winkle-10-year-old-bourbon-whiskey-2023": "2026-10-15",
+    "https://chipsliquor.com/products/old-rip-van-winkle-2019-10-year-bourbon-whiskey": "2026-10-15",
+    "https://qualityliquorstore.com/products/old-rip-van-winkle-10-year-old-bourbon": "2026-10-15",
+    "https://canawineco.com/products/old-rip-van-winkle-bourbon-10-year-old": "2026-10-15",
+    "https://canawineco.com/products/2011-old-rip-van-winkle-handmade-107-proof-10-year-old-bourbon-squat-bottling-750ml": "2026-10-15",
+    "https://canawineco.com/products/evan-williams-ultra-rare-23-year-old-kentucky-straight-bourbon-107-proof": "2026-10-15",
+    "https://woodencork.com/products/old-rip-van-winkle-10-year-bourbon": "2026-10-15",
+    "https://woodencork.com/products/evan-williams-23-year-old-bourbon": "2026-10-15",
+    "https://delmesaliquor.com/products/old-rip-van-winkle-10-year-2021": "2026-10-15"
   },
   "baselined": {
     "www.remedyliquor.com": [
@@ -1799,196 +1830,301 @@
     ],
     "bourbonoutfitter.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "sharedpour.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "estatesliquor.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "www.buymyliquor.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "qualityliquorstore.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "sipwhiskey.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "dramfellows.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "delmesaliquor.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "chipsliquor.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "woodencork.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "dewinespot.co": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "elcerritoliquor.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "www.thebarreltap.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "blackbookspirits.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
     "canawineco.com": [
       "13th Colony Double Oaked",
+      "Evan Williams 23 Year (2026)",
+      "Four Roses Limited Edition 2026",
       "George T. Stagg (GTS)",
+      "Jack Daniel's 14 Year (Batch 1)",
       "Jack Daniel's Coy Hill (2021 or 2024)",
       "King of Kentucky (single barrel)",
       "Master's Keep Beacon",
       "Mister Sam Tribute (Batch 3 or 4)",
+      "Mugen Kuko",
       "Mugen Nobunaga",
+      "Old Forester Birthday Bourbon 2026",
+      "Old Rip Van Winkle 10 Year",
       "Pappy Van Winkle 15",
       "Russell's Reserve 15",
+      "Wild Turkey 101 8 Year (1981-87)",
       "William Heavenhill 19 (WHH19, 2025)",
       "William Larue Weller (WLW)"
     ],
