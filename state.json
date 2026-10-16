@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-16T04:29:53+00:00",
+    "utc": "2026-10-16T04:32:31+00:00",
     "version": "5.4.2",
-    "duration_s": 144.5,
+    "duration_s": 144.4,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -171,7 +171,7 @@
         "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 53,
+        "listings": 52,
         "in_stock": 36,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -183,7 +183,7 @@
         "low_in_stock": 499.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 35,
+        "listings": 32,
         "in_stock": 22,
         "under_cap": 0,
         "low_in_stock": 1899.99
@@ -225,7 +225,7 @@
         "low_in_stock": 799.99
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 2,
+        "listings": 5,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1299.99
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-16 04:29",
+      "10-16 04:32",
       47,
       47,
       0,
-      144.5,
+      144.4,
       0
     ]
   ],
