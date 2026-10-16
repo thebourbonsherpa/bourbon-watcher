@@ -22,11 +22,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1299.99
+      "price": 1699.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1699.99
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -34,15 +34,15 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1899.99
+      "price": 1799.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 789.0
+      "price": 799.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 549.0
+      "price": 499.99
     },
     "Pappy Van Winkle 15": {
       "available": true,
@@ -54,15 +54,15 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2469.0
+      "price": 2899.99
     },
     "13th Colony Double Oaked": {
-      "available": true,
-      "price": 874.99
+      "available": false,
+      "price": null
     },
     "Old Rip Van Winkle 10 Year": {
       "available": true,
-      "price": 799.95
+      "price": 749.99
     },
     "Mugen Kuko": {
       "available": false,
@@ -74,7 +74,7 @@
     },
     "Wild Turkey 101 8 Year (1981-87)": {
       "available": true,
-      "price": 979.0
+      "price": 1299.99
     },
     "Old Forester Birthday Bourbon 2026": {
       "available": true,
@@ -86,10 +86,10 @@
     },
     "Evan Williams 23 Year (2026)": {
       "available": true,
-      "price": 999.99
+      "price": 1049.99
     }
   },
-  "suggest_cursor": 27,
+  "suggest_cursor": 42,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -140,7 +140,7 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-16T04:10:21+00:00",
+    "utc": "2026-10-16T04:15:19+00:00",
     "version": "5.4.2",
     "duration_s": 144.3,
     "shops_total": 47,
@@ -159,40 +159,40 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 53,
-        "in_stock": 46,
+        "listings": 36,
+        "in_stock": 29,
         "under_cap": 0,
-        "low_in_stock": 1899.99
+        "low_in_stock": 1799.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 73,
-        "in_stock": 67,
+        "listings": 54,
+        "in_stock": 30,
         "under_cap": 0,
-        "low_in_stock": 789.0
+        "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 64,
-        "in_stock": 58,
+        "listings": 43,
+        "in_stock": 28,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 16,
-        "in_stock": 13,
+        "listings": 10,
+        "in_stock": 5,
         "under_cap": 0,
-        "low_in_stock": 549.0
+        "low_in_stock": 499.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 37,
-        "in_stock": 32,
+        "listings": 22,
+        "in_stock": 13,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
       "Old Rip Van Winkle 10 Year": {
         "listings": 26,
-        "in_stock": 24,
+        "in_stock": 14,
         "under_cap": 0,
-        "low_in_stock": 799.95
+        "low_in_stock": 749.99
       },
       "Mugen Nobunaga": {
         "listings": 3,
@@ -207,40 +207,40 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 6,
-        "in_stock": 5,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 2469.0
+        "low_in_stock": 2899.99
       },
       "13th Colony Double Oaked": {
-        "listings": 5,
-        "in_stock": 2,
+        "listings": 2,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 874.99
+        "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 5,
-        "in_stock": 5,
+        "listings": 3,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 799.99
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 8,
-        "in_stock": 6,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 979.0
+        "low_in_stock": 1299.99
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 22,
-        "in_stock": 18,
+        "listings": 20,
+        "in_stock": 16,
         "under_cap": 0,
         "low_in_stock": 571.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 3,
-        "in_stock": 3,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 999.99
+        "low_in_stock": 1049.99
       },
       "Four Roses Limited Edition 2026": {
         "listings": 2,
@@ -250,33 +250,25 @@
       },
       "Master's Keep Beacon": {
         "listings": 8,
-        "in_stock": 5,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 12,
-        "in_stock": 7,
-        "under_cap": 0,
-        "low_in_stock": 1299.99
-      },
-      "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 10,
-        "in_stock": 3,
+        "listings": 4,
+        "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1699.99
+      },
+      "Mister Sam Tribute (Batch 3 or 4)": {
+        "listings": 5,
+        "in_stock": 1,
+        "under_cap": 0,
+        "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-15 19:55",
-      47,
-      47,
-      0,
-      109.9,
-      0
-    ],
     [
       "10-15 20:00",
       47,
@@ -1063,6 +1055,14 @@
     ],
     [
       "10-16 04:10",
+      47,
+      47,
+      0,
+      144.3,
+      0
+    ],
+    [
+      "10-16 04:15",
       47,
       47,
       0,
