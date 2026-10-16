@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-16T22:55:15+00:00",
+    "utc": "2026-10-16T22:57:53+00:00",
     "version": "5.4.2",
-    "duration_s": 144.3,
+    "duration_s": 145.0,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -219,8 +219,8 @@
         "low_in_stock": 725.0
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 5,
-        "in_stock": 5,
+        "listings": 4,
+        "in_stock": 4,
         "under_cap": 0,
         "low_in_stock": 799.99
       },
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-16 22:55",
+      "10-16 22:57",
       47,
       47,
       0,
-      144.3,
+      145.0,
       0
     ]
   ],
