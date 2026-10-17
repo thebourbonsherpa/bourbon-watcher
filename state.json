@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-17T16:23:50+00:00",
+    "utc": "2026-10-17T16:26:23+00:00",
     "version": "5.4.2",
-    "duration_s": 144.1,
+    "duration_s": 145.3,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-17 16:23",
+      "10-17 16:26",
       47,
       47,
       0,
-      144.1,
+      145.3,
       0
     ]
   ],
@@ -1867,7 +1867,8 @@
     "https://sbspirit.com/products/pappy-van-winkle-15yr-family-reserve-750ml": "2026-10-16",
     "https://sbspirit.com/products/old-rip-van-winkle-10yr-107proof-2024-750ml": "2026-10-16",
     "https://sbspirit.com/products/wild-turkey-masters-keep-beacon-750ml-1": "2026-10-17",
-    "https://sbspirit.com/products/russells-reserve-15yr-2024-limited-750ml": "2026-10-17"
+    "https://sbspirit.com/products/russells-reserve-15yr-2024-limited-750ml": "2026-10-17",
+    "https://woodencork.com/products/george-t-stagg-bourbon-whiskey-2010-143-proof": "2026-10-17"
   },
   "baselined": {
     "www.remedyliquor.com": [
