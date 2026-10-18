@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-18T21:29:37+00:00",
+    "utc": "2026-10-18T21:32:12+00:00",
     "version": "5.4.2",
-    "duration_s": 144.7,
+    "duration_s": 144.6,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -189,8 +189,8 @@
         "low_in_stock": 1899.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 27,
-        "in_stock": 23,
+        "listings": 26,
+        "in_stock": 22,
         "under_cap": 0,
         "low_in_stock": 749.99
       },
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-18 21:29",
+      "10-18 21:32",
       47,
       47,
       0,
-      144.7,
+      144.6,
       0
     ]
   ],
