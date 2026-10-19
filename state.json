@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-19T19:55:14+00:00",
+    "utc": "2026-10-19T19:57:50+00:00",
     "version": "5.4.2",
-    "duration_s": 144.3,
+    "duration_s": 170.6,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -225,7 +225,7 @@
         "low_in_stock": 799.99
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 5,
+        "listings": 6,
         "in_stock": 4,
         "under_cap": 0,
         "low_in_stock": 979.0
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-19 19:55",
+      "10-19 19:57",
       47,
       47,
       0,
-      144.3,
+      170.6,
       0
     ]
   ],
