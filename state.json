@@ -18,7 +18,7 @@
   "bottle_state": {
     "Master's Keep Beacon": {
       "available": true,
-      "price": 749.0
+      "price": 649.99
     },
     "Russell's Reserve 15": {
       "available": true,
@@ -46,7 +46,7 @@
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 2099.99
+      "price": 1799.88
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -86,10 +86,10 @@
     },
     "Evan Williams 23 Year (2026)": {
       "available": true,
-      "price": 999.99
+      "price": 1049.99
     }
   },
-  "suggest_cursor": 41,
+  "suggest_cursor": 9,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-19T12:40:16+00:00",
+    "utc": "2026-10-19T12:45:15+00:00",
     "version": "5.4.2",
-    "duration_s": 144.2,
+    "duration_s": 146.6,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -159,38 +159,38 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 29,
-        "in_stock": 21,
+        "listings": 33,
+        "in_stock": 25,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 19,
-        "in_stock": 14,
+        "listings": 45,
+        "in_stock": 30,
         "under_cap": 0,
         "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 17,
-        "in_stock": 11,
+        "listings": 34,
+        "in_stock": 24,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 6,
+        "listings": 7,
         "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 999.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 10,
-        "in_stock": 7,
+        "listings": 20,
+        "in_stock": 15,
         "under_cap": 0,
-        "low_in_stock": 2099.99
+        "low_in_stock": 1799.88
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 5,
-        "in_stock": 5,
+        "listings": 13,
+        "in_stock": 10,
         "under_cap": 0,
         "low_in_stock": 849.99
       },
@@ -207,13 +207,13 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 2,
+        "listings": 5,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 2899.99
       },
       "13th Colony Double Oaked": {
-        "listings": 1,
+        "listings": 3,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -231,16 +231,16 @@
         "low_in_stock": 1299.99
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 19,
-        "in_stock": 12,
+        "listings": 22,
+        "in_stock": 14,
         "under_cap": 0,
         "low_in_stock": 599.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 0,
-        "in_stock": 0,
+        "listings": 4,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 1049.99
       },
       "Four Roses Limited Edition 2026": {
         "listings": 2,
@@ -249,34 +249,26 @@
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 3,
-        "in_stock": 2,
+        "listings": 7,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 749.0
+        "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 1,
+        "listings": 10,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 3,
-        "in_stock": 1,
+        "listings": 4,
+        "in_stock": 2,
         "under_cap": 0,
         "low_in_stock": 1999.99
       }
     }
   },
   "run_history": [
-    [
-      "10-19 04:25",
-      47,
-      47,
-      0,
-      145.4,
-      0
-    ],
     [
       "10-19 04:30",
       47,
@@ -1067,6 +1059,14 @@
       47,
       0,
       144.2,
+      0
+    ],
+    [
+      "10-19 12:45",
+      47,
+      47,
+      0,
+      146.6,
       0
     ]
   ],
