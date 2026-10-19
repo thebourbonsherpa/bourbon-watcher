@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-19T06:50:15+00:00",
+    "utc": "2026-10-19T06:52:50+00:00",
     "version": "5.4.2",
-    "duration_s": 144.5,
+    "duration_s": 144.4,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -177,7 +177,7 @@
         "low_in_stock": 1150.0
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 27,
+        "listings": 28,
         "in_stock": 20,
         "under_cap": 0,
         "low_in_stock": 549.0
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-19 06:50",
+      "10-19 06:52",
       47,
       47,
       0,
-      144.5,
+      144.4,
       0
     ]
   ],
