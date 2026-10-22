@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-22T14:48:19+00:00",
+    "utc": "2026-10-22T14:50:57+00:00",
     "version": "5.4.2",
-    "duration_s": 146.1,
+    "duration_s": 146.5,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -165,7 +165,7 @@
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 55,
+        "listings": 60,
         "in_stock": 30,
         "under_cap": 0,
         "low_in_stock": 799.99
@@ -261,7 +261,7 @@
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 5,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-22 14:48",
+      "10-22 14:50",
       47,
       47,
       0,
-      146.1,
+      146.5,
       0
     ]
   ],
