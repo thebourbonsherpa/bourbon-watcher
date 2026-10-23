@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-23T19:25:03+00:00",
+    "utc": "2026-10-23T19:27:42+00:00",
     "version": "5.4.2",
-    "duration_s": 146.4,
+    "duration_s": 146.6,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -249,7 +249,7 @@
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 5,
+        "listings": 6,
         "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 649.99
@@ -261,7 +261,7 @@
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 3,
+        "listings": 4,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -1062,11 +1062,11 @@
       0
     ],
     [
-      "10-23 19:25",
+      "10-23 19:27",
       47,
       47,
       0,
-      146.4,
+      146.6,
       0
     ]
   ],
