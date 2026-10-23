@@ -11,8 +11,7 @@
     "https://woodencork.com/products/wild-turkey-12-year-old-1989-gold-foil-kentucky-straight-bourbon-whiskey-750ml": true,
     "https://woodencork.com/products/1990-wild-turkey-12-year-old-gold-foil-kentucky-straight-bourbon-whiskey-750ml": true,
     "https://woodencork.com/products/wild-turkey-12-year-old-1991-gold-foil-kentucky-straight-bourbon-whiskey-750ml": true,
-    "https://www.missionliquor.com/products/wild-turkey-masters-keep-beacon-750ml": true,
-    "https://dewinespot.co/products/mugen-spirit-yokai-kuko-9-year-single-barrel-kentucky-straight-bourbon": true
+    "https://www.missionliquor.com/products/wild-turkey-masters-keep-beacon-750ml": true
   },
   "last_heartbeat": "2026-10-19",
   "last_update_id": 692807865,
@@ -66,8 +65,8 @@
       "price": 749.99
     },
     "Mugen Kuko": {
-      "available": true,
-      "price": 199.0
+      "available": false,
+      "price": null
     },
     "Jack Daniel's 14 Year (Batch 1)": {
       "available": true,
@@ -141,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-23T22:28:11+00:00",
+    "utc": "2026-10-23T22:30:51+00:00",
     "version": "5.4.2",
-    "duration_s": 146.5,
+    "duration_s": 146.6,
     "shops_total": 47,
     "shops_reached": 47,
     "feeds_visible": 47,
@@ -166,7 +165,7 @@
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 51,
+        "listings": 56,
         "in_stock": 30,
         "under_cap": 0,
         "low_in_stock": 799.99
@@ -190,8 +189,8 @@
         "low_in_stock": 1899.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 26,
-        "in_stock": 12,
+        "listings": 27,
+        "in_stock": 13,
         "under_cap": 0,
         "low_in_stock": 749.99
       },
@@ -203,9 +202,9 @@
       },
       "Mugen Kuko": {
         "listings": 5,
-        "in_stock": 1,
-        "under_cap": 1,
-        "low_in_stock": 199.0
+        "in_stock": 0,
+        "under_cap": 0,
+        "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
         "listings": 3,
@@ -262,7 +261,7 @@
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 5,
+        "listings": 6,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -1063,11 +1062,11 @@
       0
     ],
     [
-      "10-23 22:28",
+      "10-23 22:30",
       47,
       47,
       0,
-      146.5,
+      146.6,
       0
     ]
   ],
