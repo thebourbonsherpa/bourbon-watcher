@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-24T19:15:16+00:00",
+    "utc": "2026-10-24T19:18:26+00:00",
     "version": "5.4.2",
-    "duration_s": 176.4,
+    "duration_s": 176.5,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -188,8 +188,8 @@
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 34,
-        "in_stock": 31,
+        "listings": 32,
+        "in_stock": 29,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
@@ -266,7 +266,7 @@
         "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 12,
+        "listings": 11,
         "in_stock": 7,
         "under_cap": 0,
         "low_in_stock": 1249.0
@@ -1067,11 +1067,11 @@
       0
     ],
     [
-      "10-24 19:15",
+      "10-24 19:18",
       46,
       47,
       0,
-      176.4,
+      176.5,
       0
     ]
   ],
