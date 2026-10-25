@@ -86,7 +86,7 @@
     },
     "Evan Williams 23 Year (2026)": {
       "available": true,
-      "price": 999.99
+      "price": 1049.99
     }
   },
   "suggest_cursor": 45,
@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-25T01:40:18+00:00",
+    "utc": "2026-10-25T01:43:25+00:00",
     "version": "5.4.2",
-    "duration_s": 178.2,
+    "duration_s": 177.8,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -172,7 +172,7 @@
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 55,
+        "listings": 60,
         "in_stock": 30,
         "under_cap": 0,
         "low_in_stock": 799.99
@@ -244,10 +244,10 @@
         "low_in_stock": 599.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 0,
-        "in_stock": 0,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 1049.99
       },
       "Four Roses Limited Edition 2026": {
         "listings": 2,
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-25 01:40",
+      "10-25 01:43",
       46,
       47,
       0,
-      178.2,
+      177.8,
       0
     ]
   ],
