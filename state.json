@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-25T12:15:16+00:00",
+    "utc": "2026-10-25T12:18:22+00:00",
     "version": "5.4.2",
-    "duration_s": 175.8,
+    "duration_s": 176.2,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -262,13 +262,13 @@
         "low_in_stock": 725.0
       },
       "Russell's Reserve 15": {
-        "listings": 13,
+        "listings": 12,
         "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 13,
+        "listings": 12,
         "in_stock": 6,
         "under_cap": 0,
         "low_in_stock": 1249.0
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-25 12:15",
+      "10-25 12:18",
       46,
       47,
       0,
-      175.8,
+      176.2,
       0
     ]
   ],
