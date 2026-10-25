@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-25T23:50:15+00:00",
+    "utc": "2026-10-25T23:53:22+00:00",
     "version": "5.4.2",
-    "duration_s": 176.3,
+    "duration_s": 176.5,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -166,19 +166,19 @@
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 38,
-        "in_stock": 32,
+        "listings": 37,
+        "in_stock": 31,
         "under_cap": 0,
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 65,
-        "in_stock": 40,
+        "listings": 59,
+        "in_stock": 38,
         "under_cap": 0,
         "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 53,
+        "listings": 54,
         "in_stock": 37,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -268,7 +268,7 @@
         "low_in_stock": 1499.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 6,
+        "listings": 7,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-25 23:50",
+      "10-25 23:53",
       46,
       47,
       0,
-      176.3,
+      176.5,
       0
     ]
   ],
