@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-26T15:09:31+00:00",
+    "utc": "2026-10-26T15:12:30+00:00",
     "version": "5.4.2",
-    "duration_s": 168.2,
+    "duration_s": 169.9,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -172,13 +172,13 @@
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 61,
+        "listings": 60,
         "in_stock": 54,
         "under_cap": 0,
         "low_in_stock": 789.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 53,
+        "listings": 52,
         "in_stock": 47,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -268,7 +268,7 @@
         "low_in_stock": 1299.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 9,
+        "listings": 8,
         "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 1699.99
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-26 15:09",
+      "10-26 15:12",
       46,
       47,
       0,
-      168.2,
+      169.9,
       0
     ]
   ],
