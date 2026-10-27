@@ -141,9 +141,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-26T23:59:21+00:00",
+    "utc": "2026-10-27T00:02:28+00:00",
     "version": "5.4.2",
-    "duration_s": 175.6,
+    "duration_s": 176.2,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -191,8 +191,8 @@
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 34,
-        "in_stock": 31,
+        "listings": 32,
+        "in_stock": 29,
         "under_cap": 0,
         "low_in_stock": 1899.99
       },
@@ -1070,11 +1070,11 @@
       0
     ],
     [
-      "10-26 23:59",
+      "10-27 00:02",
       46,
       47,
       0,
-      175.6,
+      176.2,
       0
     ]
   ],
