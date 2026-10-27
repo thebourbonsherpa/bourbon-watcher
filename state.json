@@ -141,9 +141,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-27T15:45:21+00:00",
+    "utc": "2026-10-27T15:48:24+00:00",
     "version": "5.4.2",
-    "duration_s": 169.4,
+    "duration_s": 168.1,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -179,13 +179,13 @@
         "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 55,
-        "in_stock": 44,
+        "listings": 46,
+        "in_stock": 35,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 13,
+        "listings": 11,
         "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 549.99
@@ -1070,11 +1070,11 @@
       0
     ],
     [
-      "10-27 15:45",
+      "10-27 15:48",
       46,
       47,
       0,
-      169.4,
+      168.1,
       0
     ]
   ],
