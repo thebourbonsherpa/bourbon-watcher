@@ -141,9 +141,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-27T04:28:56+00:00",
+    "utc": "2026-10-27T04:31:53+00:00",
     "version": "5.4.2",
-    "duration_s": 167.9,
+    "duration_s": 168.6,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -173,13 +173,13 @@
         "low_in_stock": 1849.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 56,
+        "listings": 55,
         "in_stock": 46,
         "under_cap": 0,
         "low_in_stock": 789.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 51,
+        "listings": 50,
         "in_stock": 43,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -1070,11 +1070,11 @@
       0
     ],
     [
-      "10-27 04:28",
+      "10-27 04:31",
       46,
       47,
       0,
-      167.9,
+      168.6,
       0
     ]
   ],
