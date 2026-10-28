@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-28T03:30:20+00:00",
+    "utc": "2026-10-28T03:33:27+00:00",
     "version": "5.4.2",
-    "duration_s": 175.8,
+    "duration_s": 175.9,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -184,14 +184,14 @@
         "low_in_stock": 1150.0
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 18,
-        "in_stock": 15,
+        "listings": 19,
+        "in_stock": 16,
         "under_cap": 0,
         "low_in_stock": 549.0
       },
       "Pappy Van Winkle 15": {
-        "listings": 35,
-        "in_stock": 32,
+        "listings": 33,
+        "in_stock": 30,
         "under_cap": 0,
         "low_in_stock": 1799.99
       },
@@ -268,7 +268,7 @@
         "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 11,
+        "listings": 12,
         "in_stock": 6,
         "under_cap": 0,
         "low_in_stock": 1249.0
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-28 03:30",
+      "10-28 03:33",
       46,
       47,
       0,
-      175.8,
+      175.9,
       0
     ]
   ],
