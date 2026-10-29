@@ -140,9 +140,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-29T23:35:08+00:00",
+    "utc": "2026-10-29T23:38:15+00:00",
     "version": "5.4.2",
-    "duration_s": 177.0,
+    "duration_s": 177.3,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -178,7 +178,7 @@
         "low_in_stock": 799.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 44,
+        "listings": 41,
         "in_stock": 25,
         "under_cap": 0,
         "low_in_stock": 1249.99
@@ -1069,11 +1069,11 @@
       0
     ],
     [
-      "10-29 23:35",
+      "10-29 23:38",
       46,
       47,
       0,
-      177.0,
+      177.3,
       0
     ]
   ],
