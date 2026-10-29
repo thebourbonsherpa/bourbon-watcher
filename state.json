@@ -140,7 +140,7 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-10-29T01:05:13+00:00",
+    "utc": "2026-10-29T01:08:21+00:00",
     "version": "5.4.2",
     "duration_s": 177.6,
     "shops_total": 47,
@@ -268,7 +268,7 @@
         "low_in_stock": 1699.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 3,
+        "listings": 4,
         "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 1999.99
@@ -1069,7 +1069,7 @@
       0
     ],
     [
-      "10-29 01:05",
+      "10-29 01:08",
       46,
       47,
       0,
