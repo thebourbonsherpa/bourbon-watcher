@@ -143,9 +143,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-11-08T01:24:52+00:00",
+    "utc": "2026-11-08T01:27:58+00:00",
     "version": "5.4.2",
-    "duration_s": 175.6,
+    "duration_s": 176.0,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -265,8 +265,8 @@
         "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 14,
-        "in_stock": 7,
+        "listings": 15,
+        "in_stock": 8,
         "under_cap": 0,
         "low_in_stock": 1184.0
       },
@@ -1072,11 +1072,11 @@
       0
     ],
     [
-      "11-08 01:24",
+      "11-08 01:27",
       46,
       47,
       0,
-      175.6,
+      176.0,
       0
     ]
   ],
