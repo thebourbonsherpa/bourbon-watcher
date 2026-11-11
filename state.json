@@ -142,9 +142,9 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-11-11T21:50:17+00:00",
+    "utc": "2026-11-11T21:53:20+00:00",
     "version": "5.4.2",
-    "duration_s": 168.4,
+    "duration_s": 169.6,
     "shops_total": 47,
     "shops_reached": 46,
     "feeds_visible": 46,
@@ -174,8 +174,8 @@
         "low_in_stock": 399.0
       },
       "George T. Stagg (GTS)": {
-        "listings": 75,
-        "in_stock": 67,
+        "listings": 76,
+        "in_stock": 68,
         "under_cap": 0,
         "low_in_stock": 649.0
       },
@@ -198,8 +198,8 @@
         "low_in_stock": 1799.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 22,
-        "in_stock": 20,
+        "listings": 21,
+        "in_stock": 19,
         "under_cap": 0,
         "low_in_stock": 799.0
       },
@@ -1071,11 +1071,11 @@
       0
     ],
     [
-      "11-11 21:50",
+      "11-11 21:53",
       46,
       47,
       0,
-      168.4,
+      169.6,
       0
     ]
   ],
