@@ -36,19 +36,19 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1199.99
+      "price": 1899.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
       "price": 849.99
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
-      "available": true,
-      "price": 999.99
+      "available": false,
+      "price": null
     },
     "Pappy Van Winkle 15": {
       "available": true,
-      "price": 1799.99
+      "price": 1999.99
     },
     "Mugen Nobunaga": {
       "available": false,
@@ -64,15 +64,15 @@
     },
     "Old Rip Van Winkle 10 Year": {
       "available": true,
-      "price": 749.99
+      "price": 949.99
     },
     "Mugen Kuko": {
       "available": false,
       "price": null
     },
     "Jack Daniel's 14 Year (Batch 1)": {
-      "available": true,
-      "price": 949.99
+      "available": false,
+      "price": null
     },
     "Wild Turkey 101 8 Year (1981-87)": {
       "available": true,
@@ -91,150 +91,70 @@
       "price": 799.99
     }
   },
-  "suggest_cursor": 38,
+  "suggest_cursor": 6,
   "shop_misses": {
-    "www.remedyliquor.com": 1,
+    "www.remedyliquor.com": 2,
     "bourbonoutfitter.com": 0,
-    "sharedpour.com": 0,
-    "estatesliquor.com": 0,
+    "sharedpour.com": 1,
+    "estatesliquor.com": 1,
     "www.buymyliquor.com": 0,
-    "qualityliquorstore.com": 1,
-    "sipwhiskey.com": 1,
+    "qualityliquorstore.com": 2,
+    "sipwhiskey.com": 2,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 1,
-    "chipsliquor.com": 2,
-    "woodencork.com": 1,
-    "dewinespot.co": 1,
-    "elcerritoliquor.com": 1,
-    "www.thebarreltap.com": 0,
-    "blackbookspirits.com": 0,
-    "canawineco.com": 0,
-    "wheatleywineandspirits.com": 1,
-    "thebourbonconcierge.com": 1,
-    "jazzyswine.com": 0,
-    "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
-    "primebarrel.com": 1,
-    "whiskeycaviar.com": 1,
-    "barrelshoppe.com": 6000,
-    "seelbachs.com": 1,
-    "therarewhiskeyshop.com": 1,
-    "blackwellswines.com": 0,
-    "bottleshopandtastingroom.com": 0,
+    "delmesaliquor.com": 2,
+    "chipsliquor.com": 3,
+    "woodencork.com": 2,
+    "dewinespot.co": 2,
+    "elcerritoliquor.com": 2,
+    "www.thebarreltap.com": 1,
+    "blackbookspirits.com": 1,
+    "canawineco.com": 1,
+    "wheatleywineandspirits.com": 2,
+    "thebourbonconcierge.com": 2,
+    "jazzyswine.com": 1,
+    "hiproof.com": 2,
+    "mensjournalspirits.com": 2,
+    "primebarrel.com": 2,
+    "whiskeycaviar.com": 2,
+    "barrelshoppe.com": 6001,
+    "seelbachs.com": 2,
+    "therarewhiskeyshop.com": 2,
+    "blackwellswines.com": 1,
+    "bottleshopandtastingroom.com": 1,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 0,
-    "3brothersliquor.com": 2,
-    "primetimeliquor.com": 0,
-    "missiontrailswineandspirits.com": 1,
+    "nestorliquor.com": 1,
+    "3brothersliquor.com": 3,
+    "primetimeliquor.com": 1,
+    "missiontrailswineandspirits.com": 2,
     "atozbev.com": 0,
-    "lovescotch.com": 1,
-    "www.kegnbottle.com": 0,
-    "www.missionliquor.com": 0,
-    "cellar.com": 1,
-    "sbspirit.com": 2,
+    "lovescotch.com": 2,
+    "www.kegnbottle.com": 1,
+    "www.missionliquor.com": 1,
+    "cellar.com": 2,
+    "sbspirit.com": 0,
     "bondedbottleshop.com": 0,
-    "luekensliquors.com": 1,
-    "kybourbondirect.com": 1,
+    "luekensliquors.com": 2,
+    "kybourbondirect.com": 2,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
-    "theliquorbros.com": 1,
+    "theliquorbros.com": 2,
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-11-13T21:35:17+00:00",
+    "utc": "2026-11-13T21:40:20+00:00",
     "version": "5.4.2",
     "duration_s": 235.5,
     "shops_total": 47,
-    "shops_reached": 22,
-    "feeds_visible": 22,
+    "shops_reached": 11,
+    "feeds_visible": 11,
     "unreachable": [
-      [
-        "3 Brothers Liquor",
-        "HTTP 429"
-      ],
-      [
-        "The Bourbon Concierge",
-        "HTTP 429"
-      ],
-      [
-        "Men's Journal Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Wooden Cork",
-        "HTTP 429"
-      ],
-      [
-        "Chips Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Quality Liquor Store",
-        "HTTP 429"
-      ],
-      [
-        "Sip Whiskey",
-        "HTTP 429"
-      ],
-      [
-        "LoveScotch",
-        "HTTP 429"
-      ],
-      [
-        "Del Mesa Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Whiskey Caviar",
-        "HTTP 429"
-      ],
       [
         "KY Bourbon Direct",
         "HTTP 429"
       ],
       [
-        "El Cerrito Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Mission Trails Wine & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Seelbach's",
-        "HTTP 429"
-      ],
-      [
-        "Cellar.com (Schneider's of Capitol Hill)",
-        "HTTP 429"
-      ],
-      [
-        "Wheatley Wine & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "The Rare Whiskey Shop",
-        "HTTP 429"
-      ],
-      [
-        "SB Wine & Spirit",
-        "HTTP 429"
-      ],
-      [
-        "Prime Barrel",
-        "HTTP 429"
-      ],
-      [
-        "The Liquor Bros",
-        "HTTP 429"
-      ],
-      [
-        "Hi Proof",
-        "HTTP 429"
-      ],
-      [
-        "Remedy Liquor",
+        "3 Brothers Liquor",
         "HTTP 429"
       ],
       [
@@ -242,11 +162,135 @@
         "HTTP 404"
       ],
       [
+        "Remedy Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Jazzy's Wine",
+        "HTTP 429"
+      ],
+      [
+        "SharedPour",
+        "HTTP 429"
+      ],
+      [
+        "Prime Time Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Wheatley Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
         "De Wine Spot",
         "HTTP 429"
       ],
       [
+        "The Rare Whiskey Shop",
+        "HTTP 429"
+      ],
+      [
+        "Blackwell's Wines & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Cellar.com (Schneider's of Capitol Hill)",
+        "HTTP 429"
+      ],
+      [
+        "The Barrel Tap",
+        "HTTP 429"
+      ],
+      [
+        "Blackbook Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Del Mesa Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Men's Journal Spirits",
+        "HTTP 429"
+      ],
+      [
         "Lueken's Liquors",
+        "HTTP 429"
+      ],
+      [
+        "Quality Liquor Store",
+        "HTTP 429"
+      ],
+      [
+        "Mission Trails Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Hi Proof",
+        "HTTP 429"
+      ],
+      [
+        "The Bourbon Concierge",
+        "HTTP 429"
+      ],
+      [
+        "Prime Barrel",
+        "HTTP 429"
+      ],
+      [
+        "Estates Liquor",
+        "HTTP 429"
+      ],
+      [
+        "El Cerrito Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Chips Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Seelbach's",
+        "HTTP 429"
+      ],
+      [
+        "LoveScotch",
+        "HTTP 429"
+      ],
+      [
+        "Nestor Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Keg N Bottle",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Bottle Shop & Tasting Room",
+        "HTTP 429"
+      ],
+      [
+        "Cana Wine",
+        "HTTP 429"
+      ],
+      [
+        "Whiskey Caviar",
+        "HTTP 429"
+      ],
+      [
+        "Wooden Cork",
+        "HTTP 429"
+      ],
+      [
+        "Mission Wine & Spirits",
+        "HTTP 429"
+      ],
+      [
+        "Sip Whiskey",
         "HTTP 429"
       ]
     ],
@@ -257,47 +301,47 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 281,
+    "throttle_hits": 377,
     "pacer_peak_s": 0.4,
-    "dark_before_retry": 25,
+    "dark_before_retry": 36,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 14,
-        "in_stock": 13,
+        "listings": 3,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 1199.99
+        "low_in_stock": 1899.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 22,
-        "in_stock": 15,
+        "listings": 6,
+        "in_stock": 6,
         "under_cap": 0,
         "low_in_stock": 849.99
       },
       "William Larue Weller (WLW)": {
-        "listings": 14,
-        "in_stock": 13,
+        "listings": 7,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 1249.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 3,
-        "in_stock": 2,
+        "listings": 1,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 999.99
+        "low_in_stock": null
       },
       "Pappy Van Winkle 15": {
-        "listings": 6,
-        "in_stock": 6,
+        "listings": 2,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 1799.99
+        "low_in_stock": 1999.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 6,
-        "in_stock": 6,
+        "listings": 3,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 749.99
+        "low_in_stock": 949.99
       },
       "Mugen Nobunaga": {
         "listings": 2,
@@ -312,7 +356,7 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 1,
+        "listings": 0,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -324,10 +368,10 @@
         "low_in_stock": null
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 2,
-        "in_stock": 1,
+        "listings": 1,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 949.99
+        "low_in_stock": null
       },
       "Wild Turkey 101 8 Year (1981-87)": {
         "listings": 0,
@@ -336,16 +380,16 @@
         "low_in_stock": null
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 6,
-        "in_stock": 4,
+        "listings": 1,
+        "in_stock": 1,
         "under_cap": 0,
         "low_in_stock": 699.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 1,
-        "in_stock": 1,
+        "listings": 0,
+        "in_stock": 0,
         "under_cap": 0,
-        "low_in_stock": 799.99
+        "low_in_stock": null
       },
       "Four Roses Limited Edition 2026": {
         "listings": 0,
@@ -354,7 +398,7 @@
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 1,
+        "listings": 0,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -366,7 +410,7 @@
         "low_in_stock": null
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 1,
+        "listings": 0,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -374,14 +418,6 @@
     }
   },
   "run_history": [
-    [
-      "11-13 13:15",
-      46,
-      47,
-      0,
-      176.2,
-      0
-    ],
     [
       "11-13 13:20",
       46,
@@ -1169,6 +1205,14 @@
     [
       "11-13 21:35",
       22,
+      47,
+      0,
+      235.5,
+      0
+    ],
+    [
+      "11-13 21:40",
+      11,
       47,
       0,
       235.5,
