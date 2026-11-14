@@ -24,15 +24,15 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1184.0
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
       "available": true,
-      "price": 1999.99
+      "price": 1249.0
     },
     "William Larue Weller (WLW)": {
       "available": true,
-      "price": 1199.99
+      "price": 1150.0
     },
     "King of Kentucky (single barrel)": {
       "available": true,
@@ -40,11 +40,11 @@
     },
     "George T. Stagg (GTS)": {
       "available": true,
-      "price": 849.99
+      "price": 649.0
     },
     "Jack Daniel's Coy Hill (2021 or 2024)": {
       "available": true,
-      "price": 799.0
+      "price": 599.99
     },
     "Pappy Van Winkle 15": {
       "available": true,
@@ -56,15 +56,15 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2799.0
+      "price": 2469.0
     },
     "13th Colony Double Oaked": {
       "available": true,
-      "price": 699.99
+      "price": 725.0
     },
     "Old Rip Van Winkle 10 Year": {
       "available": true,
-      "price": 799.99
+      "price": 799.0
     },
     "Mugen Kuko": {
       "available": false,
@@ -76,7 +76,7 @@
     },
     "Wild Turkey 101 8 Year (1981-87)": {
       "available": true,
-      "price": 1299.99
+      "price": 979.0
     },
     "Old Forester Birthday Bourbon 2026": {
       "available": true,
@@ -91,19 +91,19 @@
       "price": 799.99
     }
   },
-  "suggest_cursor": 6,
+  "suggest_cursor": 21,
   "shop_misses": {
     "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
-    "sharedpour.com": 0,
+    "sharedpour.com": 1,
     "estatesliquor.com": 0,
     "www.buymyliquor.com": 0,
     "qualityliquorstore.com": 0,
     "sipwhiskey.com": 0,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 0,
+    "delmesaliquor.com": 1,
     "chipsliquor.com": 0,
-    "woodencork.com": 0,
+    "woodencork.com": 1,
     "dewinespot.co": 0,
     "elcerritoliquor.com": 0,
     "www.thebarreltap.com": 0,
@@ -112,46 +112,86 @@
     "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
     "jazzyswine.com": 0,
-    "hiproof.com": 0,
+    "hiproof.com": 1,
     "mensjournalspirits.com": 0,
     "primebarrel.com": 0,
     "whiskeycaviar.com": 0,
-    "barrelshoppe.com": 6142,
+    "barrelshoppe.com": 6143,
     "seelbachs.com": 0,
     "therarewhiskeyshop.com": 0,
     "blackwellswines.com": 0,
     "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
     "nestorliquor.com": 0,
-    "3brothersliquor.com": 0,
-    "primetimeliquor.com": 0,
+    "3brothersliquor.com": 1,
+    "primetimeliquor.com": 1,
     "missiontrailswineandspirits.com": 0,
     "atozbev.com": 0,
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
     "www.missionliquor.com": 0,
-    "cellar.com": 0,
+    "cellar.com": 1,
     "sbspirit.com": 0,
-    "bondedbottleshop.com": 0,
-    "luekensliquors.com": 0,
+    "bondedbottleshop.com": 1,
+    "luekensliquors.com": 1,
     "kybourbondirect.com": 0,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
-    "theliquorbros.com": 0,
+    "theliquorbros.com": 1,
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-11-14T09:31:15+00:00",
+    "utc": "2026-11-14T09:35:19+00:00",
     "version": "5.4.2",
-    "duration_s": 176.7,
+    "duration_s": 235.6,
     "shops_total": 47,
-    "shops_reached": 46,
-    "feeds_visible": 46,
+    "shops_reached": 36,
+    "feeds_visible": 36,
     "unreachable": [
       [
         "Barrel Shoppe",
         "HTTP 404"
+      ],
+      [
+        "Wooden Cork",
+        "HTTP 429"
+      ],
+      [
+        "SharedPour",
+        "HTTP 429"
+      ],
+      [
+        "The Liquor Bros",
+        "HTTP 429"
+      ],
+      [
+        "Bonded Bottle Shop",
+        "HTTP 429"
+      ],
+      [
+        "Del Mesa Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Cellar.com (Schneider's of Capitol Hill)",
+        "HTTP 429"
+      ],
+      [
+        "Hi Proof",
+        "HTTP 429"
+      ],
+      [
+        "3 Brothers Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Prime Time Liquor",
+        "HTTP 429"
+      ],
+      [
+        "Lueken's Liquors",
+        "HTTP 429"
       ]
     ],
     "dark_1_day_plus": [
@@ -161,50 +201,50 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 0,
+    "throttle_hits": 153,
     "pacer_peak_s": 0.4,
-    "dark_before_retry": 1,
+    "dark_before_retry": 11,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 37,
-        "in_stock": 32,
+        "listings": 50,
+        "in_stock": 45,
         "under_cap": 0,
         "low_in_stock": 1199.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 27,
-        "in_stock": 19,
+        "listings": 66,
+        "in_stock": 53,
         "under_cap": 0,
-        "low_in_stock": 849.99
+        "low_in_stock": 649.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 24,
-        "in_stock": 16,
+        "listings": 50,
+        "in_stock": 43,
         "under_cap": 0,
-        "low_in_stock": 1199.99
+        "low_in_stock": 1150.0
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 8,
-        "in_stock": 4,
+        "listings": 15,
+        "in_stock": 9,
         "under_cap": 0,
-        "low_in_stock": 799.0
+        "low_in_stock": 599.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 19,
-        "in_stock": 13,
+        "listings": 24,
+        "in_stock": 22,
         "under_cap": 0,
         "low_in_stock": 1799.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 13,
-        "in_stock": 10,
+        "listings": 15,
+        "in_stock": 14,
         "under_cap": 0,
-        "low_in_stock": 799.99
+        "low_in_stock": 799.0
       },
       "Mugen Nobunaga": {
-        "listings": 3,
+        "listings": 4,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
@@ -216,76 +256,68 @@
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 5,
-        "in_stock": 2,
+        "listings": 6,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 2799.0
+        "low_in_stock": 2469.0
       },
       "13th Colony Double Oaked": {
         "listings": 2,
         "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": 699.99
+        "low_in_stock": 725.0
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 1,
+        "listings": 2,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 2,
-        "in_stock": 1,
+        "listings": 6,
+        "in_stock": 5,
         "under_cap": 0,
-        "low_in_stock": 1299.99
+        "low_in_stock": 979.0
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 17,
-        "in_stock": 14,
+        "listings": 14,
+        "in_stock": 12,
         "under_cap": 0,
         "low_in_stock": 599.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 3,
-        "in_stock": 1,
+        "listings": 4,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 799.99
       },
       "Four Roses Limited Edition 2026": {
-        "listings": 0,
+        "listings": 1,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 6,
-        "in_stock": 3,
+        "listings": 8,
+        "in_stock": 5,
         "under_cap": 0,
         "low_in_stock": 649.99
       },
       "Russell's Reserve 15": {
-        "listings": 6,
-        "in_stock": 1,
+        "listings": 9,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": 1699.99
+        "low_in_stock": 1184.0
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 4,
+        "listings": 6,
         "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 1999.99
+        "low_in_stock": 1249.0
       }
     }
   },
   "run_history": [
-    [
-      "11-14 01:15",
-      29,
-      47,
-      0,
-      235.6,
-      0
-    ],
     [
       "11-14 01:20",
       43,
@@ -1076,6 +1108,14 @@
       47,
       0,
       176.7,
+      0
+    ],
+    [
+      "11-14 09:35",
+      36,
+      47,
+      0,
+      235.6,
       0
     ]
   ],
