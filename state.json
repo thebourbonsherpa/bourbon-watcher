@@ -24,11 +24,11 @@
     },
     "Russell's Reserve 15": {
       "available": true,
-      "price": 1699.99
+      "price": 1399.99
     },
     "Mister Sam Tribute (Batch 3 or 4)": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 1999.99
     },
     "William Larue Weller (WLW)": {
       "available": true,
@@ -36,7 +36,7 @@
     },
     "King of Kentucky (single barrel)": {
       "available": true,
-      "price": 1449.99
+      "price": 1199.99
     },
     "George T. Stagg (GTS)": {
       "available": true,
@@ -56,11 +56,11 @@
     },
     "William Heavenhill 19 (WHH19, 2025)": {
       "available": true,
-      "price": 2499.99
+      "price": 2469.0
     },
     "13th Colony Double Oaked": {
-      "available": false,
-      "price": null
+      "available": true,
+      "price": 699.99
     },
     "Old Rip Van Winkle 10 Year": {
       "available": true,
@@ -72,11 +72,11 @@
     },
     "Jack Daniel's 14 Year (Batch 1)": {
       "available": true,
-      "price": 949.99
+      "price": 899.99
     },
     "Wild Turkey 101 8 Year (1981-87)": {
       "available": true,
-      "price": 1299.99
+      "price": 979.0
     },
     "Old Forester Birthday Bourbon 2026": {
       "available": true,
@@ -93,36 +93,36 @@
   },
   "suggest_cursor": 33,
   "shop_misses": {
-    "www.remedyliquor.com": 2,
+    "www.remedyliquor.com": 0,
     "bourbonoutfitter.com": 0,
     "sharedpour.com": 0,
-    "estatesliquor.com": 2,
+    "estatesliquor.com": 0,
     "www.buymyliquor.com": 0,
     "qualityliquorstore.com": 0,
     "sipwhiskey.com": 0,
     "dramfellows.com": 0,
-    "delmesaliquor.com": 1,
+    "delmesaliquor.com": 0,
     "chipsliquor.com": 0,
     "woodencork.com": 0,
-    "dewinespot.co": 1,
+    "dewinespot.co": 0,
     "elcerritoliquor.com": 0,
-    "www.thebarreltap.com": 1,
+    "www.thebarreltap.com": 0,
     "blackbookspirits.com": 0,
     "canawineco.com": 0,
-    "wheatleywineandspirits.com": 2,
+    "wheatleywineandspirits.com": 0,
     "thebourbonconcierge.com": 0,
     "jazzyswine.com": 0,
-    "hiproof.com": 1,
-    "mensjournalspirits.com": 1,
+    "hiproof.com": 0,
+    "mensjournalspirits.com": 0,
     "primebarrel.com": 0,
     "whiskeycaviar.com": 0,
     "barrelshoppe.com": 6219,
-    "seelbachs.com": 1,
-    "therarewhiskeyshop.com": 2,
+    "seelbachs.com": 0,
+    "therarewhiskeyshop.com": 0,
     "blackwellswines.com": 0,
-    "bottleshopandtastingroom.com": 2,
+    "bottleshopandtastingroom.com": 0,
     "beveragewarehousemi.com": 0,
-    "nestorliquor.com": 2,
+    "nestorliquor.com": 0,
     "3brothersliquor.com": 0,
     "primetimeliquor.com": 0,
     "missiontrailswineandspirits.com": 0,
@@ -130,11 +130,11 @@
     "lovescotch.com": 0,
     "www.kegnbottle.com": 0,
     "www.missionliquor.com": 0,
-    "cellar.com": 2,
-    "sbspirit.com": 2,
-    "bondedbottleshop.com": 2,
+    "cellar.com": 0,
+    "sbspirit.com": 0,
+    "bondedbottleshop.com": 0,
     "luekensliquors.com": 0,
-    "kybourbondirect.com": 2,
+    "kybourbondirect.com": 0,
     "theliquorbarn.com": 0,
     "pbexpressliquor.com": 0,
     "bittersandbottles.com": 0,
@@ -142,80 +142,16 @@
     "mugenspirit.com": 0
   },
   "last_run": {
-    "utc": "2026-11-14T15:55:15+00:00",
+    "utc": "2026-11-14T15:59:21+00:00",
     "version": "5.4.2",
-    "duration_s": 235.8,
+    "duration_s": 168.1,
     "shops_total": 47,
-    "shops_reached": 30,
-    "feeds_visible": 30,
+    "shops_reached": 46,
+    "feeds_visible": 46,
     "unreachable": [
-      [
-        "Wheatley Wine & Spirits",
-        "HTTP 429"
-      ],
-      [
-        "Bottle Shop & Tasting Room",
-        "HTTP 429"
-      ],
-      [
-        "Men's Journal Spirits",
-        "HTTP 429"
-      ],
       [
         "Barrel Shoppe",
         "HTTP 404"
-      ],
-      [
-        "Estates Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Cellar.com (Schneider's of Capitol Hill)",
-        "HTTP 429"
-      ],
-      [
-        "The Rare Whiskey Shop",
-        "HTTP 429"
-      ],
-      [
-        "The Barrel Tap",
-        "HTTP 429"
-      ],
-      [
-        "Seelbach's",
-        "HTTP 429"
-      ],
-      [
-        "Bonded Bottle Shop",
-        "HTTP 429"
-      ],
-      [
-        "De Wine Spot",
-        "HTTP 429"
-      ],
-      [
-        "KY Bourbon Direct",
-        "HTTP 429"
-      ],
-      [
-        "Nestor Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Del Mesa Liquor",
-        "HTTP 429"
-      ],
-      [
-        "SB Wine & Spirit",
-        "HTTP 429"
-      ],
-      [
-        "Remedy Liquor",
-        "HTTP 429"
-      ],
-      [
-        "Hi Proof",
-        "HTTP 429"
       ]
     ],
     "dark_1_day_plus": [
@@ -225,45 +161,45 @@
     "alerts_sent": 0,
     "early_warnings": 0,
     "early_warnings_sent": 0,
-    "throttle_hits": 219,
+    "throttle_hits": 0,
     "pacer_peak_s": 0.4,
-    "dark_before_retry": 17,
+    "dark_before_retry": 1,
     "recovered_on_retry": 0,
     "telegram_failures": 0,
     "bottles": {
       "King of Kentucky (single barrel)": {
-        "listings": 35,
-        "in_stock": 32,
+        "listings": 49,
+        "in_stock": 44,
         "under_cap": 0,
-        "low_in_stock": 1449.99
+        "low_in_stock": 1199.99
       },
       "George T. Stagg (GTS)": {
-        "listings": 47,
-        "in_stock": 31,
+        "listings": 65,
+        "in_stock": 46,
         "under_cap": 0,
         "low_in_stock": 789.0
       },
       "William Larue Weller (WLW)": {
-        "listings": 37,
-        "in_stock": 31,
+        "listings": 54,
+        "in_stock": 46,
         "under_cap": 0,
         "low_in_stock": 1199.99
       },
       "Jack Daniel's Coy Hill (2021 or 2024)": {
-        "listings": 13,
-        "in_stock": 7,
+        "listings": 16,
+        "in_stock": 9,
         "under_cap": 0,
         "low_in_stock": 549.99
       },
       "Pappy Van Winkle 15": {
-        "listings": 15,
-        "in_stock": 11,
+        "listings": 33,
+        "in_stock": 28,
         "under_cap": 0,
         "low_in_stock": 1799.99
       },
       "Old Rip Van Winkle 10 Year": {
-        "listings": 7,
-        "in_stock": 6,
+        "listings": 25,
+        "in_stock": 23,
         "under_cap": 0,
         "low_in_stock": 749.99
       },
@@ -274,46 +210,46 @@
         "low_in_stock": null
       },
       "Mugen Kuko": {
-        "listings": 3,
+        "listings": 5,
         "in_stock": 0,
         "under_cap": 0,
         "low_in_stock": null
       },
       "William Heavenhill 19 (WHH19, 2025)": {
-        "listings": 2,
-        "in_stock": 2,
+        "listings": 5,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 2499.99
+        "low_in_stock": 2469.0
       },
       "13th Colony Double Oaked": {
-        "listings": 1,
-        "in_stock": 0,
+        "listings": 3,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 699.99
       },
       "Jack Daniel's 14 Year (Batch 1)": {
-        "listings": 2,
-        "in_stock": 1,
+        "listings": 4,
+        "in_stock": 2,
         "under_cap": 0,
-        "low_in_stock": 949.99
+        "low_in_stock": 899.99
       },
       "Wild Turkey 101 8 Year (1981-87)": {
-        "listings": 2,
-        "in_stock": 1,
+        "listings": 5,
+        "in_stock": 4,
         "under_cap": 0,
-        "low_in_stock": 1299.99
+        "low_in_stock": 979.0
       },
       "Old Forester Birthday Bourbon 2026": {
-        "listings": 12,
-        "in_stock": 10,
+        "listings": 16,
+        "in_stock": 13,
         "under_cap": 0,
         "low_in_stock": 599.99
       },
       "Evan Williams 23 Year (2026)": {
-        "listings": 0,
-        "in_stock": 0,
+        "listings": 3,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 799.99
       },
       "Four Roses Limited Edition 2026": {
         "listings": 0,
@@ -322,22 +258,22 @@
         "low_in_stock": null
       },
       "Master's Keep Beacon": {
-        "listings": 1,
-        "in_stock": 1,
+        "listings": 7,
+        "in_stock": 3,
         "under_cap": 0,
         "low_in_stock": 749.0
       },
       "Russell's Reserve 15": {
-        "listings": 0,
-        "in_stock": 0,
+        "listings": 5,
+        "in_stock": 3,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 1399.99
       },
       "Mister Sam Tribute (Batch 3 or 4)": {
-        "listings": 1,
-        "in_stock": 0,
+        "listings": 6,
+        "in_stock": 1,
         "under_cap": 0,
-        "low_in_stock": null
+        "low_in_stock": 1999.99
       }
     }
   },
@@ -1135,11 +1071,11 @@
       0
     ],
     [
-      "11-14 15:55",
-      30,
+      "11-14 15:59",
+      46,
       47,
       0,
-      235.8,
+      168.1,
       0
     ]
   ],
